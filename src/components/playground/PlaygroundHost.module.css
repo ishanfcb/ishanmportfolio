@@ -1,0 +1,215 @@
+.heroOuter {
+  position: relative;
+  z-index: var(--z-playground-ui);
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--page-pt) var(--page-px) var(--space-xl);
+}
+
+.heroContainer {
+  --earmark-size: 36px;
+  --pt-ax: 0%;
+  --pt-ay: -100%;
+  --pt-bx: 0%;
+  --pt-by: 200%;
+  --pt-cx: 150%;
+  --pt-cy: -100%;
+  position: relative;
+  aspect-ratio: 2 / 1;
+  display: flex;
+  align-items: stretch;
+  overflow: visible;
+  border: 1px solid var(--accent);
+}
+
+/* Playground content wrapper */
+.playgroundContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Page-turn overlay — red sweep from bottom-right corner */
+.pageTurnOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent);
+  z-index: 1;
+  pointer-events: none;
+  clip-path: polygon(100% 100%, 100% 100%, 100% 100%);
+}
+
+.covering {
+  animation: pageTurnCover 0.5s ease-in forwards;
+}
+
+.revealing {
+  animation: pageTurnReveal 0.5s var(--ease-out) forwards;
+}
+
+/* Earmark triangle grows — fold tip to TL, edges along right & bottom */
+@keyframes pageTurnCover {
+  0% {
+    clip-path: polygon(calc(100% - var(--earmark-size)) calc(100% - var(--earmark-size)),
+        calc(100% - var(--earmark-size)) 100%,
+        100% calc(100% - var(--earmark-size)));
+  }
+
+  100% {
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-bx) var(--pt-by),
+        var(--pt-cx) var(--pt-cy));
+  }
+}
+
+/* Diagonal continues sweeping toward TL, revealing new content from BR first */
+@keyframes pageTurnReveal {
+  0% {
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-bx) var(--pt-by),
+        var(--pt-cx) var(--pt-cy));
+  }
+
+  100% {
+    clip-path: polygon(var(--pt-ax) var(--pt-ay),
+        var(--pt-ax) var(--pt-ay),
+        var(--pt-ax) var(--pt-ay));
+  }
+}
+
+/* Playground name label — top right */
+.playgroundName {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--disabled);
+  z-index: var(--z-playground-ui);
+  pointer-events: none;
+}
+
+/* Playground counter label — bottom right, left of earmark */
+.playgroundCounter {
+  position: absolute;
+  bottom: 8px;
+  right: calc(var(--earmark-size) + 6px);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  z-index: var(--z-playground-ui);
+  pointer-events: none;
+}
+
+/* Earmark corner button — folded page corner */
+.earmark {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--earmark-size);
+  height: var(--earmark-size);
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: var(--z-playground-ui);
+  transform-origin: bottom right;
+}
+
+.earmarkHidden {
+  visibility: hidden;
+}
+
+.earmarkReturning {
+  animation: earmarkReturn 0.25s var(--ease-out) both;
+}
+
+@keyframes earmarkReturn {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Periodic nudge — mini version of the earmarkReturn scale animation */
+.earmarkNudge {
+  animation: earmarkNudge 4s ease-in-out infinite;
+}
+
+.earmarkNudge:hover {
+  animation: none;
+}
+
+@keyframes earmarkNudge {
+  0%, 30%, 100% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(0.7);
+  }
+
+  20% {
+    transform: scale(1.05);
+  }
+}
+
+.earmark:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.earmarkIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.earmarkTriangle {
+  fill: var(--accent);
+}
+
+.earmarkArrow {
+  stroke: var(--foreground);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke var(--duration-base), transform var(--duration-base);
+}
+
+.earmark:hover .earmarkArrow {
+  stroke: var(--accent);
+  transform: translate(-2px, -2px);
+}
+
+@media (max-width: 700px) {
+  .heroOuter {
+    padding: var(--page-pt-mobile) var(--page-px-mobile) var(--space-xl);
+  }
+
+  .heroContainer {
+    --earmark-size: 30px;
+    --pt-ax: -67%;
+    --pt-ay: 0%;
+    --pt-bx: -67%;
+    --pt-by: 160%;
+    --pt-cx: 200%;
+    --pt-cy: 0%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .playgroundName,
+  .playgroundCounter {
+    font-size: 0.5rem;
+  }
+}

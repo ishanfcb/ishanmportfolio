@@ -1,0 +1,22 @@
+{
+  "redirects": [
+    {
+      "source": "/dinoRevenge/:path*",
+      "destination": "/interactives/dinoRevenge/:path*"
+    },
+    {
+      "source": "/dinoRevenge",
+      "destination": "/interactives/dinoRevenge"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/interactives/dinoRevenge/:path*",
+      "destination": "https://gemini-doodle.vercel.app/:path*"
+    },
+    {
+      "source": "/interactives/dinoRevenge",
+      "destination": "https://gemini-doodle.vercel.app/"
+    }
+  ]
+}

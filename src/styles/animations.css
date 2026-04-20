@@ -1,0 +1,28 @@
+/* ═══════════════════════════════════════════════════════
+   Shared Animations — leff.in
+
+   Reusable keyframe definitions. Imported by globals.css.
+   Components reference via: animation: fadeIn 0.3s ease-out;
+   ═══════════════════════════════════════════════════════ */
+
+/* Fade in with subtle upward slide */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in without movement (for constrained containers) */
+@keyframes fadeInStatic {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

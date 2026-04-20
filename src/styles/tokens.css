@@ -1,0 +1,69 @@
+/* ═══════════════════════════════════════════════════════
+   Design Tokens — leff.in
+
+   All design primitives in one place. Imported by globals.css.
+   Components reference these via var(--token-name).
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Colors ── */
+  --background: rgb(235, 232, 224);
+  --foreground: rgb(39, 39, 38);
+  --accent: #283A77;
+  --disabled: #a39f90;
+
+  /* Foreground at various opacities (for borders, muted text, hovers) */
+  --border-light: rgba(39, 39, 38, 0.1);
+  --border-medium: rgba(39, 39, 38, 0.2);
+  --card-border: rgba(189, 175, 156, 0.15);
+  --card-bg: rgba(189, 175, 156, 0.03);
+  --hover-bg: rgba(39, 39, 38, 0.03);
+  --placeholder-bg: rgba(39, 39, 38, 0.04);
+
+  /* Nav backdrop (background at opacity) */
+  --nav-bg: rgba(235, 232, 224, 0.85);
+  --nav-bg-mobile: rgba(235, 232, 224, 0.97);
+
+  /* ── Spacing ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 80px;
+  --space-4xl: 120px;
+
+  /* ── Z-Index ── */
+  --z-base: 1;
+  --z-playground-ui: 2;
+  --z-nav: 100;
+  --z-nav-hamburger: 101;
+  --z-close-button: 1000;
+  --z-preloader: 9999;
+
+  /* ── Typography ── */
+  --font-sans: "neuzeit-grotesk", sans-serif;
+  --font-serif: "Times New Roman", Times, serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  /* ── Transitions ── */
+  --duration-fast: 0.2s;
+  --duration-base: 0.3s;
+  --duration-slow: 0.45s;
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+
+  /* ── Layout ── */
+  --nav-height: 56px;
+  --content-max-width: 1400px;
+  --page-px: clamp(20px, 5vw, 60px);
+  --page-px-mobile: 16px;
+  --page-pt: var(--space-3xl);
+  /* top padding — clears fixed nav */
+  --page-pt-mobile: 80px;
+
+  /* ── Focus ── */
+  --focus-outline: 2px solid var(--accent);
+  --focus-offset: 2px;
+}

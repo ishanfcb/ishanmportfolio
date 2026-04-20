@@ -1,0 +1,138 @@
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  height: 80px;
+  background-color: transparent;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-px);
+  height: 100%;
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: var(--foreground);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-style: normal;
+
+  transform: translateY(0.1rem);
+  transition: color var(--duration-base);
+  -webkit-text-stroke: 1px var(--background);
+  paint-order: stroke fill;
+}
+
+.logo:hover {
+  color: var(--accent);
+}
+
+.logoDot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--accent);
+  margin-left: 0;
+  vertical-align: baseline;
+  outline: 1px solid var(--background);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.link {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-style: normal;
+  padding: 3px 10px;
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
+}
+
+.link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.active {
+  background: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.active:hover {
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: var(--z-nav-hamburger);
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: var(--foreground);
+  transition: transform var(--duration-slow), opacity var(--duration-slow);
+}
+
+.barOpen1 {
+  transform: translateY(3.25px) rotate(45deg);
+}
+
+.barOpen2 {
+  transform: translateY(-3.25px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .navInner {
+    padding: 0 var(--page-px-mobile);
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .link {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+
+  .links {
+    gap: 6px;
+  }
+}

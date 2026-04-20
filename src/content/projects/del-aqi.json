@@ -1,0 +1,134 @@
+{
+  "name": "Delhi's AQI",
+  "slug": "del-aqi",
+  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Delhi's+AQI",
+  "height": 1080,
+  "width": 1080,
+  "year": 2026,
+  "tags": ["Data Visualisation", "Research", "UI", "UX"],
+  "featured": true,
+  "liveUrl": "https://data-viz-aqi.vercel.app/",
+  "team": "Group (2 people)",
+  "role": "Researcher, UI/UX Designer",
+  "timeline": "1 Week",
+  "description": "An interactive data visualisation that exposes how clean air in Delhi has become a privilege, using personal data and narrative to shift users from awareness to discomfort.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "overview", "label": "Overview" },
+    { "id": "audience", "label": "Target Audience" },
+    { "id": "data", "label": "Data & Methodology" },
+    { "id": "gallery", "label": "Gallery" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "An interactive data visualisation that exposes how clean air in Delhi has become a privilege, using personal data and narrative to shift users from awareness to discomfort."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "Clean air in Delhi has been privatized. Upper-middle-class residents buy their way out of toxic air through HEPA purifiers, sealed AC cars, and filtered offices — but the pollution doesn't disappear. It stays in the shared commons, inhabited by the people who can't afford to exit it."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "This is a browser-based interactive data visualization that makes this system visible. It starts by taking inputs from users and ends with a comparative analysis."
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "audience",
+      "content": [
+        "Age: 25–40",
+        "Class: Upper-middle, financially independent",
+        "Location: Delhi / NCR",
+        "Current state: Desensitised. They've normalised the crisis through capital — purifiers, AC commutes, sealed offices.",
+        "Why them: They have the social capital, economic power, and political voice to demand systemic change. They are the audience most capable of acting — and the least confronted with the need to."
+      ]
+    },
+    {
+      "type": "heading",
+      "sectionId": "data",
+      "content": "Weighted Daily Exposure (TWA)"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "data",
+      "content": "E = (C1 × t1 + C2 × t2 + ... + Cn × tn) / 24 — Time-weighted average across home, commute, and workplace over 24 hrs. Each environment has a different PM2.5 concentration."
+    },
+    {
+      "type": "heading",
+      "sectionId": "data",
+      "content": "Cigarette Equivalent / Day"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "data",
+      "content": "Cigarettes/day = Daily PM2.5 (μg/m³) / 22 — Berkeley Earth equivalence formula. Translates invisible pollution into a tangible health comparison — 22 μg/m³ sustained for one day equals one cigarette."
+    },
+    {
+      "type": "heading",
+      "sectionId": "data",
+      "content": "Life Expectancy Loss"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "data",
+      "content": "Years Lost = ((PM2.5 - 5) / 10) × 0.98 — AQLI methodology (U. of Chicago EPIC). Every 10 μg/m³ above the WHO guideline of 5 μg/m³ reduces life expectancy by ~1 year. Applied across the residency duration."
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-1.png",
+      "alt": "Delhi's AQI — interface view 1"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-2.png",
+      "alt": "Delhi's AQI — interface view 2"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-3.png",
+      "alt": "Delhi's AQI — interface view 3"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-4.png",
+      "alt": "Delhi's AQI — interface view 4"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-5.png",
+      "alt": "Delhi's AQI — interface view 5"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-6.png",
+      "alt": "Delhi's AQI — interface view 6"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-7.png",
+      "alt": "Delhi's AQI — interface view 7"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-8.png",
+      "alt": "Delhi's AQI — interface view 8"
+    },
+    {
+      "type": "image",
+      "sectionId": "gallery",
+      "src": "/media/del-aqi/screenshot-9.png",
+      "alt": "Delhi's AQI — interface view 9"
+    }
+  ]
+}

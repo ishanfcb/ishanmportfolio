@@ -1,0 +1,149 @@
+{
+  "name": "Posture Corrector",
+  "slug": "posture-corrector",
+  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Posture+Corrector",
+  "height": 1080,
+  "width": 1080,
+  "year": 2024,
+  "tags": ["Research", "UX", "Product Design"],
+  "featured": true,
+  "team": "Group Project (5 people)",
+  "role": "Product Designer, UX Researcher",
+  "timeline": "1 Week",
+  "description": "A wearable posture-correcting device that detects slouching in real time and nudges users to sit upright, helping build awareness and healthier sitting habits without disrupting daily routines.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "overview", "label": "Overview" },
+    { "id": "problem", "label": "Problem" },
+    { "id": "insight", "label": "Insight" },
+    { "id": "explorations", "label": "Explorations" },
+    { "id": "solution", "label": "Solution" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "A wearable posture-correcting device that detects slouching in real time and nudges users to sit upright, helping build awareness and healthier sitting habits without disrupting daily routines."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "This project began as an exploration into everyday physical habits — specifically, how prolonged sitting affects posture. As part of a design module, we were asked to identify a common, often overlooked problem and respond with a functional intervention."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "Extended desk work has normalised poor posture, not because people don't care, but because they rarely notice it in the moment. This project focuses on making that invisible behaviour visible, in a way that fits seamlessly into daily life."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "problem",
+      "content": "Prolonged sitting has made poor posture a silent, everyday issue among desk-bound individuals. Most people are unaware of when they begin to slouch, and existing solutions are either intrusive, easy to ignore, or require active effort to maintain."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "problem",
+      "content": "The challenge was to design a solution that helps people become aware of their posture in real time, without disrupting their workflow or relying on constant conscious effort."
+    },
+    {
+      "type": "quote",
+      "sectionId": "problem",
+      "content": "How might we encourage better sitting posture for desk-bound workers so that they avoid long-term back issues?"
+    },
+    {
+      "type": "heading",
+      "sectionId": "problem",
+      "content": "Primary Target Audience"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "problem",
+      "content": [
+        "Desk-bound workers",
+        "Office professionals",
+        "Students"
+      ]
+    },
+    {
+      "type": "heading",
+      "sectionId": "problem",
+      "content": "Secondary Target Audience"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "problem",
+      "content": [
+        "Gamers",
+        "Elderly users"
+      ]
+    },
+    {
+      "type": "quote",
+      "sectionId": "insight",
+      "content": "Posture is not ignored — it is unnoticed. People don't correct their posture because they don't realise when it changes."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "explorations",
+      "content": "Early concepts explored different ways of integrating posture feedback into the body — including clip-on devices, back-mounted modules, and wearable formats."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "explorations",
+      "content": "The neckband form was chosen for its balance of comfort, stability, and proximity to the upper spine, allowing for more accurate detection while remaining unobtrusive in daily use."
+    },
+    {
+      "type": "image",
+      "sectionId": "explorations",
+      "src": "/media/posture-corrector/exploration.png",
+      "alt": "Posture Corrector — concept explorations"
+    },
+    {
+      "type": "image",
+      "sectionId": "explorations",
+      "src": "/media/posture-corrector/A4 - 2.jpg",
+      "alt": "Posture Corrector — design documentation"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "solution",
+      "content": "A neckband-style wearable device that detects slouching in real time and alerts users to correct their posture. Using a motion sensor to track spinal orientation, it identifies sustained deviations from a neutral position and provides immediate feedback, helping users build awareness and improve their sitting habits without disrupting their daily routine."
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 153857.png",
+      "alt": "Posture Corrector — prototype 1"
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 153908.png",
+      "alt": "Posture Corrector — prototype 2"
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 153919.png",
+      "alt": "Posture Corrector — prototype 3"
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 153936.png",
+      "alt": "Posture Corrector — prototype 4"
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 153957.png",
+      "alt": "Posture Corrector — prototype 5"
+    },
+    {
+      "type": "image",
+      "sectionId": "solution",
+      "src": "/media/posture-corrector/T-edit-2025-05-18 154047.png",
+      "alt": "Posture Corrector — final device"
+    }
+  ]
+}

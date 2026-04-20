@@ -1,0 +1,143 @@
+{
+  "name": "Digital Fatigue",
+  "slug": "digital-fatigue",
+  "thumbnail": "/media/thumbnails/digital-fatigue.jpg",
+  "height": 1080,
+  "width": 1080,
+  "year": 2025,
+  "tags": ["Research", "UX", "UI"],
+  "featured": true,
+  "team": "Group Project (5 people)",
+  "role": "UX Researcher, UI Designer",
+  "timeline": "1 Week",
+  "description": "A research-driven exploration into digital fatigue caused by Instagram Reels, focusing on why users continue to engage in behaviours they actively want to stop.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "overview", "label": "Overview" },
+    { "id": "problem", "label": "Problem Definition" },
+    { "id": "methodology", "label": "Methodology" },
+    { "id": "insights", "label": "Insights" },
+    { "id": "conclusion", "label": "Conclusion" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "A research-driven exploration into digital fatigue caused by Instagram Reels, focusing on why users continue to engage in behaviours they actively want to stop."
+    },
+    {
+      "type": "figma",
+      "sectionId": "context",
+      "content": "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/board/0vwtdK5nf7KGbZkKw3mfQK/Group-8-Design-Workshop?node-id=0-1"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "This research examines the conflict between young adults' well-being and the persuasive nature of Instagram Reels, leading to significant digital fatigue. The problem is critical as many users, despite self-realisation, succumb to platform-driven habits, leading to compulsive time-wasting and post-scroll guilt."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "Multiple methods of research, such as interviews, surveys, focus groups, shadowing, and others, were used to understand the gap between the users' desire to change and their inability to do so. Key findings reveal that mindless scrolling is often a compulsive behaviour rather than a conscious choice. This research focuses on young adults who actively use Instagram and want to change their mindless-scrolling routine but feel powerless to break the cycle."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "problem",
+      "content": "The behavioural conflict in young Instagram users who recognise their Reels scrolling is harmful, yet cannot stop. Specifically examining:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "problem",
+      "content": [
+        "The \"restlessness-relief-fatigue\" feedback loop driving compulsive behaviour",
+        "\"Brain rot\" content provides valueless dopamine hits",
+        "Instagram as an escape mechanism and social obligation",
+        "The gap between users' desire to change and their inability to act on it"
+      ]
+    },
+    {
+      "type": "heading",
+      "sectionId": "problem",
+      "content": "Why It Matters"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "problem",
+      "content": [
+        "Public Health Impact: Digital fatigue and compulsive scrolling affect millions of young adults' productivity, mental health, and well-being",
+        "Design Ethics: Reveals how persuasive platform design overrides user autonomy, even when users are fully aware of the harm",
+        "Actionable Insights: Understanding these specific mechanisms provides concrete intervention points for solutions"
+      ]
+    },
+    {
+      "type": "quote",
+      "sectionId": "problem",
+      "content": "Young adults (highly active on Instagram) want to find a way to reduce their mindless scrolling because they recognise it has become a default, compulsive behaviour that makes them feel unproductive and guilty afterwards."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "content": "We approached this as both a behavioural and design problem. We first mapped existing research around habit loops, addictive interfaces, and digital fatigue to understand the underlying patterns. This informed a mixed-method study: in-depth conversations (15 participants) to uncover lived experiences, surveys (35 responses) to identify recurring behaviours, and lightweight Instagram polls (~400 responses) to capture broader trends in real time. The goal wasn't just to collect data, but to trace the gap between awareness and action."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "insights",
+      "content": "Instagram is not used — it is fallen into. Across participants, usage wasn't driven by need, but by state: boredom, fatigue, or avoidance."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "insights",
+      "content": "Scrolling is heavily concentrated at night, where self-regulation is lowest and time feels distorted. What begins as a short break often extends into hours, especially before sleep."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "insights",
+      "content": "Over time, Instagram has shifted from a conscious action to a reflex. Users don't decide to open the app — they find themselves already inside it, especially during idle moments. Content plays a paradoxical role. Low-value, high-dopamine media (\"brain-rot\") dominate consumption, leaving users mentally drained and guilty. Yet, occasional \"useful\" content is used to justify continued scrolling."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "insights",
+      "content": "The platform is no longer purely personal — it functions as a social obligation. Users feel the need to stay present to maintain relationships, even when they want to disengage."
+    },
+    {
+      "type": "quote",
+      "sectionId": "insights",
+      "content": "Most importantly, users are not unaware. They clearly recognise their overuse, attempt to intervene, and still relapse. Awareness exists — but it does not translate into action."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "conclusion",
+      "content": "This wasn't a problem of overuse. It was a problem of control."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "conclusion",
+      "content": "Users are not unaware of their behaviour — they recognise it, resist it, and still return. This reveals a deeper shift: interaction has moved from conscious choice to conditioned response, shaped by design systems that operate below awareness."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "conclusion",
+      "content": "What appears as \"scrolling\" is often something else — a response to boredom, fatigue, or avoidance. The behaviour is automatic and difficult to articulate, because it no longer feels like a decision."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "conclusion",
+      "content": "This changes the role of design. The goal is not to limit usage, but to restore intention — to create moments where users can recognise what they are doing, and choose differently."
+    },
+    {
+      "type": "researchLinks",
+      "sectionId": "conclusion",
+      "label": "Complete Research",
+      "links": [
+        {
+          "text": "Analysis",
+          "href": "https://docs.google.com/document/d/14AUOh7SEvwR4GvPnUtSjceWlkKJmSTCyLCLge34tqNo/edit?usp=sharing"
+        },
+        {
+          "text": "Dashboard",
+          "href": "https://datastudio.google.com/u/0/reporting/7fcd7a5b-485e-4678-8dd7-ecb36b9d9110/page/M7ueF"
+        }
+      ]
+    }
+  ]
+}

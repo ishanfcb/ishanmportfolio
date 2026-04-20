@@ -1,0 +1,132 @@
+.container {
+  padding: var(--page-pt) var(--page-px) 60px;
+  position: relative;
+  z-index: var(--z-base);
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Filter bar */
+.filterBar {
+  padding-bottom: var(--space-md);
+}
+
+/* Presets + count on same row */
+.presetsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Preset filter buttons */
+.presets {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.presetBtn {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 1.5px solid var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
+}
+
+.presetBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.presetActive {
+  background: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.presetActive:hover {
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+/* Individual tag pills */
+.tagsRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tagBtn {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  padding: 3px 10px;
+  border: 1px solid var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background var(--duration-base), color var(--duration-base), border-color var(--duration-base);
+}
+
+.tagBtn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.tagActive {
+  background: var(--accent);
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+.tagActive:hover {
+  color: var(--background);
+  border-color: var(--accent);
+}
+
+/* Count */
+.count {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* Grid — 3 columns */
+.grid {
+  position: relative; /* anchor for absolutely-positioned exit clones */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+  padding-top: 0;
+}
+
+
+/* Responsive — mobile */
+@media (max-width: 700px) {
+  .container {
+    padding: var(--page-pt-mobile) var(--page-px-mobile) 40px;
+  }
+
+  .filterBar {
+    padding-bottom: var(--space-sm);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

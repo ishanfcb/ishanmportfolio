@@ -1,0 +1,502 @@
+.about {
+  padding: var(--page-pt) var(--page-px) 100px;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Hero ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: var(--space-3xl);
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ── Tags (Static) ── */
+.tagArt,
+.tagDesign,
+.tagEng {
+  border: 1.5px solid var(--foreground);
+  padding: 4px 14px;
+  cursor: default;
+  transition: opacity 0.3s ease;
+}
+
+
+.summary {
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  line-height: 1.5;
+  margin: 0;
+  max-width: 540px;
+  color: var(--foreground);
+  opacity: 0.85;
+}
+
+.summaryArt { margin-bottom: 8px; }
+.summaryCorp {
+  margin-bottom: 36px;
+}
+
+
+
+.credentials {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.credential {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.credential span {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.credLabel {
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+.credential em {
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+/* Right column — photo + contact links */
+.heroAside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.portrait {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Contact links — stacked vertically */
+.heroLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.heroLinks a {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color var(--duration-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.heroLinks a:hover {
+  color: var(--accent);
+}
+
+/* ── Hero external icon (inline with contact links) ── */
+.heroExtIcon {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity var(--duration-base);
+}
+
+a:hover .heroExtIcon {
+  opacity: 1;
+}
+
+/* Email tooltip in heroLinks */
+.emailWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.emailButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  transition: color var(--duration-base);
+}
+
+.emailButton:hover {
+  color: var(--accent);
+}
+
+.copyIconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.emailButton:hover .copyIconWrap {
+  opacity: 0.5;
+  transform: translateX(0);
+}
+
+.copyIcon {
+  width: 12px;
+  height: 12px;
+}
+
+.emailTooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 400;
+  padding: 5px 10px;
+  white-space: nowrap;
+  border: 1px solid var(--foreground);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  user-select: text;
+  -webkit-user-select: text;
+  z-index: 10;
+}
+
+.emailWrap:hover .emailTooltip,
+.emailTooltipVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* Inline name link — for company/venue names with arrow icon */
+.nameLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  transition: color var(--duration-base);
+}
+
+.nameLink:hover {
+  color: var(--accent);
+}
+
+/* Inline external icon (next to company/venue name in rows) */
+.inlineExtIcon {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transition: opacity var(--duration-base);
+  position: relative;
+  z-index: 2;
+}
+
+.nameLink:hover .inlineExtIcon {
+  opacity: 1;
+}
+
+/* ── Sections ── */
+.section {
+  margin-bottom: var(--space-2xl);
+}
+
+.sectionTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--foreground);
+  opacity: 0.5;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Shared row base ──
+   Each row owns its top border. The last row also owns a bottom border.
+   Each visible line is exactly one border — no overlaps. */
+.row,
+.exhibRow {
+  position: relative;
+  border-top: 1px solid var(--foreground);
+  transition: border-color var(--duration-base);
+}
+
+.row:last-child,
+.exhibRow:last-child {
+  border-bottom: 1px solid var(--foreground);
+}
+
+.row:hover,
+.exhibRow:hover {
+  border-top-color: var(--accent);
+}
+
+.row:hover + .row,
+.exhibRow:hover + .exhibRow {
+  border-top-color: var(--accent);
+}
+
+.row:last-child:hover,
+.exhibRow:last-child:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Row (3-col: speaking, press, experience) ── */
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--space-lg);
+  align-items: baseline;
+  padding: 14px 40px 14px 0;
+}
+
+/* ── Exhibition row (4-col: fixed widths so columns align across sections) ── */
+.exhibRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 180px 110px;
+  gap: var(--space-lg);
+  align-items: baseline;
+  padding: 14px 40px 14px 0;
+}
+
+/* ── Row hover — all text turns red ── */
+.row:hover .rowName,
+.row:hover .rowLink,
+.row:hover .rowMeta,
+.row:hover .rowYear,
+.row:hover .rowType,
+.row:hover .rowDesc,
+.exhibRow:hover .rowName,
+.exhibRow:hover .rowLink,
+.exhibRow:hover .rowMeta,
+.exhibRow:hover .rowYear,
+.exhibRow:hover .rowDesc,
+.exhibRow:hover .workLink {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* ── Stretched link — .rowLink::after covers entire row ── */
+.rowLink {
+  /* position: static (default) so ::after positions relative to the <li> */
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color var(--duration-base);
+}
+
+.rowLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Work link (exhibitions) — elevated above stretched link, sized to text only ── */
+.workLink {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  font-weight: 500;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color var(--duration-base), opacity var(--duration-base);
+}
+
+/* ── Row description (2nd col: speaking role, experience description) ── */
+.rowDesc {
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--foreground);
+  transition: color var(--duration-base);
+}
+
+.rowMain {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+
+.rowName {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color var(--duration-base);
+}
+
+.rowType {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color var(--duration-base);
+}
+
+.rowMeta {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--foreground);
+  white-space: nowrap;
+  transition: color var(--duration-base);
+}
+
+.rowYear {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--foreground);
+  white-space: nowrap;
+  min-width: 32px;
+  transition: color var(--duration-base);
+}
+
+/* ── Row external icon — absolute right edge ── */
+.extIcon {
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  opacity: 0.3;
+  color: var(--foreground);
+  transition: opacity var(--duration-base), color var(--duration-base);
+}
+
+.row:hover .extIcon,
+.exhibRow:hover .extIcon {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  .about {
+    padding: var(--page-pt-mobile) var(--page-px-mobile) 60px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+
+  .heroLinks {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+    gap: 6px;
+  }
+
+  .tagArt,
+  .tagDesign,
+  .tagEng {
+    padding: 3px 10px;
+  }
+
+  .credentials {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .row,
+  .exhibRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+    padding: 12px 0;
+  }
+
+  .rowMeta,
+  .rowYear {
+    text-align: left;
+  }
+}

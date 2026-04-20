@@ -1,0 +1,64 @@
+[
+  {
+    "name": "Revenge for Dino",
+    "description": "A browser experience where Gemini 3 Pro generates physics objects from a prompt and drops them into a 2D physics world.",
+    "href": "/interactives/dinoRevenge",
+    "thumbnail": "/media/thumbnails/Untitled_video_-_Made_with_Clipchamp.mp4"
+  },
+  {
+    "name": "Human Condition",
+    "description": "An interactive exxperience using body segmentation with pose detection. Sketch for the Human Condition performance.",
+    "href": "https://editor.p5js.org/Falcyon/full/f0eYhED1G",
+    "thumbnail": "/media/humanCondition/portraiture.mp4"
+  },
+  {
+    "name": "Discourse Parkour",
+    "description": "An interactive parkour experience where a monologue about self-doubt unfolds as you run alongside other stick figures.",
+    "href": "https://editor.p5js.org/Falcyon/full/rifCaTlbJ",
+    "thumbnail": "/media/discourseParkour/discourse.mp4"
+  },
+  {
+    "name": "Read My Lips",
+    "description": "Interactive installation isolating viewers' lips and predicting their emotions.",
+    "href": "https://editor.p5js.org/Falcyon/full/PMDIeJxA_",
+    "thumbnail": "/media/readMyLips/ReadMyLips2.mp4"
+  },
+  {
+    "name": "Stained Glass Face Mask",
+    "description": "A digital face mask with stained glass effect. Commentary on the Church's stance on face masks",
+    "href": "https://editor.p5js.org/Falcyon/full/1F26lFOeg",
+    "thumbnail": "/media/stainedMask/StainedMask.mp4"
+  },
+  {
+    "name": "Bit by Bit",
+    "description": "A binary clock that converts seconds into 1s and 0s, rotating like the second hand of a grandfather clock.",
+    "href": "https://editor.p5js.org/Falcyon/full/HswNMtGfl",
+    "thumbnail": "/media/bitByBit/bitbybit.mp4"
+  },
+  {
+    "name": "Unraveling",
+    "description": "Generative thread simulation that slowly disintegrates into noise.",
+    "href": "https://editor.p5js.org/Falcyon/full/uYdaF57i4",
+    "thumbnail": "/media/unraveling/unraveling.mp4"
+  },
+  {
+    "name": "Quantum Bit",
+    "description": "Creative visualization of a single qubit state collapsing upon observation (hover)",
+    "href": "https://editor.p5js.org/Falcyon/full/cDzpug0tm"
+  },
+  {
+    "name": "Quantum Entanglement",
+    "description": "Creative visualization of two entangled qubits",
+    "href": "https://editor.p5js.org/Falcyon/full/S6FFpEdIY"
+  },
+  {
+    "name": "Quantum Superposition",
+    "description": "Creative visualization of Quantum Superposition ",
+    "href": "https://editor.p5js.org/Falcyon/full/VbNi3YKbO"
+  },
+  {
+    "name": "Quantum Interference",
+    "description": "Creative Visualization of interference from superpositionedd qubits",
+    "href": "https://editor.p5js.org/Falcyon/full/O43Eb2nPb"
+  }
+]

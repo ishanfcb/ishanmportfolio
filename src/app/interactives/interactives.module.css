@@ -1,0 +1,175 @@
+.interactives {
+  padding: var(--page-pt) var(--page-px) 100px;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.5;
+  margin: 0 0 32px;
+}
+
+/* ── List ── */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Row ──
+   Every row owns its top border. The last row also owns a bottom border.
+   Each visible line is exactly one border — no overlaps, no pseudo-elements. */
+.row {
+  border-top: 1px solid var(--foreground);
+  transition: border-color var(--duration-base);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--foreground);
+}
+
+.row:hover {
+  border-top-color: var(--accent);
+}
+
+.row:hover + .row {
+  border-top-color: var(--accent);
+}
+
+.row:last-child:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Row link (full-row clickable) ── */
+.rowLink {
+  display: grid;
+  grid-template-columns: 120px auto 1fr auto;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Thumbnail ── */
+.thumbCell {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  flex-shrink: 0;
+  padding: var(--space-sm);
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--placeholder-bg);
+  border: 1px solid var(--foreground);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.15;
+}
+
+/* ── Name ── */
+.name {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: var(--foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: color var(--duration-base);
+  white-space: nowrap;
+}
+
+.row:hover .name {
+  color: var(--accent);
+}
+
+/* ── Description ── */
+.description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+  color: var(--foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color var(--duration-base);
+}
+
+.row:hover .description {
+  color: var(--accent);
+}
+
+/* ── External icon ── */
+.extIcon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0.3;
+  color: var(--foreground);
+  margin-right: var(--space-md);
+  transition: opacity var(--duration-base), color var(--duration-base);
+}
+
+.row:hover .extIcon {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* ── Mobile ── */
+@media (max-width: 700px) {
+  .interactives {
+    padding: var(--page-pt-mobile) var(--page-px-mobile) 60px;
+  }
+
+  .rowLink {
+    grid-template-columns: 90px 1fr auto;
+    gap: 8px 12px;
+    padding: 0;
+  }
+
+  .thumbCell {
+    width: 90px;
+    height: 90px;
+    grid-row: span 2;
+  }
+
+  .name {
+    font-size: 0.95rem;
+    align-self: end;
+  }
+
+  .description {
+    grid-column: 2;
+    align-self: start;
+    white-space: normal;
+  }
+
+  .extIcon {
+    grid-row: span 2;
+    align-self: center;
+    margin-right: var(--space-sm);
+  }
+}

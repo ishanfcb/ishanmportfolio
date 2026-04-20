@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background, #f3f0e8);
+  /* The outermost padding allows the inner rectangle to exist nicely scaled inside */
+  padding: 15vh 15vw; 
+}
+
+.interactionArea {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent, #283A77);
+  overflow: visible;
+  /* Provides exactly the bounded rectangle feeling referencing your screenshot */
+}
+
+.shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--foreground, #1a1a1a);
+  box-shadow: 0 0 1px 0.5px var(--foreground, #1a1a1a);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.dot {
+  background-color: var(--accent, #283A77);
+  border-color: var(--accent, #283A77);
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-style: normal;
+  font-weight: 400;
+  color: var(--foreground, #1a1a1a);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  pointer-events: none;
+  background-color: var(--background, #f3f0e8);
+  border: 1px solid var(--foreground, #1a1a1a);
+  padding: 0.2em 0.5em;
+  will-change: transform;
+}

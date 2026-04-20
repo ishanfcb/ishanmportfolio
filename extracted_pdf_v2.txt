@@ -1,0 +1,301 @@
+=== PAGE 1 ===
+Digital Fatigue
+=== PAGE 2 ===
+Project title: Digital Fatigue
+Tags: Research, UX, UI
+1. Context
+Type
+Group Project (5 people)
+My Role
+UX Researcher
+UI Designer
+Timeline
+1 Week
+TL;DR
+A research-driven exploration into digital fatigue caused by Instagram Reels, focusing on why
+users continue to engage in behaviours they actively want to stop.
+Year
+2025
+2. Overview
+This research examines the conflict between young adults’ well-being and the persuasive nature
+of Instagram Reels, leading to significant digital fatigue. The problem is critical as many users,
+despite self-realisation, succumb to platform-driven habits, leading to compulsive time-wasting
+and post-scroll guilt. Multiple methods of research, such as interviews, surveys, focus groups,
+shadowing, and others, were used to understand the gap between the users’ desire to change
+and their inability to do so. Key findings reveal that mindless scrolling is often a compulsive
+behaviour rather than a conscious choice. This is a result of a “restlessness-relief-fatigue”
+feedback loop; “brain rot” content that provides valueless dopamine; its function as an escape
+mechanism; and its evolution into becoming somewhat of a social obligation. This research
+focuses on young adults who actively use Instagram and want to change their
+mindless-scrolling routine but feel powerless to break the cycle.
+=== PAGE 3 ===
+3. Problem Definition
+What We're Analysing
+The behavioural conflict in young Instagram users who recognise their Reels scrolling is
+harmful, yet cannot stop. Specifically examining:
+● The "restlessness-relief-fatigue" feedback loop driving compulsive behaviour
+● "Brain rot" content provides valueless dopamine hits
+● Instagram as an escape mechanism and social obligation
+● The gap between users' desire to change and their inability to act on it
+Why It Matters
+Public Health Impact: Digital fatigue and compulsive scrolling affect millions of young
+adults' productivity, mental health, and well-being
+Design Ethics: Reveals how persuasive platform design overrides user autonomy, even
+when users are fully aware of the harm
+Actionable Insights: Understanding these specific mechanisms (the feedback loop,
+dopamine triggers, social pressures) provides concrete intervention points for solutions
+Problem Statement: Young adults (highly active on Instagram) want to find a way to
+reduce their mindless scrolling because they recognise it has become a default,
+compulsive behaviour that makes them feel unproductive and guilty afterwards.
+4. Methodology
+We approached this as both a behavioural and design problem. We first mapped existing
+research around habit loops, addictive interfaces, and digital fatigue to understand the
+underlying patterns. This informed a mixed-method study: in-depth conversations (15
+participants) to uncover lived experiences, surveys (35 responses) to identify recurring
+behaviours, and lightweight Instagram polls (~400 responses) to capture broader trends in real
+time. The goal wasn’t just to collect data, but to trace the gap between awareness and action.
+=== PAGE 4 ===
+5. Insights
+Instagram is not used — it is fallen into. Across participants, usage wasn’t driven by need, but
+by state: boredom, fatigue, or avoidance.
+Scrolling is heavily concentrated at night, where self-regulation is lowest and time feels
+distorted. What begins as a short break often extends into hours, especially before sleep.
+Over time, Instagram has shifted from a conscious action to a reflex. Users don’t decide to open
+the app — they find themselves already inside it, especially during idle moments. Content plays
+a paradoxical role. Low-value, high-dopamine media (“brain-rot”) dominate consumption,
+leaving users mentally drained and guilty. Yet, occasional “useful” content is used to justify
+continued scrolling.
+The platform is no longer purely personal — it functions as a social obligation. Users feel the
+need to stay present to maintain relationships, even when they want to disengage.
+Most importantly, users are not unaware. They clearly recognise their overuse, attempt to
+intervene, and still relapse. Awareness exists — but it does not translate into action.
+6. Conclusion
+This wasn’t a problem of overuse. It was a problem of control.
+Users are not unaware of their behaviour — they recognise it, resist it, and still return. This
+reveals a deeper shift: interaction has moved from conscious choice to conditioned response,
+shaped by design systems that operate below awareness.
+What appears as “scrolling” is often something else — a response to boredom, fatigue, or
+avoidance. The behaviour is automatic and difficult to articulate, because it no longer feels like a
+decision.
+This changes the role of design. The goal is not to limit usage, but to restore intention — to
+create moments where users can recognise what they are doing, and choose differently.
+—
+Complete Analysis: Group 8
+=== PAGE 5 ===
+Dashboard:
+https://datastudio.google.com/u/0/reporting/7fcd7a5b-485e-4678-8dd7-ecb36b9d9110/page/M7
+ueF
+=== PAGE 6 ===
+Posture Corrector
+=== PAGE 7 ===
+Project title: Posture Corrector
+Tags: Research, UX, Product Design
+1. Context
+Type
+Group Project (5 people)
+My Role
+Product Designer
+UX Researcher
+Timeline
+1 Week
+TL;DR
+A wearable posture-correcting device that detects slouching in real time and nudges users to sit
+upright, helping build awareness and healthier sitting habits without disrupting daily routines.
+Year
+2024
+2. Overview
+This project began as an exploration into everyday physical habits — specifically, how
+prolonged sitting affects posture. As part of a design module, we were asked to identify a
+common, often overlooked problem and respond with a functional intervention.
+Extended desk work has normalised poor posture, not because people don’t care, but because
+they rarely notice it in the moment. This project focuses on making that invisible behaviour
+visible, in a way that fits seamlessly into daily life.
+3. Problem
+Prolonged sitting has made poor posture a silent, everyday issue among desk-bound
+individuals. Most people are unaware of when they begin to slouch, and existing solutions are
+either intrusive, easy to ignore, or require active effort to maintain.
+=== PAGE 8 ===
+The challenge was to design a solution that helps people become aware of their posture in real
+time, without disrupting their workflow or relying on constant conscious effort.
+Problem Statement: How might we encourage better sitting posture for desk-bound workers so
+that they avoid long-term back issues?
+Primary Target Audience
+Desk-bound workers
+Office professionals
+Students
+Secondary Target Audience
+Gamers
+Elderly users
+4. Insight
+Posture is not ignored — it is unnoticed.
+People don’t correct their posture because they don’t realise when it changes.
+5. Explorations
+Early concepts explored different ways of integrating posture feedback into the body —
+including clip-on devices, back-mounted modules, and wearable formats.
+The neckband form was chosen for its balance of comfort, stability, and proximity to the upper
+spine, allowing for more accurate detection while remaining unobtrusive in daily use.
+(add images)
+6. Solution
+A neckband-style wearable device that detects slouching in real time and alerts users to correct
+their posture. Using a motion sensor to track spinal orientation, it identifies sustained deviations
+from a neutral position and provides immediate feedback, helping users build awareness and
+improve their sitting habits without disrupting their daily routine.
+(add images)
+=== PAGE 9 ===
+(add figma link)
+=== PAGE 10 ===
+Ajanta Caves
+=== PAGE 11 ===
+Project title: Ajanta Caves VR simulation
+Tags: Research, UX, 3D World Building, VR
+1. Context
+Type
+Group Project (4 people)
+My Role
+Experience Designer
+Researcher
+Timeline
+3 Week
+TL;DR
+An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction,
+and atmosphere to recreate the feeling of being inside the space.
+Year
+2025
+2. Overview
+This project is a 3D immersive simulation designed to transport users into the architectural
+depth of the Ajanta Caves. Moving beyond static photography, the experience utilizes Virtual
+Reality to reconstruct the scale, texture, and atmosphere of the rock-cut Buddhist monuments.
+The simulation allows users to navigate the space at a 1:1 scale, offering a digital avenue for
+heritage preservation and accessible exploration.
+The core intent was to translate the concept of "presence" into a digital medium. This project
+focuses on Atmospheric Reconstruction, using virtual reality not just to showcase the visuals,
+but also tries replicate the feeling of being inside a Vihara. The design prioritises high-fidelity
+textures and accurate lighting simulations to recreate the solemn, spiritual ambience of the
+original site.
+.
+=== PAGE 12 ===
+3. User Journey
+Users move through a digitally reconstructed cave environment, interacting with the space in
+three key ways:
+● Light the Way — Use a torch to illuminate dark areas and reveal details
+● Examine Artifacts — Engage with paintings and surfaces up close
+● Leave Your Mark — Interact with walls by adding your own visual traces
+These interactions are designed to slow the user down and encourage exploration, reinforcing
+the sense of presence.
+(add embedded video – https://youtu.be/bhaxkyyCsx0?si=r9OTMenN4bMnhcVH – and images)
+=== PAGE 13 ===
+Order & Disorder
+=== PAGE 14 ===
+Project title: Order & Disorder
+Tags: Filmmaking
+1. Context
+Type
+Individual
+My Role
+Filmmaker
+Sound Designer
+Timeline
+5 Days
+TL;DR
+A black-and-white video poem that explores the tension between chaos and order through a
+split-screen narrative, ultimately revealing an underlying sense of structure within apparent
+disorder.
+Year
+2025
+2. Overview
+Grounded in Carl Jung’s philosophy that "in all chaos there is cosmos," this video poem
+explores the symbiotic tension between structure and entropy. Utilizing a split-screen diptych,
+the piece forces a simultaneous confrontation between conflicting realities, highlighting the
+friction between them. The decision to shoot in black and white was deliberate—stripping away
+the distraction of color to focus purely on form, light, and the orchestral score. The visual
+journey ultimately resolves the tension with a singular realization: that despite the apparent
+noise of the cosmos, at the root of all things, there is order.
+(add embedded video – https://youtu.be/2NmTQ_CF5Iw?si=vjUfvVyYAf_yLV6e )
+=== PAGE 15 ===
+Delhi's AQI
+=== PAGE 16 ===
+Project title: Delhi’s AQI
+Tags: Data Visualisation, Research, UI/UX
+1. Context
+Type
+Group (2 people)
+My Role
+Researcher
+UI/UX Designer
+Timeline
+1 Week
+TL;DR
+An interactive data visualisation that exposes how clean air in Delhi has become a privilege,
+using personal data and narrative to shift users from awareness to discomfort.
+Year
+2026
+2. Overview
+Clean air in Delhi has been privatized. Upper-middle-class residents buy their way out of toxic
+air through HEPA purifiers, sealed AC cars, and filtered offices — but the pollution doesn't
+disappear. It stays in the shared commons, inhabited by the people who can't afford to exit it.
+This is a browser-based interactive data visualization that makes this system visible. It starts by
+taking inputs from users and ends with a comparative analysis.
+3. Target Audience
+● Age: 25–40
+● Class: Upper-middle, financially independent
+● Location: Delhi / NCR
+● Current state: Desensitised. They've normalised the crisis through capital — purifiers,
+AC commutes, sealed offices.
+=== PAGE 17 ===
+● Why them: They have the social capital, economic power, and political voice to demand
+systemic change. They are the audience most capable of acting — and the least
+confronted with the need to.
+4. Data & Methodology
+Weighted Daily Exposure (TWA)
+E = (C1 x t1 + C2 x t2 + ... + Cn x tn) / 24
+Time-weighted average across home, commute, and workplace over 24 hrs. Each environment
+has a different PM2.5 concentration.
+Cigarette Equivalent / Day
+Cigarettes/day = Daily PM2.5 (ug/m3) / 22
+Berkeley Earth equivalence formula. Translates invisible pollution into a tangible health
+comparison — 22 ug/m3 sustained for one day equals one cigarette.
+Life Expectancy Loss
+Years Lost = ((PM2.5 - 5) / 10) x 0.98
+AQLI methodology (U. of Chicago EPIC). Every 10 ug/m3 above the WHO guideline of 5 ug/m3
+reduces life expectancy by ~1 year. Applied across the residency duration.
+(add images, embed a video, and also attach a live link)
+=== PAGE 18 ===
+Interactive Folk Art Map
+=== PAGE 19 ===
+Project Title: Interactive Folk Art Map
+Tags: Research, UX, UI
+1. Context
+Type
+Individual
+My Role
+UI/UX Designer (intern)
+Timeline
+3 Months
+TL;DR
+An interactive kiosk interface designed to complement a physical map of Indian folk art
+Year
+2024
+2. Challenge
+The Sixth Element School installed a massive physical map of India, intricately detailed with
+diverse, traditional state art. While visually striking, the physical map alone couldn't convey the
+rich history, techniques, and cultural significance behind each regional style.
+The challenge was to design a continuous, on-site digital interface that would sit directly in front
+of the installation. It needed to act as an intuitive educational companion, allowing students and
+visitors to dive deeper into the artwork they were looking at in the physical space.
+3. Solution
+An interactive, kiosk-style digital interface designed for an always-on display. The UI serves as
+an explorative tool where users can navigate through different states and art forms, bridging the
+gap between the static physical map and dynamic digital context.
+Key Design Considerations:
+=== PAGE 20 ===
+● Glanceable & Explorative: Designed for an environment where users might engage for
+30 seconds or 5 minutes. The navigation had to be instantly intuitive for various age
+groups within the school.
+● Visual Harmony: The UI needed to complement the vibrant traditional art (like
+Madhubani) without overpowering it, using the screen to spotlight the physical piece
+rather than distract from it.
+● On-Site Ergonomics: Accounting for the physical placement of the screen relative to
+the map to ensure a seamless "look up, look down" user experience.
+Note: The final deployed version includes modifications from the original concepts to
+accommodate technical feasibility.
+(embedded link – https://sixthelement.edu.in/india-maps/ )

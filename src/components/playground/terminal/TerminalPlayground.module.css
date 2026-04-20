@@ -1,0 +1,82 @@
+.terminal {
+  width: 100%;
+  height: 100%;
+  padding: calc(var(--space-lg) * 2) var(--space-lg) var(--space-lg);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  animation: fadeInStatic 0.3s var(--ease-out);
+  cursor: text;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  tab-size: 4;
+}
+
+.prompt {
+  color: var(--foreground);
+  font-weight: 600;
+  white-space: pre;
+}
+
+.output {
+  color: var(--foreground);
+  opacity: 0.6;
+  padding-left: 1em;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.promptPrefix {
+  color: var(--foreground);
+  font-weight: 600;
+  white-space: pre;
+  flex-shrink: 0;
+}
+
+.inputDisplay {
+  color: var(--foreground);
+  font-weight: 600;
+  white-space: pre;
+}
+
+.hiddenInput {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.cursor {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cursorHidden {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .terminal {
+    padding: calc(var(--space-sm) * 2) var(--space-sm) var(--space-sm);
+    font-size: 0.75rem;
+  }
+}

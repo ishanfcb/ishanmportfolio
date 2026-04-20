@@ -1,0 +1,266 @@
+/* ── Gallery Page ── */
+.page {
+  min-height: 100vh;
+  background-color: var(--background, #f3f0e8);
+  color: var(--foreground, #1a1a1a);
+}
+
+/* ── Header ── */
+.header {
+  padding: 20vh 10vw 8vh 10vw;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  color: var(--foreground, #1a1a1a);
+}
+
+.subtext {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--foreground, #1a1a1a);
+  opacity: 0.4;
+}
+
+/* ── Masonry Grid ── */
+.masonry {
+  columns: 3;
+  column-gap: 16px;
+  padding: 0 10vw 15vh 10vw;
+}
+
+.item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(40, 58, 119, 0.06);
+  border: 1px solid rgba(40, 58, 119, 0.15);
+
+  /* Anti-drag */
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* The transparent shield that blocks right-click save/drag on images */
+.shield {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+}
+
+.item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+}
+
+.item:hover img {
+  transform: scale(1.02);
+  opacity: 0.85;
+}
+
+/* Placeholder boxes (shown before real images are added) */
+.placeholder {
+  width: 100%;
+  background-color: rgba(40, 58, 119, 0.05);
+  border: 1px dashed rgba(40, 58, 119, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderLabel {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(40, 58, 119, 0.35);
+  font-weight: 600;
+}
+
+/* ── Screenshot Blur Overlay ── */
+.screenshotBlur {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  backdrop-filter: blur(40px) brightness(3);
+  -webkit-backdrop-filter: blur(40px) brightness(3);
+  background: rgba(243, 240, 232, 0.9);
+  pointer-events: none;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightboxInner {
+  position: relative;
+  max-width: 88vw;
+  max-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxInner img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  display: block;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8);
+}
+
+.lightboxClose {
+  position: fixed;
+  top: 28px;
+  right: 36px;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  pointer-events: auto;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.lightboxClose:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Lightbox Footer Nav ── */
+.lightboxFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 4vh 4vw;
+  pointer-events: none;
+  z-index: 1100;
+}
+
+.navLinkLeft,
+.navLinkRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  pointer-events: auto;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  gap: 0;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.navLinkLeft:hover,
+.navLinkRight:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navArrowSVG {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.2;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navText {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navLinkLeft:hover .navText {
+  opacity: 1;
+  max-width: 100px;
+  margin-left: 8px;
+}
+
+.navLinkRight:hover .navText {
+  opacity: 1;
+  max-width: 100px;
+  margin-right: 8px;
+}
+
+.navLinkLeft:hover .navArrowSVG {
+  transform: translateX(-4px);
+}
+
+.navLinkRight:hover .navArrowSVG {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .masonry {
+    columns: 1;
+    padding: 0 5vw 10vh;
+  }
+
+  .header {
+    padding: 15vh 5vw 6vh;
+  }
+
+  .lightboxFooter {
+    padding: 4vh 6vw;
+  }
+  
+  .navText {
+    display: none;
+  }
+}

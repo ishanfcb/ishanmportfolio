@@ -1,0 +1,90 @@
+.entry {
+  width: 100%;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--space-lg);
+  animation: fadeIn 0.6s var(--ease-out);
+}
+
+.headword {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--foreground);
+  margin-bottom: 4px;
+}
+
+.phonetic {
+  font-weight: 300;
+  font-size: 0.5em;
+  color: var(--accent);
+  margin-left: 8px;
+}
+
+.pos {
+  font-style: italic;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.definitions {
+  margin: 0;
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.definitions li {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.synonyms {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.synonymsLabel {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 8px;
+}
+
+.origin {
+  margin-top: 16px;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  border-top: 1px solid var(--border-light);
+  padding-top: 12px;
+}
+
+.originLabel {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 8px;
+}
+
+@media (max-width: 700px) {
+  .entry {
+    padding: var(--space-sm);
+  }
+
+  .definitions li {
+    font-size: 0.85rem;
+  }
+
+}

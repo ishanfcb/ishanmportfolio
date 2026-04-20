@@ -1,0 +1,61 @@
+{
+  "name": "Interactive Folk Art Map",
+  "slug": "folk-art-map",
+  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Folk+Art+Map",
+  "height": 1080,
+  "width": 1080,
+  "year": 2024,
+  "tags": ["Research", "UX", "UI"],
+  "featured": false,
+  "liveUrl": "https://sixthelement.edu.in/india-maps/",
+  "team": "Individual",
+  "role": "UI/UX Designer (Intern)",
+  "timeline": "3 Months",
+  "description": "An interactive kiosk interface designed to complement a physical map of Indian folk art, allowing students and visitors to explore the history and cultural significance of each regional style.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "challenge", "label": "Challenge" },
+    { "id": "solution", "label": "Solution" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "An interactive kiosk interface designed to complement a physical map of Indian folk art."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "challenge",
+      "content": "The Sixth Element School installed a massive physical map of India, intricately detailed with diverse, traditional state art. While visually striking, the physical map alone couldn't convey the rich history, techniques, and cultural significance behind each regional style."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "challenge",
+      "content": "The challenge was to design a continuous, on-site digital interface that would sit directly in front of the installation. It needed to act as an intuitive educational companion, allowing students and visitors to dive deeper into the artwork they were looking at in the physical space."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "solution",
+      "content": "An interactive, kiosk-style digital interface designed for an always-on display. The UI serves as an explorative tool where users can navigate through different states and art forms, bridging the gap between the static physical map and dynamic digital context."
+    },
+    {
+      "type": "heading",
+      "sectionId": "solution",
+      "content": "Key Design Considerations"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "solution",
+      "content": [
+        "Glanceable & Explorative: Designed for an environment where users might engage for 30 seconds or 5 minutes. The navigation had to be instantly intuitive for various age groups within the school.",
+        "Visual Harmony: The UI needed to complement the vibrant traditional art (like Madhubani) without overpowering it, using the screen to spotlight the physical piece rather than distract from it.",
+        "On-Site Ergonomics: Accounting for the physical placement of the screen relative to the map to ensure a seamless \"look up, look down\" user experience."
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "solution",
+      "content": "Note: The final deployed version includes modifications from the original concepts to accommodate technical feasibility."
+    }
+  ]
+}

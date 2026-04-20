@@ -1,0 +1,115 @@
+.footerOuter {
+  background-color: var(--accent);
+}
+
+.footerInner {
+
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--page-px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--background);
+}
+
+.footerOuter a {
+  color: var(--background);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 3px 2px;
+  transition: background-color var(--duration-base), color var(--duration-base), text-decoration-color var(--duration-base);
+}
+
+.footerOuter a:hover {
+  text-decoration-color: transparent;
+  background-color: var(--background);
+  color: var(--accent);
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.links {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+.linkGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Email tooltip */
+.emailWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.emailTooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background);
+  color: var(--accent);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  padding: 5px 10px;
+  white-space: nowrap;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.emailWrap:hover .emailTooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+@media (max-width: 700px) {
+  .footerInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--page-px-mobile);
+  }
+
+  .left,
+  .links {
+    flex: unset;
+    justify-content: flex-start;
+  }
+
+  .footerOuter a {
+    padding: 3px 8px;
+  }
+
+  .linkGroup {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+}

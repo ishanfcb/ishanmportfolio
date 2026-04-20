@@ -1,0 +1,40 @@
+{
+  "name": "Order & Disorder",
+  "slug": "order-disorder",
+  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Order+%26+Disorder",
+  "height": 1080,
+  "width": 1080,
+  "year": 2025,
+  "tags": ["Filmmaking"],
+  "featured": false,
+  "team": "Individual",
+  "role": "Filmmaker, Sound Designer",
+  "timeline": "5 Days",
+  "description": "A black-and-white video poem that explores the tension between chaos and order through a split-screen narrative, ultimately revealing an underlying sense of structure within apparent disorder.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "overview", "label": "Overview" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "A black-and-white video poem that explores the tension between chaos and order through a split-screen narrative, ultimately revealing an underlying sense of structure within apparent disorder."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "Grounded in Carl Jung's philosophy that \"in all chaos there is cosmos,\" this video poem explores the symbiotic tension between structure and entropy. Utilizing a split-screen diptych, the piece forces a simultaneous confrontation between conflicting realities, highlighting the friction between them."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "The decision to shoot in black and white was deliberate—stripping away the distraction of color to focus purely on form, light, and the orchestral score. The visual journey ultimately resolves the tension with a singular realization: that despite the apparent noise of the cosmos, at the root of all things, there is order."
+    },
+    {
+      "type": "youtube",
+      "sectionId": "overview",
+      "content": "https://youtu.be/2NmTQ_CF5Iw?si=vjUfvVyYAf_yLV6e"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+/* Design system */
+@import "../styles/tokens.css";
+@import "../styles/accessibility.css";
+@import "../styles/animations.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--accent);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--foreground);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  transition: color 0.4s ease;
+}
+
+/* Hide Next.js dev toolbar (shadow DOM portal) */
+nextjs-portal,
+[data-nextjs-dialog-overlay],
+[data-nextjs-toast] {
+  display: none !important;
+}

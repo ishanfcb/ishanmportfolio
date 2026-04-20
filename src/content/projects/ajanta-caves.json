@@ -1,0 +1,96 @@
+{
+  "name": "Ajanta Caves",
+  "slug": "ajanta-caves",
+  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Ajanta+Caves",
+  "height": 1080,
+  "width": 1080,
+  "year": 2025,
+  "tags": ["Research", "UX", "3D World Building", "VR"],
+  "featured": true,
+  "team": "Group Project (4 people)",
+  "role": "Experience Designer, Researcher",
+  "timeline": "3 Weeks",
+  "description": "An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction, and atmosphere to recreate the feeling of being inside the space.",
+  "sections": [
+    { "id": "context", "label": "Context" },
+    { "id": "overview", "label": "Overview" },
+    { "id": "journey", "label": "User Journey" }
+  ],
+  "contentBlocks": [
+    {
+      "type": "quote",
+      "sectionId": "context",
+      "content": "An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction, and atmosphere to recreate the feeling of being inside the space."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "This project is a 3D immersive simulation designed to transport users into the architectural depth of the Ajanta Caves. Moving beyond static photography, the experience utilizes Virtual Reality to reconstruct the scale, texture, and atmosphere of the rock-cut Buddhist monuments. The simulation allows users to navigate the space at a 1:1 scale, offering a digital avenue for heritage preservation and accessible exploration."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "The core intent was to translate the concept of \"presence\" into a digital medium. This project focuses on Atmospheric Reconstruction, using virtual reality not just to showcase the visuals, but also tries to replicate the feeling of being inside a Vihara. The design prioritises high-fidelity textures and accurate lighting simulations to recreate the solemn, spiritual ambience of the original site."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "journey",
+      "content": "Users move through a digitally reconstructed cave environment, interacting with the space in three key ways:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "journey",
+      "content": [
+        "Light the Way — Use a torch to illuminate dark areas and reveal details",
+        "Examine Artifacts — Engage with paintings and surfaces up close",
+        "Leave Your Mark — Interact with walls by adding your own visual traces"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "journey",
+      "content": "These interactions are designed to slow the user down and encourage exploration, reinforcing the sense of presence."
+    },
+    {
+      "type": "youtube",
+      "sectionId": "journey",
+      "content": "https://youtu.be/bhaxkyyCsx0?si=r9OTMenN4bMnhcVH"
+    },
+    {
+      "type": "image",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/image1.jpg",
+      "alt": "Ajanta Caves VR — interior view 1"
+    },
+    {
+      "type": "image",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/image2.jpg",
+      "alt": "Ajanta Caves VR — interior view 2"
+    },
+    {
+      "type": "image",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/image3.jpg",
+      "alt": "Ajanta Caves VR — interior view 3"
+    },
+    {
+      "type": "image",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/image4.jpg",
+      "alt": "Ajanta Caves VR — interior view 4"
+    },
+    {
+      "type": "image",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/image5.jpg",
+      "alt": "Ajanta Caves VR — interior view 5"
+    },
+    {
+      "type": "video",
+      "sectionId": "journey",
+      "src": "/media/ajanta-caves/video1.mp4",
+      "alt": "Ajanta Caves VR — in-engine walkthrough"
+    }
+  ]
+}

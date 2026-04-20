@@ -1,0 +1,91 @@
+.ticker {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 20px 0;
+}
+
+.tickerTrack {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tickerContent {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  animation: scroll 12s linear infinite;
+  will-change: transform;
+}
+
+.tickerContent:hover {
+  animation-play-state: paused;
+}
+
+/* 6 repetitions — scroll exactly 1/6 for seamless loop */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 6));
+  }
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 48px;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  color: var(--foreground);
+}
+
+.bullet {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.itemText {
+  opacity: 0.8;
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: text-decoration var(--duration-base);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .ticker {
+    padding: var(--space-md) 0;
+  }
+
+  .tickerItem {
+    font-size: 1rem;
+    padding: 0 32px;
+    gap: 10px;
+  }
+
+  .link {
+    font-size: 0.75rem;
+  }
+}
