@@ -1,3 +1,7 @@
+// AUTO-GENERATED — Do not edit manually.
+// Generated from src/content/projects/*.json by scripts/generate-projects-array.mjs
+// To regenerate: node scripts/generate-projects-array.mjs
+
 export interface Project {
   name: string;
   slug: string;
@@ -12,23 +16,42 @@ export interface Project {
   featured: boolean;
   featuredOrder?: number;
   locked?: boolean;
-  liveUrl?: string;
 }
 
-// Sorted by year descending
 export const projectsArray: Project[] = [
+  {
+    "name": "Ajanta Caves",
+    "slug": "ajanta-caves",
+    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Ajanta+Caves",
+    "height": 1080,
+    "width": 1080,
+    "year": 2025,
+    "tags": [
+      "Research",
+      "UX",
+      "3D World Building",
+      "VR"
+    ],
+    "size": "1x1",
+    "description": "An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction, and atmosphere to recreate the feeling of being inside the space.",
+    "featured": true
+  },
   {
     "name": "Delhi's AQI",
     "slug": "del-aqi",
-    "thumbnail": "/media/thumbnails/del-aqi.jpg",
+    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Delhi's+AQI",
     "height": 1080,
     "width": 1080,
     "year": 2026,
-    "tags": ["Data Visualisation", "Research", "UI", "UX"],
+    "tags": [
+      "Data Visualisation",
+      "Research",
+      "UI",
+      "UX"
+    ],
     "size": "1x1",
     "description": "An interactive data visualisation that exposes how clean air in Delhi has become a privilege, using personal data and narrative to shift users from awareness to discomfort.",
-    "featured": true,
-    "liveUrl": "https://data-viz-aqi.vercel.app/"
+    "featured": true
   },
   {
     "name": "Digital Fatigue",
@@ -37,31 +60,41 @@ export const projectsArray: Project[] = [
     "height": 1080,
     "width": 1080,
     "year": 2025,
-    "tags": ["Research", "UX", "UI"],
+    "tags": [
+      "Research",
+      "UX",
+      "UI"
+    ],
     "size": "1x1",
     "description": "A research-driven exploration into digital fatigue caused by Instagram Reels, focusing on why users continue to engage in behaviours they actively want to stop.",
     "featured": true
   },
   {
-    "name": "Ajanta Caves",
-    "slug": "ajanta-caves",
-    "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
+    "name": "Interactive Folk Art Map",
+    "slug": "folk-art-map",
+    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Folk+Art+Map",
     "height": 1080,
     "width": 1080,
-    "year": 2025,
-    "tags": ["Research", "UX", "3D World Building", "VR"],
+    "year": 2024,
+    "tags": [
+      "Research",
+      "UX",
+      "UI"
+    ],
     "size": "1x1",
-    "description": "An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction, and atmosphere to recreate the feeling of being inside the space.",
-    "featured": true
+    "description": "An interactive kiosk interface designed to complement a physical map of Indian folk art, allowing students and visitors to explore the history and cultural significance of each regional style.",
+    "featured": false
   },
   {
     "name": "Order & Disorder",
     "slug": "order-disorder",
-    "thumbnail": "/media/thumbnails/order-disorder.jpg",
+    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Order+%26+Disorder",
     "height": 1080,
     "width": 1080,
     "year": 2025,
-    "tags": ["Filmmaking"],
+    "tags": [
+      "Filmmaking"
+    ],
     "size": "1x1",
     "description": "A black-and-white video poem that explores the tension between chaos and order through a split-screen narrative, ultimately revealing an underlying sense of structure within apparent disorder.",
     "featured": false
@@ -69,26 +102,17 @@ export const projectsArray: Project[] = [
   {
     "name": "Posture Corrector",
     "slug": "posture-corrector",
-    "thumbnail": "/media/thumbnails/posture-corrector.png",
+    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Posture+Corrector",
     "height": 1080,
     "width": 1080,
     "year": 2024,
-    "tags": ["Research", "UX", "Product Design"],
+    "tags": [
+      "Research",
+      "UX",
+      "Product Design"
+    ],
     "size": "1x1",
     "description": "A wearable posture-correcting device that detects slouching in real time and nudges users to sit upright, helping build awareness and healthier sitting habits without disrupting daily routines.",
     "featured": true
-  },
-  {
-    "name": "Interactive Folk Art Map",
-    "slug": "folk-art-map",
-    "thumbnail": "/media/thumbnails/folk-art-map.jpg",
-    "height": 1080,
-    "width": 1080,
-    "year": 2024,
-    "tags": ["Research", "UX", "UI", "Industry"],
-    "size": "1x1",
-    "description": "An interactive kiosk interface designed to complement a physical map of Indian folk art, allowing students and visitors to explore the history and cultural significance of each regional style.",
-    "featured": false,
-    "liveUrl": "https://sixthelement.edu.in/india-maps/"
   }
 ];
