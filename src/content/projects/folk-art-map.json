@@ -1,11 +1,11 @@
 {
   "name": "Interactive Folk Art Map",
   "slug": "folk-art-map",
-  "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Folk+Art+Map",
+  "thumbnail": "/media/thumbnails/folk-art-map.jpg",
   "height": 1080,
   "width": 1080,
   "year": 2024,
-  "tags": ["Research", "UX", "UI"],
+  "tags": ["Research", "UX", "UI", "Industry"],
   "featured": false,
   "liveUrl": "https://sixthelement.edu.in/india-maps/",
   "team": "Individual",

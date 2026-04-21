@@ -22,7 +22,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Ajanta Caves",
     "slug": "ajanta-caves",
-    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Ajanta+Caves",
+    "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -39,7 +39,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Delhi's AQI",
     "slug": "del-aqi",
-    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Delhi's+AQI",
+    "thumbnail": "/media/thumbnails/del-aqi.jpg",
     "height": 1080,
     "width": 1080,
     "year": 2026,
@@ -72,14 +72,15 @@ export const projectsArray: Project[] = [
   {
     "name": "Interactive Folk Art Map",
     "slug": "folk-art-map",
-    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Folk+Art+Map",
+    "thumbnail": "/media/thumbnails/folk-art-map.jpg",
     "height": 1080,
     "width": 1080,
     "year": 2024,
     "tags": [
       "Research",
       "UX",
-      "UI"
+      "UI",
+      "Industry"
     ],
     "size": "1x1",
     "description": "An interactive kiosk interface designed to complement a physical map of Indian folk art, allowing students and visitors to explore the history and cultural significance of each regional style.",
@@ -88,7 +89,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Order & Disorder",
     "slug": "order-disorder",
-    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Order+%26+Disorder",
+    "thumbnail": "/media/thumbnails/order-disorder.jpg",
     "height": 1080,
     "width": 1080,
     "year": 2025,
@@ -102,7 +103,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Posture Corrector",
     "slug": "posture-corrector",
-    "thumbnail": "https://placehold.co/1080x1080/283A77/F3F0E8.png?text=Posture+Corrector",
+    "thumbnail": "/media/thumbnails/posture-corrector.png",
     "height": 1080,
     "width": 1080,
     "year": 2024,
