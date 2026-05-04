@@ -9,7 +9,7 @@
 
 /* Filter bar */
 .filterBar {
-  padding-bottom: var(--space-md);
+  padding-bottom: var(--space-xl);
 }
 
 /* Presets + count on same row */
@@ -122,7 +122,7 @@
   }
 
   .filterBar {
-    padding-bottom: var(--space-sm);
+    padding-bottom: 20px;
   }
 
   .grid {

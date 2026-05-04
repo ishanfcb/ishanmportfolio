@@ -1,87 +1,107 @@
 .section {
   width: 100vw;
   background-color: var(--background, #f3f0e8);
-  /* The padding matches the playground's 15vw exactly to geometrically align to the red box! */
   padding: 0 15vw 15vh 15vw;
 }
 
 .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: var(--space-2xl, 64px);
+  width: 100%;
+}
+
+.leftCol {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4xl, 120px);
-  width: 100%;
+  justify-content: center;
+  z-index: 10;
 }
 
-.row {
+.sectionTitle {
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-weight: 700;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  color: var(--foreground, #1a1a1a);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.centerCol {
   display: flex;
+  flex-direction: column;
+  gap: 15vh;
+  padding-top: 50vh;
+  /* Precisely calculated to ensure the container ends EXACTLY when the final image is perfectly centered */
+  padding-bottom: calc(50vh - 8.5vw);
+}
+
+.imageWrap {
   width: 100%;
-  gap: var(--space-3xl, 80px); /* Creates the side-by-side gap */
-  align-items: center; /* Vertically aligns the text with the square */
-  position: relative;
-}
-
-/* Alternate rows if desired, by default left-image right-text */
-.row:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.mediaWrap {
-  /* Exactly half the width (approx, accounting for gap) of the red bounding box! */
-  width: calc(50% - (var(--space-3xl, 80px) / 2));
-  aspect-ratio: 1 / 1; /* Forces it to be a perfect square */
-  border: 1px solid var(--accent, #283a77); /* Use Astronaut Blue border to mimic the playground style */
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(39, 39, 38, 0.02);
 }
 
 .media {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* ensures squares crop perfectly without distortion */
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  transition: transform var(--duration-slow, 0.45s) ease, opacity var(--duration-slow) ease;
 }
 
-.content {
-  width: calc(50% - (var(--space-3xl, 80px) / 2));
+.imageWrap.inactive .media {
+  opacity: 0.3;
+  transform: scale(0.95);
+}
+
+.rightCol {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md, 16px);
+  justify-content: center;
+  z-index: 10;
+}
+
+.detailsWrap {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.detailsWrap.fade {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 .title {
   font-family: var(--font-sans, system-ui, sans-serif);
   font-weight: 500;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--foreground, #1a1a1a);
-}
-
-.titleLink::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
+  margin: 0 0 16px 0;
 }
 
 .description {
   font-family: var(--font-sans, system-ui, sans-serif);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.5;
   color: var(--foreground, #1a1a1a);
   opacity: 0.8;
+  margin: 0 0 24px 0;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: var(--space-sm, 8px);
+  gap: 8px;
 }
 
 .tag {
@@ -94,8 +114,8 @@
   color: var(--accent, #283a77);
   text-decoration: none;
   transition: all var(--duration-fast, 0.2s);
-  position: relative;
-  z-index: 2;
+  cursor: pointer;
+  background: transparent;
 }
 
 .tag:hover {
@@ -103,17 +123,65 @@
   color: var(--background, #f3f0e8);
 }
 
+.mobileDetails {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .section {
-    padding: 0 5vw 10vh 5vw;
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
   }
-  
-  .row, .row:nth-child(even) {
+  .leftCol, .rightCol {
+    display: none;
+  }
+  .centerCol {
+    gap: var(--space-3xl);
+    padding: 0;
+  }
+  .mobileDetails {
+    display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    margin-top: var(--space-md);
   }
-  
-  .mediaWrap, .content {
-    width: 100%;
-  }
+}
+
+.playgroundWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.playgroundText {
+  color: var(--accent, #283a77);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  position: relative;
+  cursor: default;
+}
+
+.playgroundText::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent, #283a77);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.playgroundText:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

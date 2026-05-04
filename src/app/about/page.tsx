@@ -16,7 +16,10 @@ export default function AboutPage() {
       {/* Hero bio */}
       <section className={styles.hero}>
         <div className={styles.heroText}>
-          <p className={`${styles.summary} ${styles.summaryArt}`}>{aboutData.bio}</p>
+          <div className={styles.hoverContainer}>
+            <p className={`${styles.summary} ${styles.summaryArt} ${styles.hoverText}`}>{aboutData.bio}</p>
+            <img src="/shadow-door.jpeg" alt="Shadow on door" className={styles.hoverImage} />
+          </div>
         </div>
         <div className={styles.heroAside}>
           <div className={styles.heroLinks}>
@@ -26,6 +29,9 @@ export default function AboutPage() {
             </a>
             <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn <ExternalIcon className={styles.heroExtIcon} />
+            </a>
+            <a href="/Resume_2025.pdf" target="_blank" rel="noopener noreferrer">
+              Resume <ExternalIcon className={styles.heroExtIcon} />
             </a>
           </div>
         </div>
