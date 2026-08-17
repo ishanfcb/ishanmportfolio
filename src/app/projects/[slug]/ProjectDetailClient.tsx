@@ -45,6 +45,7 @@ export default function ProjectDetailClient({
   prevProject: NavProject;
   nextProject: NavProject;
 }) {
+  const [isNavHovered, setIsNavHovered] = useState(false);
   const [activeSection, setActiveSection] = useState<string>(
     project.sections?.[0]?.id ?? ""
   );
@@ -95,48 +96,41 @@ export default function ProjectDetailClient({
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            (e.target as HTMLElement).classList.add(styles.blockVisible);
+            e.target.classList.add(styles.blockVisible);
             obs.unobserve(e.target);
           }
         });
       },
-      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 }
+      { threshold: 0.08 }
     );
-
     fadeEls.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
-  const scrollToSection = useCallback((id: string) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(`section-${id}`);
-    if (!el) return;
-    const navHeight = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue("--nav-height") || "60",
-      10
-    );
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 24;
-    window.scrollTo({ top, behavior: "smooth" });
-  }, []);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-  // Group consecutive images within the same section into an image grid
+  // Render content blocks, wrapping first block of each section with section anchor + context data if available
   const renderBody = () => {
-    if (!project.contentBlocks) return null;
+    if (!project.contentBlocks || project.contentBlocks.length === 0) return null;
 
     const elements: React.ReactNode[] = [];
-    let currentSectionId = "";
-
-    // Buffer consecutive images
+    const seenSections = new Set<string>();
     let imgBuffer: { block: ContentBlock; i: number }[] = [];
 
     const flushImages = () => {
       if (imgBuffer.length === 0) return;
+
       if (imgBuffer.length === 1) {
         const { block, i } = imgBuffer[0];
         elements.push(
           <div key={i} className={styles.block}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={block.src ?? (block.content as string)}
+              src={block.src}
               alt={block.alt ?? ""}
               className={styles.mediaImage}
               loading="lazy"
@@ -144,13 +138,13 @@ export default function ProjectDetailClient({
           </div>
         );
       } else {
+        const key = `img-grid-${imgBuffer[0].i}`;
         elements.push(
-          <div key={`grid-${imgBuffer[0].i}`} className={`${styles.block} ${styles.imageGrid}`}>
+          <div key={key} className={`${styles.block} ${styles.imageGrid}`}>
             {imgBuffer.map(({ block, i }) => (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 key={i}
-                src={block.src ?? (block.content as string)}
+                src={block.src}
                 alt={block.alt ?? ""}
                 className={styles.mediaImageGrid}
                 loading="lazy"
@@ -163,27 +157,36 @@ export default function ProjectDetailClient({
     };
 
     project.contentBlocks.forEach((block, i) => {
-      // Section change — flush image buffer first, then inject divider
-      if (block.sectionId && block.sectionId !== currentSectionId) {
+      const sectionId = block.sectionId;
+
+      // Anchor element for scroll target
+      if (sectionId && !seenSections.has(sectionId)) {
+        seenSections.add(sectionId);
         flushImages();
-        currentSectionId = block.sectionId;
-        const section = project.sections?.find((s) => s.id === block.sectionId);
-        if (section) {
+        elements.push(
+          <div
+            key={`anchor-${sectionId}`}
+            id={`section-${sectionId}`}
+            className={styles.sectionAnchor}
+          />
+        );
+
+        // Section divider line + label for non-context sections
+        const secObj = project.sections?.find((s) => s.id === sectionId);
+        if (secObj && sectionId !== "context") {
           elements.push(
-            <div
-              key={`divider-${section.id}`}
-              id={`section-${section.id}`}
-              className={styles.sectionDivider}
-            >
-              <span className={styles.sectionDividerLine} />
-              <span className={styles.sectionLabel}>{section.label}</span>
-              <span className={styles.sectionDividerLine} />
+            <div key={`divider-${sectionId}`} className={styles.sectionDivider}>
+              <span className={styles.sectionDividerTag}>{secObj.label}</span>
             </div>
           );
-          // Render context table right after the context divider
-          if (section.id === "context" && (project.team || project.role || project.timeline)) {
+        }
+
+        // Render context meta table if section is "context"
+        if (sectionId === "context") {
+          const hasMeta = project.team || project.role || project.timeline;
+          if (hasMeta) {
             elements.push(
-              <div key="context-table" className={styles.contextTable}>
+              <div key="context-meta" className={styles.contextTable}>
                 {project.team && (
                   <div className={styles.contextCell}>
                     <span className={styles.contextLabel}>Team</span>
@@ -204,7 +207,6 @@ export default function ProjectDetailClient({
                 )}
               </div>
             );
-            // TL;DR label above first block
             elements.push(
               <p key="tldr-label" className={styles.tldrLabel}>TL;DR</p>
             );
@@ -228,7 +230,7 @@ export default function ProjectDetailClient({
       }
     });
 
-    flushImages(); // flush any trailing images
+    flushImages();
     return elements;
   };
 
@@ -330,7 +332,7 @@ export default function ProjectDetailClient({
                   {link.text} ↗
                 </a>
                 {j < links.length - 1 && (
-                  <span className={styles.researchDivider}> · </span>
+                  <span className={styles.researchDivider}> — </span>
                 )}
               </span>
             ))}
@@ -345,7 +347,7 @@ export default function ProjectDetailClient({
 
   return (
     <main className={styles.container}>
-      {/* ── Hero ─────────────────────────────── */}
+      {/* Hero */}
       <section className={styles.hero}>
         <h1 className={styles.title}>{project.name}</h1>
         <div className={styles.heroBottom}>
@@ -370,22 +372,33 @@ export default function ProjectDetailClient({
         </div>
       </section>
 
-      {/* ── Body: sidebar + content ───────────── */}
+      {/* Body: sidebar + content */}
       <div className={styles.body}>
         {project.sections && project.sections.length > 0 && (
-          <aside className={styles.sidebar}>
-            <nav>
-              {project.sections.map((section) => (
-                <button
-                  key={section.id}
-                  className={`${styles.sidebarItem} ${
-                    activeSection === section.id ? styles.sidebarItemActive : ""
-                  }`}
-                  onClick={() => scrollToSection(section.id)}
-                >
-                  {section.label}
-                </button>
-              ))}
+          <aside
+            className={`${styles.sidebarNavContainer} ${
+              isNavHovered ? styles.sidebarNavContainerHovered : ""
+            }`}
+            onMouseEnter={() => setIsNavHovered(true)}
+            onMouseLeave={() => setIsNavHovered(false)}
+            aria-label="Section navigation"
+          >
+            <nav className={styles.sidebarNavTrack}>
+              {project.sections.map((section) => {
+                const isActive = activeSection === section.id;
+                return (
+                  <button
+                    key={section.id}
+                    className={`${styles.sidebarNavItem} ${
+                      isActive ? styles.sidebarNavItemActive : ""
+                    }`}
+                    onClick={() => scrollToSection(section.id)}
+                  >
+                    <span className={styles.tickLine} />
+                    <span className={styles.sidebarNavLabel}>{section.label}</span>
+                  </button>
+                );
+              })}
             </nav>
           </aside>
         )}
@@ -393,7 +406,7 @@ export default function ProjectDetailClient({
         <article className={styles.content}>{renderBody()}</article>
       </div>
 
-      {/* ── Prev / Next ───────────────────────── */}
+      {/* Prev / Next */}
       <footer className={styles.footerNav}>
         <Link href={`/projects/${prevProject.slug}`} className={styles.navLinkLeft}>
           <svg
