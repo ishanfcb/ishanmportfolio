@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./ProjectPage.module.css";
+import VerticalNav from "./VerticalNav";
 import UnderConstruction from "./UnderConstruction";
 import CloseButton from "./CloseButton";
 import PagePreloader from "./PagePreloader";
@@ -57,6 +58,7 @@ export default function ProjectPage({ project, exhibitions }: ProjectProps) {
     return (
         <>
             <PagePreloader />
+            <VerticalNav />
             <div className={styles.projectPageDiv}>
                 <CloseButton />
                 <div className={styles.tagsContainer}>

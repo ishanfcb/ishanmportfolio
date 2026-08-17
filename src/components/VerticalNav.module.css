@@ -1,0 +1,102 @@
+.verticalNavContainer {
+    position: fixed;
+    left: max(1.5rem, calc((100vw - var(--content-max-width, 1200px)) / 2 - 200px));
+    top: 35vh;
+    z-index: 90;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px 24px 12px 12px;
+}
+
+.navTrack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    padding: 2px 0;
+    transition: opacity 0.25s ease;
+}
+
+.subItem {
+    padding-left: 14px;
+}
+
+/* Micro-tick line styling (ishaand.com/shadow style) */
+.tickLine {
+    width: 14px;
+    height: 1px;
+    background-color: var(--foreground);
+    opacity: 0.35;
+    transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+}
+
+.navItem.active .tickLine {
+    width: 24px;
+    height: 2px;
+    background-color: var(--accent);
+    opacity: 1;
+}
+
+/* Item label styling: Hidden when not hovered unless active */
+.itemLabel {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    color: var(--foreground);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+/* Active item label stays visible even when collapsed */
+.navItem.active .itemLabel {
+    opacity: 1;
+    font-weight: 600;
+    color: var(--accent);
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* Expanded list on hover */
+.isHovered .itemLabel {
+    opacity: 0.65;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.isHovered .navItem.active .itemLabel {
+    opacity: 1;
+    font-weight: 700;
+}
+
+.isHovered .navItem:hover .itemLabel {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.isHovered .navItem:hover .tickLine {
+    width: 20px;
+    opacity: 0.9;
+    background-color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+    .verticalNavContainer {
+        display: none; /* Hide on mobile/tablet viewports to maintain layout integrity */
+    }
+}
