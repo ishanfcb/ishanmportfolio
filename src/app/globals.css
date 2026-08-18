@@ -33,3 +33,16 @@ nextjs-portal,
 [data-nextjs-toast] {
   display: none !important;
 }
+
+
+/* Hide default cursor on desktop when custom Journey cursor is active */
+@media (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}

@@ -1,0 +1,87 @@
+/* Journey Digital Inspired Custom Cursor Microinteraction */
+
+.cursorContainer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999999;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursorVisible {
+  opacity: 1;
+}
+
+/* Full-viewport dynamic crosshair lines */
+.crosshairHorizontal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 1px;
+  background-color: var(--foreground, #ffffff);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0.35;
+  transform: translateY(var(--cursor-y, -100px));
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+
+.crosshairVertical {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: var(--foreground, #ffffff);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0.35;
+  transform: translateX(var(--cursor-x, -100px));
+  transition: opacity 0.25s ease;
+  will-change: transform;
+}
+
+/* Center intersection reticle dot/square */
+.reticle {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent, #e65c00);
+  border-radius: 1px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(calc(var(--cursor-x, -100px) - 3.5px), calc(var(--cursor-y, -100px) - 3.5px));
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
+              width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-radius 0.25s ease;
+  will-change: transform;
+}
+
+/* Interactive Hover States */
+.cursorHovered .crosshairHorizontal,
+.cursorHovered .crosshairVertical {
+  opacity: 0.75;
+}
+
+.cursorHovered .reticle {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  transform: translate(calc(var(--cursor-x, -100px) - 7px), calc(var(--cursor-y, -100px) - 7px)) rotate(45deg);
+  background-color: #ffffff;
+}
+
+/* Mobile & Touch viewports override */
+@media (pointer: coarse) {
+  .cursorContainer {
+    display: none !important;
+  }
+}
