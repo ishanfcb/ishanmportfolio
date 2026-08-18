@@ -7,6 +7,7 @@ import UmamiLoader from "@/components/UmamiLoader";
 import ScrollTracker from "@/components/ScrollTracker";
 import Footer from "@/components/Footer";
 import JourneyCursor from "@/components/JourneyCursor";
+import BottomBlurMask from "@/components/BottomBlurMask";
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -56,6 +57,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <JourneyCursor />
+        <BottomBlurMask />
         <Suspense fallback={null}>
           <UmamiOptOut />
           <ScrollTracker />
