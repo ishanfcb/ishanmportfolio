@@ -1,24 +1,22 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import styles from './JourneyCursor.module.css';
 
 export default function JourneyCursor() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const horizRef = useRef<HTMLDivElement>(null);
-  const vertRef = useRef<HTMLDivElement>(null);
-  const reticleRef = useRef<HTMLDivElement>(null);
+  const horizRef = useRef<SVGLineElement>(null);
+  const vertRef = useRef<SVGLineElement>(null);
+  const dotRef = useRef<SVGCircleElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
     const horiz = horizRef.current;
     const vert = vertRef.current;
-    const reticle = reticleRef.current;
-    if (!container || !horiz || !vert || !reticle) return;
+    const dot = dotRef.current;
+    const svg = svgRef.current;
+    if (!horiz || !vert || !dot || !svg) return;
 
     let isVisible = false;
 
-    // Hide default cursor on desktop fine-pointer devices
     if (window.matchMedia('(pointer: fine)').matches) {
       document.body.classList.add('custom-cursor-active');
     }
@@ -29,22 +27,26 @@ export default function JourneyCursor() {
 
       if (!isVisible) {
         isVisible = true;
-        container.style.opacity = '1';
+        svg.style.opacity = '1';
       }
 
-      horiz.style.transform = `translate3d(0, ${mouseY}px, 0)`;
-      vert.style.transform = `translate3d(${mouseX}px, 0, 0)`;
-      reticle.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      horiz.setAttribute('y1', `${mouseY}`);
+      horiz.setAttribute('y2', `${mouseY}`);
+      vert.setAttribute('x1', `${mouseX}`);
+      vert.setAttribute('x2', `${mouseX}`);
+
+      dot.setAttribute('cx', `${mouseX}`);
+      dot.setAttribute('cy', `${mouseY}`);
     };
 
     const handleMouseLeave = () => {
       isVisible = false;
-      container.style.opacity = '0';
+      svg.style.opacity = '0';
     };
 
     const handleMouseEnter = () => {
       isVisible = true;
-      container.style.opacity = '1';
+      svg.style.opacity = '1';
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -52,9 +54,9 @@ export default function JourneyCursor() {
       if (!target) return;
       const isInteractive = target.closest('a, button, input, textarea, [role="button"], [data-cursor], .card');
       if (isInteractive) {
-        container.classList.add(styles.cursorHovered);
+        dot.setAttribute('r', '7');
       } else {
-        container.classList.remove(styles.cursorHovered);
+        dot.setAttribute('r', '4');
       }
     };
 
@@ -73,10 +75,50 @@ export default function JourneyCursor() {
   }, []);
 
   return (
-    <div ref={containerRef} className={styles.cursorContainer} aria-hidden="true">
-      <div ref={horizRef} className={styles.crosshairHorizontal} />
-      <div ref={vertRef} className={styles.crosshairVertical} />
-      <div ref={reticleRef} className={styles.reticle} />
-    </div>
+    <svg
+      ref={svgRef}
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        pointerEvents: 'none',
+        zIndex: 999999,
+        mixBlendMode: 'difference',
+        opacity: 0,
+        transition: 'opacity 0.25s ease',
+      }}
+      aria-hidden="true"
+    >
+      <line
+        ref={horizRef}
+        x1="0"
+        y1="-100"
+        x2="100%"
+        y2="-100"
+        stroke="#ffffff"
+        strokeWidth="1"
+        opacity="0.25"
+      />
+      <line
+        ref={vertRef}
+        x1="-100"
+        y1="0"
+        x2="-100"
+        y2="100%"
+        stroke="#ffffff"
+        strokeWidth="1"
+        opacity="0.25"
+      />
+      <circle
+        ref={dotRef}
+        cx="-100"
+        cy="-100"
+        r="4"
+        fill="#ffffff"
+        style={{ transition: 'r 0.2s ease' }}
+      />
+    </svg>
   );
 }
