@@ -1,4 +1,4 @@
-/* Journey Digital Inspired Custom Cursor Microinteraction */
+/* Journey Digital Inspired Custom Cursor Microinteraction (Subtle & Refined) */
 
 .cursorContainer {
   position: fixed;
@@ -7,14 +7,10 @@
   z-index: 999999;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
 }
 
-.cursorVisible {
-  opacity: 1;
-}
-
-/* Full-viewport dynamic crosshair lines */
+/* Full-viewport ultra-subtle crosshair lines */
 .crosshairHorizontal {
   position: fixed;
   left: 0;
@@ -24,9 +20,8 @@
   background-color: var(--foreground, #ffffff);
   mix-blend-mode: difference;
   pointer-events: none;
-  opacity: 0.35;
-  transform: translateY(var(--cursor-y, -100px));
-  transition: opacity 0.25s ease;
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -39,44 +34,42 @@
   background-color: var(--foreground, #ffffff);
   mix-blend-mode: difference;
   pointer-events: none;
-  opacity: 0.35;
-  transform: translateX(var(--cursor-x, -100px));
-  transition: opacity 0.25s ease;
+  opacity: 0.15;
+  transition: opacity 0.3s ease;
   will-change: transform;
 }
 
-/* Center intersection reticle dot/square */
+/* Micro center reticle dot */
 .reticle {
   position: fixed;
   left: 0;
   top: 0;
-  width: 7px;
-  height: 7px;
+  width: 4px;
+  height: 4px;
   background-color: var(--accent, #e65c00);
   border-radius: 1px;
   mix-blend-mode: difference;
   pointer-events: none;
-  transform: translate(calc(var(--cursor-x, -100px) - 3.5px), calc(var(--cursor-y, -100px) - 3.5px));
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), 
-              width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
-              border-radius 0.25s ease;
+  opacity: 0.85;
+  transition: width 0.2s ease, 
+              height 0.2s ease,
+              opacity 0.2s ease,
+              background-color 0.2s ease;
   will-change: transform;
 }
 
-/* Interactive Hover States */
+/* Subtle Interactive Hover States */
 .cursorHovered .crosshairHorizontal,
 .cursorHovered .crosshairVertical {
-  opacity: 0.75;
+  opacity: 0.35;
 }
 
 .cursorHovered .reticle {
-  width: 14px;
-  height: 14px;
-  border-radius: 2px;
-  transform: translate(calc(var(--cursor-x, -100px) - 7px), calc(var(--cursor-y, -100px) - 7px)) rotate(45deg);
-  background-color: #ffffff;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+  opacity: 1;
+  background-color: var(--foreground, #ffffff);
 }
 
 /* Mobile & Touch viewports override */

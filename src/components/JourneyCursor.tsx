@@ -1,48 +1,60 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './JourneyCursor.module.css';
 
 export default function JourneyCursor() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const posRef = useRef({ x: -100, y: -100 });
-  const reqRef = useRef<number | null>(null);
+  const horizRef = useRef<HTMLDivElement>(null);
+  const vertRef = useRef<HTMLDivElement>(null);
+  const reticleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const container = containerRef.current;
+    const horiz = horizRef.current;
+    const vert = vertRef.current;
+    const reticle = reticleRef.current;
+    if (!container || !horiz || !vert || !reticle) return;
+
+    let isVisible = false;
+
     // Hide default cursor on desktop fine-pointer devices
     if (window.matchMedia('(pointer: fine)').matches) {
       document.body.classList.add('custom-cursor-active');
     }
 
-    const updatePosition = () => {
-      if (containerRef.current) {
-        containerRef.current.style.setProperty('--cursor-x', `${posRef.current.x}px`);
-        containerRef.current.style.setProperty('--cursor-y', `${posRef.current.y}px`);
-      }
-      reqRef.current = null;
-    };
-
     const handleMouseMove = (e: MouseEvent) => {
-      posRef.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
-      if (!reqRef.current) {
-        reqRef.current = requestAnimationFrame(updatePosition);
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      if (!isVisible) {
+        isVisible = true;
+        container.style.opacity = '1';
       }
+
+      horiz.style.transform = `translate3d(0, ${mouseY}px, 0)`;
+      vert.style.transform = `translate3d(${mouseX}px, 0, 0)`;
+      reticle.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
     };
 
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const handleMouseLeave = () => {
+      isVisible = false;
+      container.style.opacity = '0';
+    };
+
+    const handleMouseEnter = () => {
+      isVisible = true;
+      container.style.opacity = '1';
+    };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
       const isInteractive = target.closest('a, button, input, textarea, [role="button"], [data-cursor], .card');
       if (isInteractive) {
-        setIsHovered(true);
+        container.classList.add(styles.cursorHovered);
       } else {
-        setIsHovered(false);
+        container.classList.remove(styles.cursorHovered);
       }
     };
 
@@ -56,22 +68,15 @@ export default function JourneyCursor() {
       document.body.removeEventListener('mouseleave', handleMouseLeave);
       document.body.removeEventListener('mouseenter', handleMouseEnter);
       window.removeEventListener('mouseover', handleMouseOver);
-      if (reqRef.current) cancelAnimationFrame(reqRef.current);
       document.body.classList.remove('custom-cursor-active');
     };
-  }, [isVisible]);
+  }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className={`${styles.cursorContainer} ${isVisible ? styles.cursorVisible : ''} ${
-        isHovered ? styles.cursorHovered : ''
-      }`}
-      aria-hidden="true"
-    >
-      <div className={styles.crosshairHorizontal} />
-      <div className={styles.crosshairVertical} />
-      <div className={styles.reticle} />
+    <div ref={containerRef} className={styles.cursorContainer} aria-hidden="true">
+      <div ref={horizRef} className={styles.crosshairHorizontal} />
+      <div ref={vertRef} className={styles.crosshairVertical} />
+      <div ref={reticleRef} className={styles.reticle} />
     </div>
   );
 }
