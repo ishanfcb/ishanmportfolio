@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./PlaygroundLanding.module.css";
@@ -75,7 +75,7 @@ const textChaosPositions: Record<string, { x: number; y: number }> = {
 
 // --- Shape states ---
 
-// "ISH.AN" — dot between H and A (the domain state)
+// "ISH.AN" Ã¢â‚¬â€ dot between H and A (the domain state)
 const IshAnState: Record<ShapeID, { x: number; y: number }> = {
   Iv: { x: 0, y: 0 },
   St: { x: 6, y: 0 },
@@ -96,7 +96,7 @@ const IshAnState: Record<ShapeID, { x: number; y: number }> = {
   Nr: { x: 57, y: 0 },
 };
 
-// "ISHAN." — dot at the end (the name state)
+// "ISHAN." Ã¢â‚¬â€ dot at the end (the name state)
 const IshanDotState: Record<ShapeID, { x: number; y: number }> = {
   Iv: { x: 0, y: 0 },
   St: { x: 6, y: 0 },
@@ -121,7 +121,7 @@ const IshanDotState: Record<ShapeID, { x: number; y: number }> = {
 const TRANSITION = 750;
 const LETTER_HOLD = 1250;
 
-// Phase definitions — base cycle between ISH.AN (0) and ISHAN. (1)
+// Phase definitions Ã¢â‚¬â€ base cycle between ISH.AN (0) and ISHAN. (1)
 // Chaos is driven by mouse hover, not time
 const PHASES: { type: "transition" | "hold"; from?: number; to?: number; state?: number; duration: number }[] = [
   { type: "transition", from: 0, to: 1, duration: TRANSITION },
@@ -134,7 +134,7 @@ const CYCLE_DURATION = PHASES.reduce((sum, p) => sum + p.duration, 0);
 const ease = (t: number) =>
   t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
-// Chaos state — scattered layout target for blocks
+// Chaos state Ã¢â‚¬â€ scattered layout target for blocks
 const ChaosState: Record<ShapeID, { x: number; y: number }> = {
   Iv: { x: 25, y: 20 },
   St: { x: -5, y: 96 },
@@ -156,6 +156,21 @@ const ChaosState: Record<ShapeID, { x: number; y: number }> = {
 };
 
 export default function PlaygroundLanding() {
+  const [showScrollDown, setShowScrollDown] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowScrollDown(false), 20000);
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setShowScrollDown(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const interactionRef = useRef<HTMLDivElement>(null);
   const elRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const animRef = useRef<number>(0);
@@ -458,6 +473,9 @@ export default function PlaygroundLanding() {
             {t.content}
           </div>
         ))}
+      </div>
+      <div className={styles.scrollDownIndicator + (!showScrollDown ? " " + styles.scrollDownHidden : "")}>
+        scroll down ↓
       </div>
     </div>
   );

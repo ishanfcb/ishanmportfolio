@@ -1,11 +1,11 @@
 .container {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
   background-color: var(--background, #f3f0e8);
-  /* The outermost padding allows the inner rectangle to exist nicely scaled inside */
   padding: 15vh 15vw; 
 }
 
@@ -15,7 +15,6 @@
   height: 100%;
   border: 1px solid var(--accent, #283A77);
   overflow: visible;
-  /* Provides exactly the bounded rectangle feeling referencing your screenshot */
 }
 
 .shape {
@@ -49,4 +48,28 @@
   border: 1px solid var(--foreground, #1a1a1a);
   padding: 0.2em 0.5em;
   will-change: transform;
+}
+
+/* Bottom-center scroll down indicator for first 20s */
+.scrollDownIndicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground, #1a1a1a);
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+.scrollDownHidden {
+  opacity: 0;
+  transform: translate(-50%, 8px);
 }

@@ -13,6 +13,7 @@
 
 html {
   background-color: var(--accent);
+  scroll-behavior: smooth;
 }
 
 body {
