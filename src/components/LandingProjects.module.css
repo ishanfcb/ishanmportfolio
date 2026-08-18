@@ -24,13 +24,14 @@
 
 .sectionTitle {
   font-family: var(--font-sans, system-ui, sans-serif);
-  font-weight: 700;
-  font-size: 3.5rem;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
   text-transform: uppercase;
   color: var(--foreground, #1a1a1a);
   margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
 }
 
 .centerCol {
@@ -129,8 +130,16 @@
 
 @media (max-width: 1024px) {
   .sectionTitle {
-    font-size: 2.5rem;
-  }
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  text-transform: uppercase;
+  color: var(--foreground, #1a1a1a);
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
 }
 
 @media (max-width: 768px) {

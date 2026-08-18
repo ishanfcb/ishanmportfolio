@@ -5,8 +5,10 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
+  min-height: 100vh;
   background-color: var(--background, #f3f0e8);
-  padding: 15vh 15vw; 
+  padding: 15vh 15vw;
+  scroll-snap-align: start;
 }
 
 .interactionArea {
@@ -58,11 +60,11 @@
   transform: translateX(-50%);
   font-family: var(--font-sans, system-ui, sans-serif);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--foreground, #1a1a1a);
-  opacity: 0.95;
+  opacity: 0.55;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
   z-index: 100000;

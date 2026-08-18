@@ -475,7 +475,7 @@ export default function PlaygroundLanding() {
         ))}
       </div>
       <div className={styles.scrollDownIndicator + (!showScrollDown ? " " + styles.scrollDownHidden : "")}>
-        scroll down ↓
+        scroll down
       </div>
     </div>
   );
