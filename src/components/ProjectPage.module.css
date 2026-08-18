@@ -185,14 +185,15 @@
 .headingSection h3 {
     font-family: var(--font-sans);
     font-style: normal;
-    font-weight: 700;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--foreground);
-    margin: var(--space-xl) 0 0 0;
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--accent);
+    opacity: 0.4;
+    margin: var(--space-xl) 0 8px 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .h {
