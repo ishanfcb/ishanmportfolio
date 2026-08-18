@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import aboutData from "@/content/about.json";
 import ExternalIcon from "@/components/ExternalIcon";
 import EmailCopy from "@/components/EmailCopy";
+import TwitterLink from "@/components/TwitterLink";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function AboutPage() {
         <div className={styles.heroAside}>
           <div className={styles.heroLinks}>
             <EmailCopy email={aboutData.contact.email} />
+            <TwitterLink href={aboutData.contact.twitter} />
             <a href={aboutData.contact.instagram} target="_blank" rel="noopener noreferrer">
               Instagram <ExternalIcon className={styles.heroExtIcon} />
             </a>

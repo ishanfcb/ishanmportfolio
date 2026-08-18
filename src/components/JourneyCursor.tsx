@@ -98,8 +98,8 @@ export default function JourneyCursor() {
         x2="100%"
         y2="-100"
         stroke="#ffffff"
-        strokeWidth="1"
-        opacity="0.25"
+        strokeWidth="0.5"
+        opacity="0.14"
       />
       <line
         ref={vertRef}
@@ -108,8 +108,8 @@ export default function JourneyCursor() {
         x2="-100"
         y2="100%"
         stroke="#ffffff"
-        strokeWidth="1"
-        opacity="0.25"
+        strokeWidth="0.5"
+        opacity="0.14"
       />
       <circle
         ref={dotRef}

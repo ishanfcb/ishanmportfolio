@@ -4,9 +4,16 @@
   "contact": {
     "email": "ishannnn10@gmail.com",
     "instagram": "https://www.instagram.com/ishanmishra__/",
-    "linkedin": "https://www.linkedin.com/in/ishan-mishra-14079b230/"
+    "linkedin": "https://www.linkedin.com/in/ishan-mishra-14079b230/",
+    "twitter": "https://x.com/_ishanm"
   },
   "experience": [
+    {
+      "company": "RazorNext",
+      "title": "UX Intern",
+      "description": "Worked on a Major Indian E-commerce brand's CSR page (under NDA)",
+      "period": "May 2026 – July 2026"
+    },
     {
       "company": "The Sixth Element",
       "title": "UI/UX Designer",

@@ -5,7 +5,7 @@
   margin-right: auto;
 }
 
-/* ── Hero ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero Ã¢â€â‚¬Ã¢â€â‚¬ */
 .hero {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -14,7 +14,7 @@
   margin-bottom: var(--space-3xl);
 }
 
-/* ── Tagline ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Tagline Ã¢â€â‚¬Ã¢â€â‚¬ */
 .tagline {
   font-family: var(--font-sans);
   font-style: normal;
@@ -29,7 +29,7 @@
   flex-wrap: wrap;
 }
 
-/* ── Tags (Static) ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Tags (Static) Ã¢â€â‚¬Ã¢â€â‚¬ */
 .tagArt,
 .tagDesign,
 .tagEng {
@@ -123,7 +123,7 @@
   font-weight: 500;
 }
 
-/* Right column — photo + contact links */
+/* Right column Ã¢â‚¬â€ photo + contact links */
 .heroAside {
   display: flex;
   flex-direction: column;
@@ -136,7 +136,7 @@
   object-fit: cover;
 }
 
-/* Contact links — stacked vertically */
+/* Contact links Ã¢â‚¬â€ stacked vertically */
 .heroLinks {
   display: flex;
   flex-direction: column;
@@ -157,14 +157,16 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
+  word-break: break-word;
 }
 
 .heroLinks a:hover {
   color: var(--accent);
 }
 
-/* ── Hero external icon (inline with contact links) ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ Hero external icon (inline with contact links) Ã¢â€â‚¬Ã¢â€â‚¬ */
 .heroExtIcon {
   width: 10px;
   height: 10px;
@@ -177,8 +179,10 @@ a:hover .heroExtIcon {
   opacity: 1;
 }
 
-/* Email tooltip in heroLinks */
-.emailWrap {
+
+/* Hero social tooltips (Email & Twitter left-aligned accent blue text) */
+.emailWrap,
+.twitterWrap {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -191,7 +195,7 @@ a:hover .heroExtIcon {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
@@ -206,53 +210,36 @@ a:hover .heroExtIcon {
   color: var(--accent);
 }
 
-.copyIconWrap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateX(-4px);
-  transition: all 0.2s ease;
-}
-
-.emailButton:hover .copyIconWrap {
-  opacity: 0.5;
-  transform: translateX(0);
-}
-
-.copyIcon {
-  width: 12px;
-  height: 12px;
-}
-
-.emailTooltip {
+.emailTooltip,
+.twitterTooltip {
   position: absolute;
-  bottom: calc(100% + 8px);
-  left: 0;
-  background: var(--foreground);
-  color: var(--background);
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
   font-family: var(--font-sans);
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: none;
-  font-weight: 400;
-  padding: 5px 10px;
+  font-weight: 500;
+  padding: 0;
   white-space: nowrap;
-  border: 1px solid var(--foreground);
+  border: none;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   user-select: text;
   -webkit-user-select: text;
-  z-index: 10;
+  z-index: 100;
 }
 
 .emailWrap:hover .emailTooltip,
-.emailTooltipVisible {
+.emailTooltipVisible,
+.twitterWrap:hover .twitterTooltip,
+.twitterTooltipVisible {
   opacity: 1;
-  pointer-events: auto;
+  transform: translateY(-50%) translateX(-4px);
 }
-
 
 /* Inline name link — for company/venue names with arrow icon */
 .nameLink {
@@ -311,12 +298,15 @@ a:hover .heroExtIcon {
   padding: 0;
 }
 
-/* ── Shared row base ──
-   Each row owns its top border. The last row also owns a bottom border.
-   Each visible line is exactly one border — no overlaps. */
+/* ── Shared row base ── */
 .row,
 .exhibRow {
   position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.6fr 140px;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: 14px 40px 14px 0;
   border-top: 1px solid var(--foreground);
   transition: border-color var(--duration-base);
 }
@@ -331,54 +321,12 @@ a:hover .heroExtIcon {
   border-top-color: var(--accent);
 }
 
-.row:hover + .row,
-.exhibRow:hover + .exhibRow {
-  border-top-color: var(--accent);
-}
-
 .row:last-child:hover,
 .exhibRow:last-child:hover {
   border-bottom-color: var(--accent);
 }
 
-/* ── Row (3-col: speaking, press, experience) ── */
-.row {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: var(--space-lg);
-  align-items: baseline;
-  padding: 14px 40px 14px 0;
-}
-
-/* ── Exhibition row (4-col: fixed widths so columns align across sections) ── */
-.exhibRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr 180px 110px;
-  gap: var(--space-lg);
-  align-items: baseline;
-  padding: 14px 40px 14px 0;
-}
-
-/* ── Row hover — all text turns red ── */
-.row:hover .rowName,
-.row:hover .rowLink,
-.row:hover .rowMeta,
-.row:hover .rowYear,
-.row:hover .rowType,
-.row:hover .rowDesc,
-.exhibRow:hover .rowName,
-.exhibRow:hover .rowLink,
-.exhibRow:hover .rowMeta,
-.exhibRow:hover .rowYear,
-.exhibRow:hover .rowDesc,
-.exhibRow:hover .workLink {
-  color: var(--accent);
-  opacity: 1;
-}
-
-/* ── Stretched link — .rowLink::after covers entire row ── */
 .rowLink {
-  /* position: static (default) so ::after positions relative to the <li> */
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 700;
@@ -396,7 +344,6 @@ a:hover .heroExtIcon {
   inset: 0;
 }
 
-/* ── Work link (exhibitions) — elevated above stretched link, sized to text only ── */
 .workLink {
   position: relative;
   z-index: 1;
@@ -410,7 +357,6 @@ a:hover .heroExtIcon {
   transition: color var(--duration-base), opacity var(--duration-base);
 }
 
-/* ── Row description (2nd col: speaking role, experience description) ── */
 .rowDesc {
   font-style: normal;
   font-family: var(--font-sans);
@@ -454,7 +400,9 @@ a:hover .heroExtIcon {
   font-weight: 400;
   font-size: 0.85rem;
   color: var(--foreground);
-  white-space: nowrap;
+  white-space: normal;
+  line-height: 1.25;
+  word-break: break-word;
   transition: color var(--duration-base);
 }
 
@@ -469,7 +417,6 @@ a:hover .heroExtIcon {
   transition: color var(--duration-base);
 }
 
-/* ── Row external icon — absolute right edge ── */
 .extIcon {
   position: absolute;
   right: var(--space-md);
@@ -488,7 +435,6 @@ a:hover .heroExtIcon {
   color: var(--accent);
 }
 
-/* ── Mobile ── */
 @media (max-width: 700px) {
   .about {
     padding: var(--page-pt-mobile) var(--page-px-mobile) 60px;
