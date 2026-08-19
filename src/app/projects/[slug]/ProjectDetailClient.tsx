@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./ProjectDetail.module.css";
 import Link from "next/link";
 
@@ -49,7 +49,33 @@ export default function ProjectDetailClient({
   const [activeSection, setActiveSection] = useState<string>(
     project.sections?.[0]?.id ?? ""
   );
+  const [showStickyTitle, setShowStickyTitle] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const heroRef = useRef<HTMLElement>(null);
   const observersRef = useRef<IntersectionObserver[]>([]);
+
+  // Scroll listener for sticky header title & progress bar
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        setShowStickyTitle(rect.bottom < 80);
+      }
+
+      const documentHeight = document.documentElement.scrollHeight;
+      const maxScroll = documentHeight - window.innerHeight;
+      const progress =
+        maxScroll > 0
+          ? Math.min(100, Math.max(0, (window.scrollY / maxScroll) * 100))
+          : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Scroll-track active sidebar section
   useEffect(() => {
@@ -347,8 +373,27 @@ export default function ProjectDetailClient({
 
   return (
     <main className={styles.container}>
+      {/* Top sticky blur mask + centered shrinking project title with progress bar */}
+      <div
+        className={`${styles.topStickyHeader} ${
+          showStickyTitle ? styles.topStickyHeaderVisible : ""
+        }`}
+        aria-hidden={!showStickyTitle}
+      >
+        <div className={styles.topBlurMask} />
+        <div className={styles.stickyTitleWrapper}>
+          <span className={styles.stickyProjectTitle}>{project.name}</span>
+          <div className={styles.progressBarTrack}>
+            <div
+              className={styles.progressBarFill}
+              style={{ width: `${scrollProgress}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Hero */}
-      <section className={styles.hero}>
+      <section className={styles.hero} ref={heroRef}>
         <h1 className={styles.title}>{project.name}</h1>
         <div className={styles.heroBottom}>
           <div className={styles.tagRow}>
@@ -403,38 +448,40 @@ export default function ProjectDetailClient({
           </aside>
         )}
 
-        <article className={styles.content}>{renderBody()}</article>
-      </div>
+        <article className={styles.content}>
+          {renderBody()}
 
-      {/* Prev / Next */}
-      <footer className={styles.footerNav}>
-        <Link href={`/projects/${prevProject.slug}`} className={styles.navLinkLeft}>
-          <svg
-            className={styles.navArrowSVG}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          <span className={styles.navText}>Previous</span>
-        </Link>
-        <Link href={`/projects/${nextProject.slug}`} className={styles.navLinkRight}>
-          <span className={styles.navText}>Next</span>
-          <svg
-            className={styles.navArrowSVG}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </Link>
-      </footer>
+          {/* Prev / Next Navigation aligned directly with gallery content */}
+          <div className={styles.footerNav}>
+            <Link href={`/projects/${prevProject.slug}`} className={styles.navLinkLeft}>
+              <svg
+                className={styles.navArrowSVG}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              <span className={styles.navText}>{prevProject.name}</span>
+            </Link>
+            <Link href={`/projects/${nextProject.slug}`} className={styles.navLinkRight}>
+              <span className={styles.navText}>{nextProject.name}</span>
+              <svg
+                className={styles.navArrowSVG}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </Link>
+          </div>
+        </article>
+      </div>
     </main>
   );
 }

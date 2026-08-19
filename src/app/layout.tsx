@@ -64,7 +64,7 @@ export default function RootLayout({
           <ScrollTracker />
         </Suspense>
         <Nav />
-        <div id="main-content" style={{ position: "relative", minHeight: "100vh", backgroundColor: "var(--background)", paddingBottom: "var(--space-xl)" }}>
+        <div id="main-content" style={{ position: "relative", zIndex: 10, minHeight: "100vh", backgroundColor: "var(--background)", paddingBottom: "var(--space-xl)" }}>
           {children}
         </div>
         <Footer />
@@ -76,5 +76,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
