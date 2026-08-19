@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import aboutData from "@/content/about.json";
 import ExternalIcon from "@/components/ExternalIcon";
 import EmailCopy from "@/components/EmailCopy";
@@ -6,7 +6,7 @@ import TwitterLink from "@/components/TwitterLink";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
-  title: "About â€” Ishan",
+  title: "about",
   description:
     "A third-year interaction design student with a deep-rooted passion for interactive data visualization.",
 };
@@ -99,4 +99,5 @@ export default function AboutPage() {
     </main>
   );
 }
+
 
