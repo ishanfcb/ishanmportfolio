@@ -12,7 +12,7 @@
 }
 
 html {
-  background-color: var(--accent);
+  background-color: var(--background);
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
 }

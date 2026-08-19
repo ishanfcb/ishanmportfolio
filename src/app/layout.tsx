@@ -8,6 +8,7 @@ import ScrollTracker from "@/components/ScrollTracker";
 import Footer from "@/components/Footer";
 import JourneyCursor from "@/components/JourneyCursor";
 import BottomBlurMask from "@/components/BottomBlurMask";
+import CommandPalette from "@/components/CommandPalette";
 
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/next"
@@ -67,6 +68,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <CommandPalette />
         <SpeedInsights />
         <Analytics />
         <UmamiLoader />
@@ -74,3 +76,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

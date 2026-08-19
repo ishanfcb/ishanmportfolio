@@ -1,4 +1,4 @@
-/* Shared Card — leff.in */
+/* Shared Card â€” leff.in */
 
 .card {
   color: var(--foreground);
@@ -80,7 +80,7 @@
   100% { opacity: 0; transform: translateX(36px); }
 }
 
-/* Thumbnail Wrap — Sharp Square Corners + Custom Cursor */
+/* Thumbnail Wrap â€” Sharp Square Corners + Custom Cursor */
 .thumbnailWrap {
   position: relative;
   aspect-ratio: 1;
@@ -151,8 +151,11 @@
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  background: #1a1a1a;
-  color: #ffffff;
+  background: rgba(235, 232, 224, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #1a1a1a;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 600;

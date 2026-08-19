@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import aboutData from "@/content/about.json";
 import ExternalIcon from "@/components/ExternalIcon";
 import EmailCopy from "@/components/EmailCopy";
@@ -6,7 +6,7 @@ import TwitterLink from "@/components/TwitterLink";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
-  title: "About — Ishan",
+  title: "About â€” Ishan",
   description:
     "A third-year interaction design student with a deep-rooted passion for interactive data visualization.",
 };
@@ -40,7 +40,7 @@ export default function AboutPage() {
       </section>
 
       {/* Professional Experience */}
-      <section className={styles.section}>
+      <section id="experience" className={styles.section}>
         <h2 className={styles.sectionTitle}>Professional Experience</h2>
         <ul className={styles.list}>
           {aboutData.experience.map((e) => (
@@ -69,7 +69,7 @@ export default function AboutPage() {
       </section>
 
       {/* Exhibitions */}
-      <section className={styles.section}>
+      <section id="exhibitions" className={styles.section}>
         <h2 className={styles.sectionTitle}>Exhibitions</h2>
         <ul className={styles.list}>
           {aboutData.exhibitions.map((e) => (
@@ -99,3 +99,4 @@ export default function AboutPage() {
     </main>
   );
 }
+
