@@ -25,10 +25,16 @@ export default function JourneyCursor() {
       const mouseX = e.clientX;
       const mouseY = e.clientY;
 
+      const target = e.target as HTMLElement | null;
+      if (target && target.closest('[data-hide-cursor="true"], [class*="thumbnailWrap"], [class*="listRow"]')) {
+        svg.style.opacity = '0';
+        return;
+      }
+
       if (!isVisible) {
         isVisible = true;
-        svg.style.opacity = '1';
       }
+      svg.style.opacity = '1';
 
       horiz.setAttribute('y1', `${mouseY}`);
       horiz.setAttribute('y2', `${mouseY}`);
@@ -52,6 +58,12 @@ export default function JourneyCursor() {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
+
+      if (target.closest('[data-hide-cursor="true"], [class*="thumbnailWrap"], [class*="listRow"]')) {
+        svg.style.opacity = '0';
+        return;
+      }
+
       const isInteractive = target.closest('a, button, input, textarea, [role="button"], [data-cursor], .card');
       if (isInteractive) {
         dot.setAttribute('r', '7');
@@ -87,7 +99,7 @@ export default function JourneyCursor() {
         zIndex: 999999,
         mixBlendMode: 'difference',
         opacity: 0,
-        transition: 'opacity 0.25s ease',
+        transition: 'opacity 0.15s ease',
       }}
       aria-hidden="true"
     >

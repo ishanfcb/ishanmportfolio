@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useMemo, useCallback, useRef, useLayoutEffect } from "react";
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
@@ -9,59 +9,6 @@ import { loadedMedia, requestLoad, cancelLoad, signalLoaded } from "./mediaLoadS
 import styles from "./ProjectsGrid.module.css";
 import cardStyles from "./Card.module.css";
 
-const FLIP_DURATION = 450; // ms — matches --duration-slow
-
-/* ── Animation helpers ── */
-
-function shouldAnimate() {
-  return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-/** Set elements to hidden state before a staggered reveal. */
-function prepareReveal(elements: HTMLElement[]) {
-  for (const el of elements) {
-    el.style.opacity = "0";
-    el.style.transform = "scale(0.97)";
-    el.style.transition = "none";
-  }
-}
-
-/**
- * Start a staggered reveal transition.
- * Call AFTER a forced reflow (void el.offsetHeight) so the browser
- * has committed the initial hidden state from prepareReveal().
- * Returns one cleanup function per element.
- */
-function startReveal(
-  elements: HTMLElement[],
-  duration: number,
-  maxStepMs = 20,
-): (() => void)[] {
-  const step = elements.length > 1
-    ? Math.min(maxStepMs, duration / elements.length)
-    : 0;
-
-  return elements.map((el, i) => {
-    const delay = Math.round(i * step);
-    el.style.transition = `opacity ${duration}ms ease ${delay}ms, transform ${duration}ms ease ${delay}ms`;
-    el.style.opacity = "";
-    el.style.transform = "";
-    return () => {
-      el.style.transition = "";
-      el.style.opacity = "";
-      el.style.transform = "";
-    };
-  });
-}
-
-/** Total time for a staggered reveal (animation + last card's delay). */
-function revealTotalMs(count: number, duration: number, maxStepMs = 20): number {
-  const step = count > 1 ? Math.min(maxStepMs, duration / count) : 0;
-  return duration + Math.round(count * step);
-}
-
-
-// Preset filters that map to multiple tags
 const HIDDEN_TAGS = new Set(["Industry"]);
 
 const PRESETS: { label: string; tags: string[] }[] = [
@@ -85,11 +32,27 @@ function GridCard({
   const [canLoadMedia, setCanLoadMedia] = useState(alreadyLoaded);
   const [mediaLoaded, setMediaLoaded] = useState(alreadyLoaded);
   const [showConfidential, setShowConfidential] = useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+
   const lockRef = useRef<HTMLSpanElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   useVideoVisibility(videoRef, isVideo && canLoadMedia);
 
-  // Staggered loading — join queue, load when slot available
+  const handleMouseEnter = (e: React.MouseEvent) => {
+    setIsHovered(true);
+    setCursorPos({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    setCursorPos({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   useEffect(() => {
     if (alreadyLoaded) return;
     const cb = () => setCanLoadMedia(true);
@@ -97,7 +60,6 @@ function GridCard({
     return () => cancelLoad(cb);
   }, [alreadyLoaded]);
 
-  // Video retry on error / stall
   const { handleLoadedData, handleError } = useVideoRetry({
     videoRef,
     src: project.thumbnail,
@@ -106,7 +68,6 @@ function GridCard({
     onGiveUp: () => { signalLoaded(); },
   });
 
-  // Image retry via key remount
   const [imgKey, setImgKey] = useState(0);
   const imgRetries = useRef(0);
   const handleImageLoad = () => { loadedMedia.add(project.thumbnail); signalLoaded(); setMediaLoaded(true); };
@@ -125,7 +86,13 @@ function GridCard({
 
   const thumbnailContent = (
     <>
-      <div className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""} ${project.locked ? cardStyles.thumbnailWrapLocked : ""}`}>
+      <div
+        className={`${cardStyles.thumbnailWrap} ${mediaLoaded ? cardStyles.thumbnailWrapLoaded : ""} ${project.locked ? cardStyles.thumbnailWrapLocked : ""}`}
+        data-hide-cursor="true"
+        onMouseEnter={handleMouseEnter}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         {showVideo && (
           <video
             ref={videoRef}
@@ -152,6 +119,24 @@ function GridCard({
             onError={handleImageError}
           />
         )}
+        {/* Hover Description Overlay on Thumbnail */}
+        <div className={cardStyles.gridHoverOverlay}>
+          <p className={cardStyles.gridHoverDescription}>{project.description}</p>
+        </div>
+
+        {/* Dynamic Cursor Pill Badge: VIEW MORE */}
+        {isHovered && (
+          <div
+            className={cardStyles.cursorViewMoreBadge}
+            style={{
+              left: `${cursorPos.x}px`,
+              top: `${cursorPos.y}px`,
+            }}
+          >
+            VIEW MORE
+          </div>
+        )}
+
         {project.locked && (
           <div className={cardStyles.lockedOverlay}>
             <span ref={lockRef} className={cardStyles.lockIcon}>&#x1F512;</span>
@@ -163,7 +148,6 @@ function GridCard({
         <span className={cardStyles.cardName}>{project.name}</span>
         <span className={cardStyles.cardYear}>{project.year}</span>
       </div>
-      <p className={cardStyles.cardDescription}>{project.description}</p>
     </>
   );
 
@@ -198,113 +182,67 @@ function GridCard({
         </Link>
       )}
       <div className={cardStyles.cardTags}>
-        {project.tags.map((tag) => (
-          <button
-            key={tag}
-            className={`${cardStyles.cardTag} ${activeTags.has(tag) ? cardStyles.cardTagActive : ""}`}
-            onClick={() => onTagClick(tag)}
-          >
-            {tag}
-          </button>
-        ))}
+        {project.tags
+          .filter((t) => !HIDDEN_TAGS.has(t))
+          .map((tag) => {
+            const isActive = activeTags.has(tag);
+            return (
+              <button
+                key={tag}
+                className={`${cardStyles.cardTag} ${isActive ? cardStyles.cardTagActive : ""}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onTagClick(tag);
+                }}
+              >
+                {tag}
+              </button>
+            );
+          })}
       </div>
     </div>
   );
 }
 
-export default function ProjectsGrid({
-  projects,
-}: {
-  projects: Project[];
-}) {
-  const searchParams = useSearchParams();
+export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [hoveredProject, setHoveredProject] = useState<Project | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
   const gridRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  const snapshotRef = useRef<{
-    positions: Map<string, DOMRect>;
-    clones: Map<string, HTMLElement>;
-    gridRect: DOMRect;
-  } | null>(null);
-  const pendingCleanups = useRef<(() => void)[]>([]);
-  const cleanupTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
-
-  /** Cancel any in-progress animation and run all pending cleanups. */
-  const flushCleanups = useCallback(() => {
-    if (cleanupTimer.current) { clearTimeout(cleanupTimer.current); cleanupTimer.current = undefined; }
-    pendingCleanups.current.forEach((fn) => fn());
-    pendingCleanups.current = [];
-  }, []);
-
-  /** Schedule cleanup after animation finishes. */
-  const scheduleCleanup = useCallback((totalMs: number) => {
-    cleanupTimer.current = setTimeout(() => {
-      pendingCleanups.current.forEach((fn) => fn());
-      pendingCleanups.current = [];
-    }, totalMs + 50);
-  }, []);
-
-  // Parse active tags from URL
-  const activeTags = useMemo(() => {
-    const param = searchParams.get("tags");
-    if (!param) return new Set<string>();
-    return new Set(param.split(",").filter(Boolean));
-  }, [searchParams]);
-
-  // All unique tags sorted by frequency
   const allTags = useMemo(() => {
-    const counts: Record<string, number> = {};
-    projects.forEach((p) => p.tags.forEach((t) => {
-      if (!HIDDEN_TAGS.has(t)) counts[t] = (counts[t] || 0) + 1;
-    }));
-    return Object.entries(counts)
-      .sort((a, b) => b[1] - a[1])
-      .map(([tag]) => tag);
+    const set = new Set<string>();
+    for (const p of projects) {
+      for (const t of p.tags) {
+        if (!HIDDEN_TAGS.has(t)) set.add(t);
+      }
+    }
+    return Array.from(set).sort();
   }, [projects]);
 
-  // Active preset detection
+  const activeTags = useMemo(() => {
+    const raw = searchParams.get("tags");
+    if (!raw) return new Set<string>();
+    const valid = raw.split(",").filter((t) => allTags.includes(t));
+    return new Set(valid);
+  }, [searchParams, allTags]);
+
   const activePreset = useMemo(() => {
     if (activeTags.size === 0) return "All";
     for (const preset of PRESETS) {
       if (preset.tags.length === 0) continue;
-      const presetSet = new Set(preset.tags);
-      const allInPreset = [...activeTags].every((t) => presetSet.has(t));
+      const allInPreset =
+        preset.tags.every((t) => activeTags.has(t)) &&
+        activeTags.size === preset.tags.length;
       if (allInPreset) return preset.label;
     }
     return null;
   }, [activeTags]);
-
-  // Snapshot card positions + clone DOM nodes before a filter change
-  const snapshot = useCallback(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-    const gridRect = grid.getBoundingClientRect();
-    const positions = new Map<string, DOMRect>();
-    const clones = new Map<string, HTMLElement>();
-    cardRefs.current.forEach((el, slug) => {
-      positions.set(slug, el.getBoundingClientRect());
-      const clone = el.cloneNode(true) as HTMLElement;
-
-      // Capture current video frame as a static canvas so the clone
-      // shows the last visible frame instead of a blank video element
-      const origVideo = el.querySelector("video");
-      const cloneVideo = clone.querySelector("video");
-      if (origVideo && cloneVideo && origVideo.readyState >= 2) {
-        try {
-          const canvas = document.createElement("canvas");
-          canvas.width = origVideo.videoWidth;
-          canvas.height = origVideo.videoHeight;
-          canvas.getContext("2d")?.drawImage(origVideo, 0, 0);
-          canvas.className = cloneVideo.className;
-          cloneVideo.replaceWith(canvas);
-        } catch { /* cross-origin or other error — keep the clone video as-is */ }
-      }
-
-      clones.set(slug, clone);
-    });
-    snapshotRef.current = { positions, clones, gridRect };
-  }, []);
 
   const updateTags = useCallback(
     (newTags: Set<string>) => {
@@ -322,7 +260,6 @@ export default function ProjectsGrid({
 
   const toggleTag = useCallback(
     (tag: string) => {
-      snapshot();
       window.umami?.track("tag-click", { tag });
       if (activeTags.has(tag) && activeTags.size === 1) {
         updateTags(new Set());
@@ -330,12 +267,11 @@ export default function ProjectsGrid({
         updateTags(new Set([tag]));
       }
     },
-    [activeTags, updateTags, snapshot]
+    [activeTags, updateTags]
   );
 
   const applyPreset = useCallback(
     (preset: (typeof PRESETS)[number]) => {
-      snapshot();
       window.umami?.track("preset-click", { preset: preset.label });
       if (preset.tags.length === 0) {
         updateTags(new Set());
@@ -343,121 +279,27 @@ export default function ProjectsGrid({
         updateTags(new Set(preset.tags));
       }
     },
-    [updateTags, snapshot]
+    [updateTags]
   );
 
-  // Filter projects: OR logic — project must have at least one of the active tags
   const filtered = useMemo(() => {
     if (activeTags.size === 0) return projects;
     return projects.filter((p) => p.tags.some((t) => activeTags.has(t)));
   }, [projects, activeTags]);
 
-  // Initial page-load entrance: staggered fade-in for all cards
-  const hasAnimatedInitial = useRef(false);
-  useLayoutEffect(() => {
-    if (hasAnimatedInitial.current) return;
-    hasAnimatedInitial.current = true;
+  const handleRowHover = (p: Project, e: React.MouseEvent) => {
+    setHoveredProject(p);
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
 
-    if (!shouldAnimate()) return;
+  const handleRowLeave = () => {
+    setHoveredProject(null);
+  };
 
-    const grid = gridRef.current;
-    if (!grid) return;
+  const handleRowMove = (e: React.MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY });
+  };
 
-    const cards: HTMLDivElement[] = [];
-    cardRefs.current.forEach((el) => cards.push(el));
-    if (cards.length === 0) return;
-
-    prepareReveal(cards);
-    void grid.offsetHeight;
-    pendingCleanups.current = startReveal(cards, FLIP_DURATION, 80);
-    scheduleCleanup(revealTotalMs(cards.length, FLIP_DURATION, 80));
-
-    return flushCleanups;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Exit/enter animation after filter change
-  useLayoutEffect(() => {
-    const snap = snapshotRef.current;
-    if (!snap) return flushCleanups;
-    snapshotRef.current = null;
-
-    if (!shouldAnimate()) return flushCleanups;
-
-    const grid = gridRef.current;
-    if (!grid) return flushCleanups;
-
-    // Cancel any in-progress animation (including initial entrance)
-    flushCleanups();
-
-    const currentSlugs = new Set(filtered.map((p) => p.slug));
-
-    // Helper to append an exit clone at its old position
-    const exitClones: HTMLElement[] = [];
-    const addExitClone = (slug: string, oldRect: DOMRect) => {
-      const clone = snap.clones.get(slug);
-      if (!clone) return;
-      Object.assign(clone.style, {
-        position: "absolute",
-        left: `${oldRect.left - snap.gridRect.left}px`,
-        top: `${oldRect.top - snap.gridRect.top}px`,
-        width: `${oldRect.width}px`,
-        height: `${oldRect.height}px`,
-        margin: "0",
-        pointerEvents: "none",
-        zIndex: "1",
-      });
-      grid.appendChild(clone);
-      exitClones.push(clone);
-      pendingCleanups.current.push(() => clone.remove());
-    };
-
-    // EXIT: clones for removed cards
-    snap.positions.forEach((oldRect, slug) => {
-      if (!currentSlugs.has(slug)) addExitClone(slug, oldRect);
-    });
-
-    // Categorize remaining cards: moved (exit + enter) vs new (enter only)
-    const entering: HTMLDivElement[] = [];
-    cardRefs.current.forEach((el, slug) => {
-      const oldRect = snap.positions.get(slug);
-      if (!oldRect) {
-        // New card — enter animation
-        entering.push(el);
-        return;
-      }
-      // Existing card — check if it moved
-      const newRect = el.getBoundingClientRect();
-      if (Math.abs(oldRect.left - newRect.left) > 1 || Math.abs(oldRect.top - newRect.top) > 1) {
-        // Moved — exit clone at old position, enter at new position
-        addExitClone(slug, oldRect);
-        entering.push(el);
-      }
-    });
-
-    // Set initial states before reflow
-    prepareReveal(entering);
-    void grid.offsetHeight;
-
-    // Start transitions
-    const EXIT_STAGGER = 60; // ms between each exit clone
-    exitClones.forEach((clone, i) => {
-      const delay = Math.round(i * EXIT_STAGGER);
-      clone.style.transition = `opacity ${FLIP_DURATION}ms ease ${delay}ms, transform ${FLIP_DURATION}ms ease ${delay}ms`;
-      clone.style.opacity = "0";
-      clone.style.transform = "scale(0.95)";
-    });
-
-    pendingCleanups.current.push(...startReveal(entering, FLIP_DURATION, 80));
-
-    const exitTotalMs = FLIP_DURATION + Math.round(exitClones.length * EXIT_STAGGER);
-    const enterTotalMs = revealTotalMs(entering.length, FLIP_DURATION, 80);
-    scheduleCleanup(Math.max(exitTotalMs, enterTotalMs));
-
-    return flushCleanups;
-  }, [filtered, flushCleanups, scheduleCleanup]);
-
-  // Show/hide individual tags
   const [showAllTags, setShowAllTags] = useState(false);
   const visibleTags = showAllTags ? allTags : allTags.slice(0, 12);
 
@@ -479,41 +321,122 @@ export default function ProjectsGrid({
         </div>
 
         <div className={styles.tagsRow}>
-          {visibleTags.map((tag) => (
+          <div className={styles.tagsGroup}>
+            {visibleTags.map((tag) => (
+              <button
+                key={tag}
+                className={`${styles.tagBtn} ${activeTags.has(tag) ? styles.tagActive : ""}`}
+                onClick={() => toggleTag(tag)}
+              >
+                {tag}
+              </button>
+            ))}
+            {allTags.length > 12 && (
+              <button
+                className={styles.tagBtn}
+                onClick={() => setShowAllTags(!showAllTags)}
+              >
+                {showAllTags ? "Less" : `+${allTags.length - 12} more`}
+              </button>
+            )}
+          </div>
+
+          <div className={styles.viewToggle}>
             <button
-              key={tag}
-              className={`${styles.tagBtn} ${activeTags.has(tag) ? styles.tagActive : ""}`}
-              onClick={() => toggleTag(tag)}
+              className={`${styles.viewBtn} ${viewMode === "grid" ? styles.viewBtnActive : ""}`}
+              onClick={() => setViewMode("grid")}
             >
-              {tag}
+              GRID
             </button>
-          ))}
-          {allTags.length > 12 && (
             <button
-              className={styles.tagBtn}
-              onClick={() => setShowAllTags(!showAllTags)}
+              className={`${styles.viewBtn} ${viewMode === "list" ? styles.viewBtnActive : ""}`}
+              onClick={() => setViewMode("list")}
             >
-              {showAllTags ? "Less" : `+${allTags.length - 12} more`}
+              LIST
             </button>
-          )}
+          </div>
         </div>
       </div>
 
-      {/* Grid */}
-      <div ref={gridRef} className={styles.grid}>
-        {filtered.map((project) => (
-          <GridCard
-            key={project.slug}
-            project={project}
-            onTagClick={toggleTag}
-            activeTags={activeTags}
-            cardRef={(el) => {
-              if (el) cardRefs.current.set(project.slug, el);
-              else cardRefs.current.delete(project.slug);
-            }}
-          />
-        ))}
-      </div>
+      {/* Grid View */}
+      {viewMode === "grid" && (
+        <div ref={gridRef} className={styles.grid}>
+          {filtered.map((project) => (
+            <GridCard
+              key={project.slug}
+              project={project}
+              onTagClick={toggleTag}
+              activeTags={activeTags}
+              cardRef={(el) => {
+                if (el) cardRefs.current.set(project.slug, el);
+                else cardRefs.current.delete(project.slug);
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* List View */}
+      {viewMode === "list" && (
+        <div className={styles.listView}>
+          <div className={styles.listHeader}>
+            <span>#</span>
+            <span>TITLE</span>
+            <span>TYPE</span>
+            <span className={styles.listYear}>YEAR</span>
+          </div>
+
+          {filtered.map((project, index) => {
+            const indexStr = (index + 1).toString().padStart(2, "0");
+            const tagsStr = project.tags.filter(t => !HIDDEN_TAGS.has(t)).slice(0, 3).join(" / ").toUpperCase();
+
+            return (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className={styles.listRow}
+                data-hide-cursor="true"
+                onMouseEnter={(e) => handleRowHover(project, e)}
+                onMouseLeave={handleRowLeave}
+                onMouseMove={handleRowMove}
+              >
+                <span className={styles.listIndex}>{indexStr}</span>
+                <span className={styles.listTitle}>{project.name}</span>
+                <span className={styles.listTags}>{tagsStr}</span>
+                <span className={styles.listYear}>{project.year}</span>
+              </Link>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Floating Image Preview on Hover in List View */}
+      {viewMode === "list" && hoveredProject && (
+        <div
+          className={styles.floatingPreview}
+          style={{
+            left: `${mousePos.x}px`,
+            top: `${mousePos.y}px`,
+          }}
+        >
+          {hoveredProject.thumbnail.endsWith(".mp4") ? (
+            <video
+              src={hoveredProject.thumbnail}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.previewMedia}
+            />
+          ) : (
+            <img
+              src={hoveredProject.thumbnail}
+              alt={hoveredProject.name}
+              className={styles.previewMedia}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }

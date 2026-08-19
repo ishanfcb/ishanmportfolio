@@ -1,8 +1,4 @@
-/* ═══════════════════════════════════════════════════════
-   Shared Card — leff.in
-
-   Used by FeaturedProjects and ProjectsGrid.
-   ═══════════════════════════════════════════════════════ */
+/* Shared Card — leff.in */
 
 .card {
   color: var(--foreground);
@@ -18,8 +14,7 @@
 }
 
 .cardLink:hover .cardName,
-.cardLink:hover .cardYear,
-.cardLink:hover .cardDescription {
+.cardLink:hover .cardYear {
   color: var(--accent);
 }
 
@@ -85,13 +80,16 @@
   100% { opacity: 0; transform: translateX(36px); }
 }
 
-
+/* Thumbnail Wrap — Sharp Square Corners + Custom Cursor */
 .thumbnailWrap {
+  position: relative;
   aspect-ratio: 1;
   overflow: hidden;
+  border-radius: 0;
   border: 1.5px solid transparent;
   transition: border-color var(--duration-slow);
   background: var(--card-bg);
+  cursor: none; /* Hide default cursor on hover */
 }
 
 .thumbnailWrapLoaded {
@@ -107,11 +105,76 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
+  border-radius: 0;
   transition: opacity var(--duration-base) ease;
 }
 
 .thumbnailLoaded {
   opacity: 1;
+}
+
+/* Grid hover overlay description */
+.gridHoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  border-radius: 0;
+  transition: opacity 0.35s ease;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.cardLink:hover .gridHoverOverlay {
+  opacity: 1;
+}
+
+.gridHoverDescription {
+  color: #ffffff !important;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Floating "VIEW MORE" Rounded Pill Cursor Badge */
+.cursorViewMoreBadge {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 100px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+  animation: scaleInBadge 0.2s ease forwards;
+}
+
+@keyframes scaleInBadge {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .cardInfo {
@@ -137,14 +200,6 @@
   font-size: 0.85rem;
   opacity: 0.5;
   flex-shrink: 0;
-}
-
-.cardDescription {
-  font-size: 0.85rem;
-  font-weight: 300;
-  margin: 4px 0 0;
-  opacity: 0.6;
-  line-height: 1.4;
 }
 
 .cardTags {
@@ -175,54 +230,20 @@
   border-color: var(--accent);
 }
 
-.cardTag::after {
-  content: "filter";
-  position: absolute;
-  left: 2px;
-  top: 100%;
-  transform: translateY(-4px);
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: var(--disabled);
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--duration-base), transform var(--duration-base);
-  margin-top: 4px;
-}
-
-.cardTag:hover::after {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .cardTagActive {
   background: var(--accent);
   color: var(--background);
   border-color: var(--accent);
 }
 
-.cardTagActive:hover {
-  color: var(--background);
-  border-color: var(--accent);
-}
-
-.cardTagActive::after {
-  content: "reset";
-}
-
 @media (max-width: 700px) {
   .cardName {
     font-size: 0.75rem;
   }
-
-  .cardDescription {
-    font-size: 0.7rem;
-  }
-
   .cardTags {
+    display: none;
+  }
+  .cursorViewMoreBadge {
     display: none;
   }
 }
