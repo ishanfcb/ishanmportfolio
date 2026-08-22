@@ -32,7 +32,7 @@ export default function AboutPage() {
             <a href={aboutData.contact.linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn <ExternalIcon className={styles.heroExtIcon} />
             </a>
-            <a href="/Resume_2025.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="https://drive.google.com/file/d/1xYZl0ccAwTTdpBXDojaLYIZQBVPVUzZE/view?usp=sharing" target="_blank" rel="noopener noreferrer">
               Resume <ExternalIcon className={styles.heroExtIcon} />
             </a>
           </div>
@@ -99,5 +99,6 @@ export default function AboutPage() {
     </main>
   );
 }
+
 
 
