@@ -8,7 +8,7 @@ import styles from "./about.module.css";
 export const metadata: Metadata = {
   title: "about",
   description:
-    "A third-year interaction design student with a deep-rooted passion for interactive data visualization.",
+    "A final year interaction design student with a deep-rooted passion for interactive data visualization.",
 };
 
 export default function AboutPage() {
