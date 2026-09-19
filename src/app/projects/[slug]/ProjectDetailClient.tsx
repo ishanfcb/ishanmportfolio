@@ -596,12 +596,12 @@ export default function ProjectDetailClient({
         aria-label="Scroll to top"
       >
         <svg
-          width="13"
-          height="13"
+          width="15"
+          height="15"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          strokeWidth="1.8"
+          strokeWidth="2.2"
           strokeLinecap="round"
           strokeLinejoin="round"
           aria-hidden="true"
