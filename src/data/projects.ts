@@ -22,18 +22,19 @@ export const projectsArray: Project[] = [
   {
     "name": "Ajanta Caves",
     "slug": "ajanta-caves",
-    "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
-    "height": 1080,
-    "width": 1080,
-    "year": 2025,
+    "thumbnail": "/media/ajanta-caves/ajanta_hero_thumbnail.jpg",
+    "height": 1600,
+    "width": 1200,
+    "year": 2024,
     "tags": [
-      "Research",
-      "UX",
-      "3D World Building",
-      "VR"
+      "VR World Building",
+      "Multisensory Experience",
+      "Spatial Design",
+      "TouchDesigner",
+      "Unity"
     ],
     "size": "1x1",
-    "description": "An immersive VR experience that brings the Ajanta Caves to life, focusing on light, interaction, and atmosphere to recreate the feeling of being inside the space.",
+    "description": "Follow the brushstrokes through the silence: a torchlit journey to a father's living art. A two-phase project transitioning from 3D VR world-building to a physical multisensory ritual built from fire, touch, and darkness.",
     "featured": true
   },
   {

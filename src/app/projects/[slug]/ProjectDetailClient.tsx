@@ -16,6 +16,7 @@ interface ContentBlock {
   src?: string;
   alt?: string;
   label?: string;
+  caption?: string;
   links?: { text: string; href: string }[];
 }
 
@@ -51,6 +52,22 @@ export default function ProjectDetailClient({
     project.sections?.[0]?.id ?? ""
   );
   const [showStickyTitle, setShowStickyTitle] = useState(false);
+  const [activeLightboxImage, setActiveLightboxImage] = useState<{
+    src: string;
+    alt: string;
+    caption?: string;
+  } | null>(null);
+
+  // Escape key handler to close lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveLightboxImage(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
   const [showSidebarNav, setShowSidebarNav] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -176,29 +193,60 @@ export default function ProjectDetailClient({
 
       if (imgBuffer.length === 1) {
         const { block, i } = imgBuffer[0];
+        const captionText = block.caption || block.label;
         elements.push(
           <div key={i} className={styles.block}>
-            <img
-              src={block.src}
-              alt={block.alt ?? ""}
-              className={styles.mediaImage}
-              loading="lazy"
-            />
+            <figure className={styles.imageFigure}>
+              <img
+                src={block.src}
+                alt={block.alt ?? ""}
+                className={`${styles.mediaImage} ${styles.clickableImage}`}
+                loading="lazy"
+                onClick={() =>
+                  setActiveLightboxImage({
+                    src: block.src!,
+                    alt: block.alt ?? "",
+                    caption: captionText,
+                  })
+                }
+              />
+              {captionText && (
+                <figcaption className={styles.imageCaption}>
+                  {captionText}
+                </figcaption>
+              )}
+            </figure>
           </div>
         );
       } else {
         const key = `img-grid-${imgBuffer[0].i}`;
         elements.push(
           <div key={key} className={`${styles.block} ${styles.imageGrid}`}>
-            {imgBuffer.map(({ block, i }) => (
-              <img
-                key={i}
-                src={block.src}
-                alt={block.alt ?? ""}
-                className={styles.mediaImageGrid}
-                loading="lazy"
-              />
-            ))}
+            {imgBuffer.map(({ block, i }) => {
+              const captionText = block.caption || block.label;
+              return (
+                <figure key={i} className={styles.imageFigure}>
+                  <img
+                    src={block.src}
+                    alt={block.alt ?? ""}
+                    className={`${styles.mediaImageGrid} ${styles.clickableImage}`}
+                    loading="lazy"
+                    onClick={() =>
+                      setActiveLightboxImage({
+                        src: block.src!,
+                        alt: block.alt ?? "",
+                        caption: captionText,
+                      })
+                    }
+                  />
+                  {captionText && (
+                    <figcaption className={styles.imageCaption}>
+                      {captionText}
+                    </figcaption>
+                  )}
+                </figure>
+              );
+            })}
           </div>
         );
       }
