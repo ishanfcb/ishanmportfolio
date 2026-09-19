@@ -1110,3 +1110,94 @@
   line-height: 1.5;
   margin: 0;
 }
+
+
+/* Sidebar Subsections */
+.sidebarSubList {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 12px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease;
+}
+
+.sidebarSubListVisible {
+  max-height: 400px;
+  opacity: 1;
+  margin: 6px 0 8px 12px;
+}
+
+.sidebarSubItem {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebarSubLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  padding: 2px 0;
+  font-family: var(--font-body, var(--font-sans)), sans-serif;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--foreground) 55%, transparent);
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.sidebarSubDash {
+  width: 8px;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.4;
+  transition: width 0.2s ease, opacity 0.2s ease;
+}
+
+.sidebarSubLink:hover {
+  color: var(--accent, #283A77);
+  opacity: 1;
+}
+
+.sidebarSubLink:hover .sidebarSubDash {
+  width: 12px;
+  opacity: 1;
+}
+
+.sidebarSubLinkActive {
+  color: var(--accent, #283A77);
+  font-weight: 500;
+  opacity: 1;
+}
+
+.sidebarSubLinkActive .sidebarSubDash {
+  width: 14px;
+  opacity: 1;
+  background-color: var(--accent, #283A77);
+}
+
+/* Single Image Centered & Balanced */
+.singleImageBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.singleImageFigure {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 3-Image Symmetrical Full Width Row */
+.fullWidthGridFigure {
+  grid-column: 1 / -1;
+  width: 100%;
+}

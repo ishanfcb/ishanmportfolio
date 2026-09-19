@@ -22,9 +22,9 @@ export const projectsArray: Project[] = [
   {
     "name": "Ajanta Caves",
     "slug": "ajanta-caves",
-    "thumbnail": "/media/ajanta-caves/ajanta_hero_thumbnail.jpg",
-    "height": 1600,
-    "width": 1200,
+    "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
+    "height": 1080,
+    "width": 1080,
     "year": 2024,
     "tags": [
       "VR World Building",

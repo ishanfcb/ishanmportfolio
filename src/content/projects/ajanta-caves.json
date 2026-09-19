@@ -1,9 +1,9 @@
 {
   "name": "Ajanta Caves",
   "slug": "ajanta-caves",
-  "thumbnail": "/media/ajanta-caves/ajanta_hero_thumbnail.jpg",
-  "height": 1600,
-  "width": 1200,
+  "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
+  "height": 1080,
+  "width": 1080,
   "year": 2024,
   "tags": [
     "VR World Building",
@@ -24,19 +24,75 @@
     },
     {
       "id": "phase1",
-      "label": "Phase 1: VR Cave"
+      "label": "Phase 1: VR Cave",
+      "subsections": [
+        {
+          "id": "goal",
+          "label": "The Goal"
+        },
+        {
+          "id": "what_we_built",
+          "label": "What We Built"
+        }
+      ]
     },
     {
       "id": "torch_building",
-      "label": "Building the Torch"
+      "label": "Building the Torch",
+      "subsections": [
+        {
+          "id": "modelling_torch",
+          "label": "1. Modelling in Blender"
+        },
+        {
+          "id": "unity_import",
+          "label": "2. Bringing into Unity"
+        },
+        {
+          "id": "physics_setup",
+          "label": "3. Physics & Interaction"
+        },
+        {
+          "id": "fire_effect",
+          "label": "4. Building Fire Effect"
+        },
+        {
+          "id": "trigger_collision",
+          "label": "5. Triggering on Collision"
+        }
+      ]
     },
     {
       "id": "phase2",
-      "label": "Phase 2: Physical Ritual"
+      "label": "Phase 2: Physical Ritual",
+      "subsections": [
+        {
+          "id": "why_no_headset",
+          "label": "Why We Left Headset Behind"
+        },
+        {
+          "id": "experience_steps",
+          "label": "Step by Step Experience"
+        }
+      ]
     },
     {
       "id": "problem_solving",
-      "label": "Problem Solving"
+      "label": "Problem Solving",
+      "subsections": [
+        {
+          "id": "problem_1",
+          "label": "Problem 1: Torch Tracking"
+        },
+        {
+          "id": "problem_2",
+          "label": "Problem 2: Realistic Journal"
+        },
+        {
+          "id": "problem_3",
+          "label": "Problem 3: Wall Light Trigger"
+        }
+      ]
     },
     {
       "id": "synthesis",
@@ -89,27 +145,32 @@
     {
       "type": "heading",
       "sectionId": "phase1",
-      "content": "The Goal"
+      "content": "The Goal",
+      "subSectionId": "goal"
     },
     {
       "type": "paragraph",
       "sectionId": "phase1",
-      "content": "Ajanta Cave 1 is a real, ancient site. Very few people can visit it. Even fewer can feel what it was like when it was in use. Our goal was to rebuild the cave in VR, so anyone with a headset could walk into it at real scale and feel like they were actually standing inside it, not just looking at pictures of it."
+      "content": "Ajanta Cave 1 is a real, ancient site. Very few people can visit it. Even fewer can feel what it was like when it was in use. Our goal was to rebuild the cave in VR, so anyone with a headset could walk into it at real scale and feel like they were actually standing inside it, not just looking at pictures of it.",
+      "subSectionId": "goal"
     },
     {
       "type": "paragraph",
       "sectionId": "phase1",
-      "content": "We wanted it to feel like a real place: the darkness, the stone, the way torchlight moves across a wall. This is what we mean by presence: the feeling of actually being somewhere, instead of watching it."
+      "content": "We wanted it to feel like a real place: the darkness, the stone, the way torchlight moves across a wall. This is what we mean by presence: the feeling of actually being somewhere, instead of watching it.",
+      "subSectionId": "goal"
     },
     {
       "type": "heading",
       "sectionId": "phase1",
-      "content": "What We Built"
+      "content": "What We Built",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "paragraph",
       "sectionId": "phase1",
-      "content": "We built a 3D, walkable VR simulation of the cave. It was made approximately to a 1:1 scale. Inside it, the person wearing the headset could do three things:"
+      "content": "We built a 3D, walkable VR simulation of the cave. It was made approximately to a 1:1 scale. Inside it, the person wearing the headset could do three things:",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "bulletList",
@@ -118,259 +179,304 @@
         "Light the way: pick up a torch and use it to see dark corners and the art on the walls.",
         "Examine artifacts: find and look closely at paintings from the past.",
         "Leave a mark: interact with the ancient walls and add a painting of their own."
-      ]
+      ],
+      "subSectionId": "what_we_built"
     },
     {
       "type": "paragraph",
       "sectionId": "phase1",
-      "content": "This was built over a two-week module. We used SketchUp to model the cave's architecture. We used Blender to add detail and texture. We used Unity to make it interactive and playable in VR."
+      "content": "This was built over a two-week module. We used SketchUp to model the cave's architecture. We used Blender to add detail and texture. We used Unity to make it interactive and playable in VR.",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "youtube",
       "sectionId": "phase1",
-      "content": "https://youtu.be/bhaxkyyCsx0?si=r9OTMenN4bMnhcVH"
+      "content": "https://youtu.be/bhaxkyyCsx0?si=r9OTMenN4bMnhcVH",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "Behind the Scenes: Building the Interactive Torch"
+      "content": "Behind the Scenes: Building the Interactive Torch",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "One of the three core interactions \u2014 lighting the way \u2014 relied on a fully custom torch prop, built specifically for this project. The following explains how I made the torch, from its first shape in Blender through to the fire effect and interaction logic in Unity."
+      "content": "One of the three core interactions \u2014 lighting the way \u2014 relied on a fully custom torch prop, built specifically for this project. The following explains how I made the torch, from its first shape in Blender through to the fire effect and interaction logic in Unity.",
+      "subSectionId": "what_we_built"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "1. Modelling the Torch in Blender"
+      "content": "1. Modelling the Torch in Blender",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "The torch started life as a simple cylinder. Working in Edit Mode, the cylinder's vertices and edges were pushed and pulled to shape it: the top was flared outward and hollowed slightly to form the bowl that holds the flame, while the bottom was tapered down into a narrow spike-shaped handle. A raised ring was added partway down the handle to act as a grip band."
+      "content": "The torch started life as a simple cylinder. Working in Edit Mode, the cylinder's vertices and edges were pushed and pulled to shape it: the top was flared outward and hollowed slightly to form the bowl that holds the flame, while the bottom was tapered down into a narrow spike-shaped handle. A raised ring was added partway down the handle to act as a grip band.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/blender_base_wireframe.png",
       "alt": "Base wireframe shape",
-      "caption": "The base wireframe shape \u2014 flared cup narrowing into a tapered handle."
+      "caption": "The base wireframe shape \u2014 flared cup narrowing into a tapered handle.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/blender_rim_wireframe.png",
       "alt": "Refined wireframe",
-      "caption": "Refined wireframe with the rim and grip band edges added."
+      "caption": "Refined wireframe with the rim and grip band edges added.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "Once the shape was right, materials were applied so the torch would read clearly at a glance: a dark charcoal-black material for the metal rim and cup, and a warm brown wood material for the handle and grip band."
+      "content": "Once the shape was right, materials were applied so the torch would read clearly at a glance: a dark charcoal-black material for the metal rim and cup, and a warm brown wood material for the handle and grip band.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/blender_materials_applied.png",
       "alt": "Materials applied",
-      "caption": "Materials applied \u2014 black metal cup and rim, brown wooden handle."
+      "caption": "Materials applied \u2014 black metal cup and rim, brown wooden handle.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/blender_perspective_wireframe.png",
       "alt": "Wireframe perspective",
-      "caption": "Wireframe shown from a 3D perspective angle."
+      "caption": "Wireframe shown from a 3D perspective angle.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/blender_perspective_textured.png",
       "alt": "Textured model perspective",
-      "caption": "The finished, textured model from the same perspective angle."
+      "caption": "The finished, textured model from the same perspective angle.",
+      "subSectionId": "modelling_torch"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "2. Bringing the Torch into Unity"
+      "content": "2. Bringing the Torch into Unity",
+      "subSectionId": "unity_import"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "With the model finished, it was imported into Unity as a GameObject named torchA. Rather than treating the flame as one single effect, it was broken down into separate child objects so each part could be tuned on its own: three flame layers (Fire1, Fire2, Fire3) to build up a fuller-looking fire, plus a Sparks system and a Smoke system."
+      "content": "With the model finished, it was imported into Unity as a GameObject named torchA. Rather than treating the flame as one single effect, it was broken down into separate child objects so each part could be tuned on its own: three flame layers (Fire1, Fire2, Fire3) to build up a fuller-looking fire, plus a Sparks system and a Smoke system.",
+      "subSectionId": "unity_import"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_torcha_hierarchy.png",
       "alt": "Unity Hierarchy torchA",
-      "caption": "The torchA object in the Unity Hierarchy, with its Fire, Sparks and Smoke children."
+      "caption": "The torchA object in the Unity Hierarchy, with its Fire, Sparks and Smoke children.",
+      "subSectionId": "unity_import"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "3. Physics and Interaction Setup"
+      "content": "3. Physics and Interaction Setup",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "To make the torch behave correctly in the scene, two physics components were added. A Rigidbody was set to Kinematic \u2014 meaning the torch won't fall over or get pushed around by physics, but can still be moved or interacted with by other scripts and logic."
+      "content": "To make the torch behave correctly in the scene, two physics components were added. A Rigidbody was set to Kinematic \u2014 meaning the torch won't fall over or get pushed around by physics, but can still be moved or interacted with by other scripts and logic.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_rigidbody_settings.png",
       "alt": "Rigidbody settings",
-      "caption": "Rigidbody settings: kinematic, continuous collision detection, gravity off."
+      "caption": "Rigidbody settings: kinematic, continuous collision detection, gravity off.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "A Box Collider was then fitted around the torch's body to give it solid, physical bounds so other objects can collide with it."
+      "content": "A Box Collider was then fitted around the torch's body to give it solid, physical bounds so other objects can collide with it.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_box_collider.png",
       "alt": "Box Collider",
-      "caption": "Box Collider sized to match the torch's shape."
+      "caption": "Box Collider sized to match the torch's shape.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "A second Box Collider was added around the bowl area specifically, this time set as a Trigger. Trigger colliders don't physically block anything \u2014 instead they're used to detect when another object enters that space, which is what powers the flame-lighting interaction described in Section 5."
+      "content": "A second Box Collider was added around the bowl area specifically, this time set as a Trigger. Trigger colliders don't physically block anything \u2014 instead they're used to detect when another object enters that space, which is what powers the flame-lighting interaction described in Section 5.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_trigger_collider.png",
       "alt": "Second Box Collider Trigger",
-      "caption": "A second Box Collider, set as a trigger, around the flame bowl."
+      "caption": "A second Box Collider, set as a trigger, around the flame bowl.",
+      "subSectionId": "physics_setup"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "4. Building the Fire Effect"
+      "content": "4. Building the Fire Effect",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "The flame itself is built from layered Particle Systems rather than a single sprite, which is what gives it a flickering, alive look instead of looking flat and static. The fire particles use the \"Legacy Shaders/Particles/Additive\" shader with a warm orange tint, which makes overlapping particles glow and brighten each other the way real flame does. Sparks use a very short lifetime, tiny random sizes, and a slight negative gravity so they look like embers popping upward off the fire and fading fast."
+      "content": "The flame itself is built from layered Particle Systems rather than a single sprite, which is what gives it a flickering, alive look instead of looking flat and static. The fire particles use the \"Legacy Shaders/Particles/Additive\" shader with a warm orange tint, which makes overlapping particles glow and brighten each other the way real flame does. Sparks use a very short lifetime, tiny random sizes, and a slight negative gravity so they look like embers popping upward off the fire and fading fast.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_particle_material.png",
       "alt": "Fire particle material",
-      "caption": "Fire particle material: additive shader with warm tint and soft particles enabled."
+      "caption": "Fire particle material: additive shader with warm tint and soft particles enabled.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_sparks_particle_system.png",
       "alt": "Sparks particle system",
-      "caption": "Sparks particle system: short lifetime, small size range, gentle upward drift."
+      "caption": "Sparks particle system: short lifetime, small size range, gentle upward drift.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "Here's the effect in action inside Unity's Game view:"
+      "content": "Here's the effect in action inside Unity's Game view:",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_torch_lit_gameview.png",
       "alt": "Torch lit in game",
-      "caption": "The torch lit and burning in-game."
+      "caption": "The torch lit and burning in-game.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_torch_fire_sparks_smoke.png",
       "alt": "Closer view fire sparks smoke",
-      "caption": "A closer view showing the fire, sparks and rising smoke together."
+      "caption": "A closer view showing the fire, sparks and rising smoke together.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "The same setup was also tested with a red-tinted flame, to confirm the fire material and particle layers could easily be recoloured for different torch variants (for example, a status effect or a special/magic torch) without changing anything else about the setup."
+      "content": "The same setup was also tested with a red-tinted flame, to confirm the fire material and particle layers could easily be recoloured for different torch variants (for example, a status effect or a special/magic torch) without changing anything else about the setup.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/unity_red_flame_variant.png",
       "alt": "Red flame variant",
-      "caption": "Colour variant test \u2014 the same particle setup re-tinted red."
+      "caption": "Colour variant test \u2014 the same particle setup re-tinted red.",
+      "subSectionId": "fire_effect"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "5. Triggering the Effect on Collision"
+      "content": "5. Triggering the Effect on Collision",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "Finally, a small script \u2014 TriggerCollisionParticle.cs \u2014 was written so the flame can be triggered by gameplay, rather than always being switched on. In simple terms, the script checks every frame whether the torch's trigger collider overlaps another object's collider. The first time it detects an overlap, it plays the assigned particle system once (for example, lighting the torch) and remembers that it has already fired, so it doesn't keep re-triggering every frame while the two objects stay in contact. Claude was used to help write and debug this script."
+      "content": "Finally, a small script \u2014 TriggerCollisionParticle.cs \u2014 was written so the flame can be triggered by gameplay, rather than always being switched on. In simple terms, the script checks every frame whether the torch's trigger collider overlaps another object's collider. The first time it detects an overlap, it plays the assigned particle system once (for example, lighting the torch) and remembers that it has already fired, so it doesn't keep re-triggering every frame while the two objects stay in contact. Claude was used to help write and debug this script.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
       "src": "/media/ajanta-caves/trigger_collision_script.png",
       "alt": "TriggerCollisionParticle script",
-      "caption": "TriggerCollisionParticle.cs \u2014 plays a particle effect once when two colliders overlap."
+      "caption": "TriggerCollisionParticle.cs \u2014 plays a particle effect once when two colliders overlap.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "Result"
+      "content": "Result",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "The end result of Phase 1 is a fully modeled torch prop that transitions cleanly from a static Blender asset into a Unity object with working physics bounds, a layered fire/spark/smoke effect, and a script-driven way to trigger that effect on demand."
+      "content": "The end result of Phase 1 is a fully modeled torch prop that transitions cleanly from a static Blender asset into a Unity object with working physics bounds, a layered fire/spark/smoke effect, and a script-driven way to trigger that effect on demand.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "heading",
       "sectionId": "phase2",
-      "content": "Phase Two: From Headset to Real Room"
+      "content": "Phase Two: From Headset to Real Room",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "image",
       "sectionId": "phase2",
       "src": "/media/ajanta-caves/phase2_lighting_mural_hero.png",
       "alt": "Lighting mural with real torch",
-      "caption": "A participant lighting the mural on the wall with a real, handheld torch."
+      "caption": "A participant lighting the mural on the wall with a real, handheld torch.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "Phase One proved the story worked in VR. Phase Two asked a harder question. Could we tell the same story without a headset at all, using a real room, real objects and a real flame?"
+      "content": "Phase One proved the story worked in VR. Phase Two asked a harder question. Could we tell the same story without a headset at all, using a real room, real objects and a real flame?",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "The character and story stay the same. The viewer is still Anirudha, the son of a painter who has just passed away. He visits the cave to feel close to him again."
+      "content": "The character and story stay the same. The viewer is still Anirudha, the son of a painter who has just passed away. He visits the cave to feel close to him again.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "The difference is in the experience itself. Instead of clicking a button to pick up a virtual torch, the participant physically holds a real one. Instead of a screen showing them the mural, a real wall in a real dark room lights up in front of them."
+      "content": "The difference is in the experience itself. Instead of clicking a button to pick up a virtual torch, the participant physically holds a real one. Instead of a screen showing them the mural, a real wall in a real dark room lights up in front of them.",
+      "subSectionId": "trigger_collision"
     },
     {
       "type": "heading",
       "sectionId": "phase2",
-      "content": "Why We Left the Headset Behind"
+      "content": "Why We Left the Headset Behind",
+      "subSectionId": "why_no_headset"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "The reasoning was simple. Over 1,500 years ago, people did not experience Ajanta through their eyes first. They experienced it through fire, smell, sound and touch, in near-total darkness. Sight was only ever partial, because all anyone had was torchlight. A screen-based experience, however good, still asks a person to sit back and watch. We wanted them to feel it instead."
+      "content": "The reasoning was simple. Over 1,500 years ago, people did not experience Ajanta through their eyes first. They experienced it through fire, smell, sound and touch, in near-total darkness. Sight was only ever partial, because all anyone had was torchlight. A screen-based experience, however good, still asks a person to sit back and watch. We wanted them to feel it instead.",
+      "subSectionId": "why_no_headset"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "Two design decisions came directly from this idea:"
+      "content": "Two design decisions came directly from this idea:",
+      "subSectionId": "why_no_headset"
     },
     {
       "type": "bulletList",
@@ -378,17 +484,20 @@
       "content": [
         "The experience starts with the participant blindfolded. This is not a gimmick. It removes sight completely for a moment. When sight comes back, every other sense is already switched on and paying attention.",
         "The fire is real, not projected or simulated. A real flame has real heat, real smell and real weight in the hand. None of that can be faked convincingly, so we did not try."
-      ]
+      ],
+      "subSectionId": "why_no_headset"
     },
     {
       "type": "heading",
       "sectionId": "phase2",
-      "content": "The Experience, Step by Step"
+      "content": "The Experience, Step by Step",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "Here is exactly what happens to a participant, from start to finish, in order:"
+      "content": "Here is exactly what happens to a participant, from start to finish, in order:",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "bulletList",
@@ -402,155 +511,180 @@
         "As they move the torch to the left side of the wall, a hidden sensor detects its light. That section switches on, revealing the left half of the mural.",
         "As they move the torch to the right side, the same thing happens. The full mural is now visible. This is their father's work, fully revealed for the first time.",
         "The experience ends. The torch's fire slowly dies down, leaving the participant alone with the finished painting."
-      ]
+      ],
+      "subSectionId": "experience_steps"
     },
     {
       "type": "image",
       "sectionId": "phase2",
       "src": "/media/ajanta-caves/phase2_blindfolded_dark_room.png",
       "alt": "Blindfolded in dark room",
-      "caption": "An early run-through: blindfolded in the dark room, before the mural is revealed."
+      "caption": "An early run-through: blindfolded in the dark room, before the mural is revealed.",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "image",
       "sectionId": "phase2",
       "src": "/media/ajanta-caves/phase2_full_mural_torchlight.png",
       "alt": "Full mural revealed",
-      "caption": "The full mural revealed, flanked by real torchlight."
+      "caption": "The full mural revealed, flanked by real torchlight.",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "heading",
       "sectionId": "problem_solving",
-      "content": "How We Built It: Problem by Problem"
+      "content": "How We Built It: Problem by Problem",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "Everything above sounds simple to walk through. But each step needed a real technical solution. Below is every major problem we faced, listed in the order we solved them and explained in plain terms."
+      "content": "Everything above sounds simple to walk through. But each step needed a real technical solution. Below is every major problem we faced, listed in the order we solved them and explained in plain terms.",
+      "subSectionId": "experience_steps"
     },
     {
       "type": "heading",
       "sectionId": "problem_solving",
-      "content": "Problem 1: How do you track a torch without wires?"
+      "content": "Problem 1: How do you track a torch without wires?",
+      "subSectionId": "problem_1"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "For the torch to control anything, like lighting up a wall, the system needed to know where it was and when the participant was using it. It also had to work without limiting their movement."
+      "content": "For the torch to control anything, like lighting up a wall, the system needed to know where it was and when the participant was using it. It also had to work without limiting their movement.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "We tried four approaches, in this order:"
+      "content": "We tried four approaches, in this order:",
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/touchdesigner_early_tracking.png",
       "alt": "Early tracking tests TouchDesigner",
-      "caption": "Early tracking tests in TouchDesigner, before settling on a final approach."
+      "caption": "Early tracking tests in TouchDesigner, before settling on a final approach.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "bulletList",
       "sectionId": "problem_solving",
       "content": [
         "A motion sensor attached to the torch. This worked, but it meant the torch had to be wired. Wires limited how freely the participant could move. It did not feel natural."
-      ]
+      ],
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/wired_motion_sensor_laptop.png",
       "alt": "Wired motion sensor",
-      "caption": "Testing the motion sensor setup."
+      "caption": "Testing the motion sensor setup.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/wired_sensor_cable.png",
       "alt": "Wired sensor cable",
-      "caption": "The wired motion-sensor approach \u2014 a sensor cable ran from the torch straight into the laptop."
+      "caption": "The wired motion-sensor approach \u2014 a sensor cable ran from the torch straight into the laptop.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "bulletList",
       "sectionId": "problem_solving",
       "content": [
         "Camera-based software that could recognize the torch. It worked well. But the version we needed was locked behind a paywall."
-      ]
+      ],
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/camera_object_recognition.png",
       "alt": "Camera object recognition",
-      "caption": "Testing object-recognition software to detect the torch on camera."
+      "caption": "Testing object-recognition software to detect the torch on camera.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "bulletList",
       "sectionId": "problem_solving",
       "content": [
         "Blob tracking, a simpler method that just looked for a bright blob of light on camera. This worked in theory. But we could not control the room's lighting precisely enough to make it reliable."
-      ]
+      ],
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/blob_tracking_node.png",
       "alt": "Blob tracking node",
-      "caption": "Blob tracking node in TouchDesigner."
+      "caption": "Blob tracking node in TouchDesigner.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/blob_tracking_result.png",
       "alt": "Blob tracking result",
-      "caption": "Blob tracking: the system tried to isolate the torch as a bright blob against the room, but inconsistent lighting made it unreliable."
+      "caption": "Blob tracking: the system tried to isolate the torch as a bright blob against the room, but inconsistent lighting made it unreliable.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "bulletList",
       "sectionId": "problem_solving",
       "content": [
         "Our final solution: hand-pinch detection. We used a tool called MediaPipe. It watches a person's hand through a camera and detects when the thumb and index finger pinch together. That is naturally how someone grips a torch. So we used the participant's own grip as the trigger. No extra hardware. No wires. It felt completely natural to use."
-      ]
+      ],
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/mediapipe_hand_tracking.png",
       "alt": "MediaPipe hand tracking",
-      "caption": "MediaPipe detecting the hand skeleton, including the thumb-and-index pinch used as the trigger."
+      "caption": "MediaPipe detecting the hand skeleton, including the thumb-and-index pinch used as the trigger.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/touchdesigner_hand_tracking_logic.png",
       "alt": "TouchDesigner hand tracking logic",
-      "caption": "The hand-tracking logic in TouchDesigner, turning the pinch gesture into a usable signal."
+      "caption": "The hand-tracking logic in TouchDesigner, turning the pinch gesture into a usable signal.",
+      "subSectionId": "problem_1"
     },
     {
       "type": "heading",
       "sectionId": "problem_solving",
-      "content": "Problem 2: How do you make the journal feel real?"
+      "content": "Problem 2: How do you make the journal feel real?",
+      "subSectionId": "problem_2"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "We added the journal, the father's diary, to make the experience personal rather than just historical. Reading his private thoughts and sketches was meant to connect the participant to him specifically, not just to a painter in general."
+      "content": "We added the journal, the father's diary, to make the experience personal rather than just historical. Reading his private thoughts and sketches was meant to connect the participant to him specifically, not just to a painter in general.",
+      "subSectionId": "problem_2"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "Our first version was a normal paper booklet. But research showed that paper was not actually used at Ajanta. People wrote on palm leaves, tree bark and metal sheets instead. So we began testing other materials: leaf-based sheets, corn husk textures and handmade surfaces made to resemble old palm-leaf manuscripts. We wanted the object itself to feel historically honest."
+      "content": "Our first version was a normal paper booklet. But research showed that paper was not actually used at Ajanta. People wrote on palm leaves, tree bark and metal sheets instead. So we began testing other materials: leaf-based sheets, corn husk textures and handmade surfaces made to resemble old palm-leaf manuscripts. We wanted the object itself to feel historically honest.",
+      "subSectionId": "problem_2"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "Some materials fell apart too easily. Others caused problems with our sensors, explained below. We are still refining this material. We want to get three things right at once: how authentic it looks, how it feels to hold, and how reliably it works with our electronics."
+      "content": "Some materials fell apart too easily. Others caused problems with our sensors, explained below. We are still refining this material. We want to get three things right at once: how authentic it looks, how it feels to hold, and how reliably it works with our electronics.",
+      "subSectionId": "problem_2"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "We also needed the journal to detect when a participant turned to a specific page. We tried two methods:"
+      "content": "We also needed the journal to detect when a participant turned to a specific page. We tried two methods:",
+      "subSectionId": "problem_2"
     },
     {
       "type": "bulletList",
@@ -558,36 +692,42 @@
       "content": [
         "Touch sensors, which we tried first. They misfired constantly. If two pages touched or overlapped even slightly, they would trigger by accident. This was not precise enough. A journal needs a specific page to trigger a specific moment.",
         "Photoresistors, or light sensors, which we switched to instead. They only trigger when light actually falls on them, for example when a page is turned and lit by the torch. This was far more reliable. It also fit the theme of the whole piece: things are revealed through light, not touch."
-      ]
+      ],
+      "subSectionId": "problem_2"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/arduino_photoresistor_monitor.png",
       "alt": "Arduino photoresistor monitor",
-      "caption": "Reading raw photoresistor values in the Arduino serial monitor \u2014 LIGHT vs DARK \u2014 used to detect a page turning under torchlight."
+      "caption": "Reading raw photoresistor values in the Arduino serial monitor \u2014 LIGHT vs DARK \u2014 used to detect a page turning under torchlight.",
+      "subSectionId": "problem_2"
     },
     {
       "type": "heading",
       "sectionId": "problem_solving",
-      "content": "Problem 3: How do you make the wall light up at the right moment?"
+      "content": "Problem 3: How do you make the wall light up at the right moment?",
+      "subSectionId": "problem_3"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "The final piece was making sure the mural only appeared when the participant actually brought the torch close to the wall, not before and not automatically."
+      "content": "The final piece was making sure the mural only appeared when the participant actually brought the torch close to the wall, not before and not automatically.",
+      "subSectionId": "problem_3"
     },
     {
       "type": "paragraph",
       "sectionId": "problem_solving",
-      "content": "We reused the same light-sensor idea from the journal. A hidden photoresistor near the wall detects the torch's light. That reading turns on the projection for that section of the wall. This is why the mural reveals itself in two halves, left then right, as the participant physically moves the torch across the wall, rather than appearing all at once."
+      "content": "We reused the same light-sensor idea from the journal. A hidden photoresistor near the wall detects the torch's light. That reading turns on the projection for that section of the wall. This is why the mural reveals itself in two halves, left then right, as the participant physically moves the torch across the wall, rather than appearing all at once.",
+      "subSectionId": "problem_3"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
       "src": "/media/ajanta-caves/photoresistor_flame_test.png",
       "alt": "Testing photoresistor real flame",
-      "caption": "Testing a photoresistor's response to a real flame, to calibrate how close the torch needs to be to trigger the wall."
+      "caption": "Testing a photoresistor's response to a real flame, to calibrate how close the torch needs to be to trigger the wall.",
+      "subSectionId": "problem_3"
     },
     {
       "type": "heading",

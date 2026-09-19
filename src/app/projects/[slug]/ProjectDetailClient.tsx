@@ -4,14 +4,21 @@ import { useState, useEffect, useRef } from "react";
 import styles from "./ProjectDetail.module.css";
 import Link from "next/link";
 
+interface SubSection {
+  id: string;
+  label: string;
+}
+
 interface ProjectSection {
   id: string;
   label: string;
+  subsections?: SubSection[];
 }
 
 interface ContentBlock {
   type: string;
   sectionId?: string;
+  subSectionId?: string;
   content?: string | string[];
   src?: string;
   alt?: string;
@@ -58,16 +65,24 @@ export default function ProjectDetailClient({
     caption?: string;
   } | null>(null);
 
-  // Escape key handler to close lightbox
+  // Lightbox escape key & body scroll lock handler
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setActiveLightboxImage(null);
       }
     };
+    if (activeLightboxImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [activeLightboxImage]);
   const [showSidebarNav, setShowSidebarNav] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -195,20 +210,22 @@ export default function ProjectDetailClient({
         const { block, i } = imgBuffer[0];
         const captionText = block.caption || block.label;
         elements.push(
-          <div key={i} className={styles.block}>
-            <figure className={styles.imageFigure}>
+          <div key={i} className={`${styles.block} ${styles.singleImageBlock}`}>
+            <figure
+              className={`${styles.imageFigure} ${styles.singleImageFigure}`}
+              onClick={() =>
+                setActiveLightboxImage({
+                  src: block.src!,
+                  alt: block.alt ?? "",
+                  caption: captionText,
+                })
+              }
+            >
               <img
                 src={block.src}
                 alt={block.alt ?? ""}
                 className={`${styles.mediaImage} ${styles.clickableImage}`}
                 loading="lazy"
-                onClick={() =>
-                  setActiveLightboxImage({
-                    src: block.src!,
-                    alt: block.alt ?? "",
-                    caption: captionText,
-                  })
-                }
               />
               {captionText && (
                 <figcaption className={styles.imageCaption}>
@@ -222,22 +239,29 @@ export default function ProjectDetailClient({
         const key = `img-grid-${imgBuffer[0].i}`;
         elements.push(
           <div key={key} className={`${styles.block} ${styles.imageGrid}`}>
-            {imgBuffer.map(({ block, i }) => {
+            {imgBuffer.map(({ block, i }, idx) => {
               const captionText = block.caption || block.label;
+              const isFullWidthRow =
+                imgBuffer.length === 3 && idx === 2;
               return (
-                <figure key={i} className={styles.imageFigure}>
+                <figure
+                  key={i}
+                  className={`${styles.imageFigure} ${
+                    isFullWidthRow ? styles.fullWidthGridFigure : ""
+                  }`}
+                  onClick={() =>
+                    setActiveLightboxImage({
+                      src: block.src!,
+                      alt: block.alt ?? "",
+                      caption: captionText,
+                    })
+                  }
+                >
                   <img
                     src={block.src}
                     alt={block.alt ?? ""}
                     className={`${styles.mediaImageGrid} ${styles.clickableImage}`}
                     loading="lazy"
-                    onClick={() =>
-                      setActiveLightboxImage({
-                        src: block.src!,
-                        alt: block.alt ?? "",
-                        caption: captionText,
-                      })
-                    }
                   />
                   {captionText && (
                     <figcaption className={styles.imageCaption}>
@@ -255,11 +279,12 @@ export default function ProjectDetailClient({
 
     project.contentBlocks.forEach((block, i) => {
       const sectionId = block.sectionId;
+      const subSectionId = block.subSectionId;
 
       // Skip "context" section in body as it is rendered in top hero viewport
       if (sectionId === "context") return;
 
-      // Anchor element for scroll target
+      // Section level anchor element
       if (sectionId && !seenSections.has(sectionId)) {
         seenSections.add(sectionId);
         flushImages();
@@ -271,7 +296,6 @@ export default function ProjectDetailClient({
           />
         );
 
-        // Section divider line + label for non-context sections
         const secObj = project.sections?.find((s) => s.id === sectionId);
         if (secObj && sectionId !== "context") {
           elements.push(
@@ -280,38 +304,19 @@ export default function ProjectDetailClient({
             </div>
           );
         }
+      }
 
-        // Render context meta table if section is "context"
-        if (sectionId === "context") {
-          const hasMeta = project.team || project.role || project.timeline;
-          if (hasMeta) {
-            elements.push(
-              <div key="context-meta" className={styles.contextTable}>
-                {project.team && (
-                  <div className={styles.contextCell}>
-                    <span className={styles.contextLabel}>Team</span>
-                    <span className={styles.contextValue}>{project.team}</span>
-                  </div>
-                )}
-                {project.role && (
-                  <div className={styles.contextCell}>
-                    <span className={styles.contextLabel}>My Role</span>
-                    <span className={styles.contextValue}>{project.role}</span>
-                  </div>
-                )}
-                {project.timeline && (
-                  <div className={styles.contextCell}>
-                    <span className={styles.contextLabel}>Timeline</span>
-                    <span className={styles.contextValue}>{project.timeline}</span>
-                  </div>
-                )}
-              </div>
-            );
-            elements.push(
-              <p key="tldr-label" className={styles.tldrLabel}>TL;DR</p>
-            );
-          }
-        }
+      // Subsection level anchor element for index scrolling
+      if (subSectionId && !seenSections.has(subSectionId)) {
+        seenSections.add(subSectionId);
+        flushImages();
+        elements.push(
+          <div
+            key={`anchor-${subSectionId}`}
+            id={`section-${subSectionId}`}
+            className={styles.sectionAnchor}
+          />
+        );
       }
 
       // Buffer images, flush everything else
