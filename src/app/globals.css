@@ -67,3 +67,18 @@ nextjs-portal,
     rgba(243, 240, 232, 0) 100%
   );
 }
+
+/* Hide Command Palette Keyword Search trigger on project page hero until user scrolls down */
+body.is-project-page:not(.past-project-hero) [data-command-palette-trigger="true"],
+body:has(.projectDetailContainer):not(.past-project-hero) [data-command-palette-trigger="true"] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+body.past-project-hero [data-command-palette-trigger="true"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}

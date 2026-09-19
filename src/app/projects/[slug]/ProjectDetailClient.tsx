@@ -50,6 +50,7 @@ export default function ProjectDetailClient({
     project.sections?.[0]?.id ?? ""
   );
   const [showStickyTitle, setShowStickyTitle] = useState(false);
+  const [showSidebarNav, setShowSidebarNav] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const heroRef = useRef<HTMLElement>(null);
@@ -60,7 +61,23 @@ export default function ProjectDetailClient({
     const handleScroll = () => {
       if (heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
-        setShowStickyTitle(rect.bottom < 80);
+        const pastTitleMeta = rect.top < -100 || window.scrollY > 160;
+        setShowStickyTitle(pastTitleMeta);
+        if (pastTitleMeta) {
+          document.body.classList.add("past-project-hero");
+        } else {
+          document.body.classList.remove("past-project-hero");
+        }
+
+        // Show sidebar nav ONLY when the Overview section moves up to the upper viewport (Image 2 state)
+        const overviewEl = document.getElementById("section-overview") || document.querySelector(`.${styles.sectionDivider}`);
+        if (overviewEl) {
+          const overviewRect = overviewEl.getBoundingClientRect();
+          setShowSidebarNav(overviewRect.top <= 220);
+        } else if (heroRef.current) {
+          const heroRect = heroRef.current.getBoundingClientRect();
+          setShowSidebarNav(heroRect.bottom <= 80);
+        }
       }
 
       const documentHeight = document.documentElement.scrollHeight;
@@ -72,9 +89,14 @@ export default function ProjectDetailClient({
       setScrollProgress(progress);
     };
 
+    document.body.classList.add("is-project-page");
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.body.classList.remove("past-project-hero");
+      document.body.classList.remove("is-project-page");
+    };
   }, []);
 
   // Scroll-track active sidebar section
@@ -184,6 +206,9 @@ export default function ProjectDetailClient({
 
     project.contentBlocks.forEach((block, i) => {
       const sectionId = block.sectionId;
+
+      // Skip "context" section in body as it is rendered in top hero viewport
+      if (sectionId === "context") return;
 
       // Anchor element for scroll target
       if (sectionId && !seenSections.has(sectionId)) {
@@ -373,7 +398,7 @@ export default function ProjectDetailClient({
 
   return (
     <main className={styles.container}>
-      {/* Top sticky blur mask + centered shrinking project title with progress bar */}
+      {/* Top sticky blur mask + centered project title with progress bar & back link */}
       <div
         className={`${styles.topStickyHeader} ${
           showStickyTitle ? styles.topStickyHeaderVisible : ""
@@ -381,6 +406,23 @@ export default function ProjectDetailClient({
         aria-hidden={!showStickyTitle}
       >
         <div className={styles.topBlurMask} />
+        <Link href="/projects" className={styles.stickyBackLink}>
+          <svg
+            width="11"
+            height="11"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={styles.stickyBackIcon}
+            aria-hidden="true"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          <span>back</span>
+        </Link>
         <div className={styles.stickyTitleWrapper}>
           <span className={styles.stickyProjectTitle}>{project.name}</span>
           <div className={styles.progressBarTrack}>
@@ -393,43 +435,105 @@ export default function ProjectDetailClient({
       </div>
 
       {/* Hero */}
-      <section className={styles.hero} ref={heroRef}>
-        <h1 className={styles.title}>{project.name}</h1>
-        <div className={styles.heroBottom}>
-          <div className={styles.tagRow}>
-            {project.tags?.map((tag) => (
-              <span key={tag} className={styles.tag}>{tag}</span>
-            ))}
-            {project.year && (
-              <span className={styles.year}>{project.year}</span>
+      {/* Hero Section — Figma 12-Column Grid (Margin: 72px, Gutter: 20px) */}
+      {/* Hero Section — Figma 12-Column Grid (Margin: 72px, Gutter: 20px) */}
+      {/* Hero Section — Figma 12-Column Grid (Margin: 72px, Gutter: 20px) */}
+      <section className={styles.heroViewportGrid} ref={heroRef}>
+        {/* Left 6 Columns (Columns 1–6): Top Block + Bottom TL;DR Block */}
+        <div className={styles.heroLeftCol}>
+          {/* Top Block: Title + Tags + Divider + 3-Column Metadata Table (Moved UP) */}
+          <div className={styles.heroTopBlock}>
+            <h1 className={styles.heroTitle}>{project.name}</h1>
+            <div className={styles.heroTagsRow}>
+              {project.tags?.map((tag) => (
+                <span key={tag} className={styles.heroTagPill}>{tag}</span>
+              ))}
+              {project.year && (
+                <span className={styles.heroYear}>{project.year}</span>
+              )}
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.heroLiveLink}
+                >
+                  View Live ↗
+                </a>
+              )}
+            </div>
+
+            <div className={styles.heroDividerLine} />
+
+            {/* 3-Column Metadata Table */}
+            {(project.team || project.role || project.timeline) && (
+              <div className={styles.heroMetaGrid}>
+                {project.team && (
+                  <div className={styles.heroMetaCol}>
+                    <span className={styles.heroMetaLabel}>TEAM</span>
+                    <span className={styles.heroMetaValue}>{project.team}</span>
+                  </div>
+                )}
+                {project.role && (
+                  <div className={styles.heroMetaCol}>
+                    <span className={styles.heroMetaLabel}>MY ROLE</span>
+                    <span className={styles.heroMetaValue}>{project.role}</span>
+                  </div>
+                )}
+                {project.timeline && (
+                  <div className={styles.heroMetaCol}>
+                    <span className={styles.heroMetaLabel}>TIMELINE</span>
+                    <span className={styles.heroMetaValue}>{project.timeline}</span>
+                  </div>
+                )}
+              </div>
             )}
           </div>
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.liveLink}
-            >
-              View Live ↗
-            </a>
+
+          {/* Bottom Block: TL;DR Summary Block (Bottom-aligned) */}
+          {project.description && (
+            <div className={styles.heroBottomBlock}>
+              <div className={styles.heroTldrBlock}>
+                <span className={styles.heroTldrLabel}>TL;DR</span>
+                <div className={styles.heroTldrQuote}>
+                  <p className={styles.heroTldrText}>{project.description}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Right 6 Columns (Columns 7–12): Featured Hero Media */}
+        <div className={styles.heroRightCol}>
+          {(project as any).thumbnail ? (
+            <div className={styles.heroMediaWrapper}>
+              <img
+                src={(project as any).thumbnail}
+                alt={project.name}
+                className={styles.heroMediaImg}
+              />
+            </div>
+          ) : (
+            <div className={styles.heroMediaPlaceholder} />
           )}
         </div>
       </section>
 
       {/* Body: sidebar + content */}
       <div className={styles.body}>
-        {project.sections && project.sections.length > 0 && (
+        {project.sections && project.sections.filter((s) => s.id !== "context").length > 0 && (
           <aside
             className={`${styles.sidebarNavContainer} ${
-              isNavHovered ? styles.sidebarNavContainerHovered : ""
-            }`}
+              showSidebarNav ? styles.sidebarNavContainerVisible : ""
+            } ${isNavHovered ? styles.sidebarNavContainerHovered : ""}`}
             onMouseEnter={() => setIsNavHovered(true)}
             onMouseLeave={() => setIsNavHovered(false)}
             aria-label="Section navigation"
           >
             <nav className={styles.sidebarNavTrack}>
-              {project.sections.map((section) => {
+              {project.sections
+                .filter((s) => s.id !== "context")
+                .map((section) => {
                 const isActive = activeSection === section.id;
                 return (
                   <button
@@ -482,6 +586,29 @@ export default function ProjectDetailClient({
           </div>
         </article>
       </div>
+
+      {/* Scroll to Top button (Red Spot: bottom 28px, right 28px) */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`${styles.scrollTopBtn} ${
+          showStickyTitle ? styles.scrollTopBtnVisible : ""
+        }`}
+        aria-label="Scroll to top"
+      >
+        <svg
+          width="13"
+          height="13"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="18 15 12 9 6 15" />
+        </svg>
+      </button>
     </main>
   );
 }

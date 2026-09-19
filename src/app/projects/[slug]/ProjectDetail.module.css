@@ -541,6 +541,14 @@
   cursor: pointer;
   user-select: none;
   padding: 8px 24px 8px 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.sidebarNavContainerVisible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sidebarNavTrack {
@@ -690,4 +698,303 @@
     grid-template-columns: 1fr;
     gap: 16px;
   }
+}
+
+
+/* ─── Figma 12-Column Grid Hero Viewport (Margin: 72px, Gutter: 20px) ───── */
+.heroViewportGrid {
+  width: 100%;
+  max-width: var(--content-max-width, 1400px);
+  margin: 0 auto;
+  padding: calc(var(--nav-height, 56px) + 68px) 72px 28px 72px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Left Half: Columns 1 to 6 */
+.heroLeftCol {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 16px;
+  height: 100%;
+}
+
+.heroTopBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroBottomBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heroHeaderBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heroTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.2vw, 4.6rem);
+  line-height: 1.02;
+  color: var(--accent, #283A77);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.heroTagsRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heroTagPill {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  padding: 3px 10px;
+  border: 1px solid var(--accent, #283A77);
+  color: var(--accent, #283A77);
+  background: transparent;
+}
+
+.heroYear {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  color: var(--foreground, #272726);
+  opacity: 0.55;
+  margin-left: 4px;
+}
+
+.heroLiveLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 4px 12px;
+  border: 1.5px solid var(--accent, #283A77);
+  color: var(--accent, #283A77);
+  background: transparent;
+  transition: background var(--duration-base), color var(--duration-base);
+  margin-left: auto;
+}
+
+.heroLiveLink:hover {
+  background: var(--accent, #283A77);
+  color: var(--background);
+}
+
+.heroDividerLine {
+  width: 100%;
+  height: 1px;
+  background-color: color-mix(in srgb, var(--foreground, #272726) 15%, transparent);
+}
+
+/* Proportional Equal-Gap Metadata Row */
+.heroMetaGrid {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.heroMetaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heroMetaLabel {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground, #272726);
+  opacity: 0.5;
+}
+
+.heroMetaValue {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--foreground, #272726);
+}
+
+/* TL;DR Summary Block */
+.heroTldrBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.heroTldrLabel {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--foreground, #272726);
+  opacity: 0.5;
+}
+
+.heroTldrQuote {
+  border-left: 2px solid var(--accent, #283A77);
+  padding-left: 16px;
+}
+
+.heroTldrText {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--foreground, #272726);
+}
+
+/* Right Half: Columns 7 to 12 */
+.heroRightCol {
+  grid-column: span 6;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.heroMediaWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 75vh;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--foreground, #272726) 12%, transparent);
+  background-color: color-mix(in srgb, var(--foreground, #272726) 4%, transparent);
+}
+
+.heroMediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroMediaPlaceholder {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  background-color: color-mix(in srgb, var(--foreground, #272726) 4%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--foreground, #272726) 15%, transparent);
+}
+
+@media (max-width: 1024px) {
+  .heroViewportGrid {
+    padding: calc(var(--nav-height, 56px) + 24px) 32px 32px 32px;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    min-height: auto;
+  }
+
+  .heroLeftCol,
+  .heroRightCol {
+    grid-column: span 1;
+    padding-right: 0;
+  }
+
+  .heroMediaWrapper {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroViewportGrid {
+    padding: calc(var(--nav-height, 56px) + 16px) 16px 24px 16px;
+  }
+
+  .heroMetaGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+
+/* ─── Sticky Header Back Link (Green Spot) ───────────────────────────────── */
+.stickyBackLink {
+  position: absolute;
+  left: 23.88px; /* Offset for 4.1px internal SVG chevron padding so tip of < aligns to exactly 28px */
+  top: 28px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--accent, #283A77);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: auto;
+  transition: opacity var(--duration-base);
+}
+
+.stickyBackIcon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.stickyBackLink:hover {
+  opacity: 0.65;
+}
+
+/* ─── Scroll to Top Button (Red Spot - Bottom Right 28px/28px) ─────────── */
+.scrollTopBtn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99999;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent, #283A77) 40%, transparent);
+  color: var(--accent, #283A77);
+  cursor: pointer;
+  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.scrollTopBtnVisible {
+  opacity: 0.75;
+  pointer-events: auto;
+}
+
+.scrollTopBtn:hover {
+  opacity: 1;
+  background: color-mix(in srgb, var(--accent, #283A77) 10%, transparent);
+  border-color: var(--accent, #283A77);
 }

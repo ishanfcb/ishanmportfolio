@@ -260,3 +260,18 @@
 
 
 
+
+
+/* Hide Command Palette trigger on project page hero until user scrolls past hero */
+:global(body.is-project-page:not(.past-project-hero)) .trigger {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+:global(body.is-project-page.past-project-hero) .trigger {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
