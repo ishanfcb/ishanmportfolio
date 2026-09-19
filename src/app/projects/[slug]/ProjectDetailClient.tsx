@@ -65,7 +65,7 @@ export default function ProjectDetailClient({
     caption?: string;
   } | null>(null);
 
-  // Lightbox escape key & body scroll lock handler
+  // Lightbox escape key, body scroll lock, and hide bottom blur mask handler
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -74,12 +74,15 @@ export default function ProjectDetailClient({
     };
     if (activeLightboxImage) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("lightbox-open");
     } else {
       document.body.style.overflow = "";
+      document.body.classList.remove("lightbox-open");
     }
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("lightbox-open");
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [activeLightboxImage]);
@@ -143,6 +146,14 @@ export default function ProjectDetailClient({
 
     const sync = () => {
       for (const section of project.sections!) {
+        if (section.subsections) {
+          for (const sub of section.subsections) {
+            if (intersecting.get(sub.id)) {
+              setActiveSection(sub.id);
+              return;
+            }
+          }
+        }
         if (intersecting.get(section.id)) {
           setActiveSection(section.id);
           return;
@@ -151,18 +162,21 @@ export default function ProjectDetailClient({
     };
 
     project.sections.forEach((section) => {
-      const el = document.getElementById(`section-${section.id}`);
-      if (!el) return;
+      const allIds = [section.id, ...(section.subsections?.map((sub) => sub.id) || [])];
+      allIds.forEach((id) => {
+        const el = document.getElementById(`section-${id}`);
+        if (!el) return;
 
-      const obs = new IntersectionObserver(
-        ([entry]) => {
-          intersecting.set(section.id, entry.isIntersecting);
-          sync();
-        },
-        { rootMargin: "0px 0px -70% 0px", threshold: 0 }
-      );
-      obs.observe(el);
-      observersRef.current.push(obs);
+        const obs = new IntersectionObserver(
+          ([entry]) => {
+            intersecting.set(id, entry.isIntersecting);
+            sync();
+          },
+          { rootMargin: "0px 0px -60% 0px", threshold: 0 }
+        );
+        obs.observe(el);
+        observersRef.current.push(obs);
+      });
     });
 
     return () => observersRef.current.forEach((o) => o.disconnect());
@@ -213,13 +227,14 @@ export default function ProjectDetailClient({
           <div key={i} className={`${styles.block} ${styles.singleImageBlock}`}>
             <figure
               className={`${styles.imageFigure} ${styles.singleImageFigure}`}
-              onClick={() =>
+              onClick={(e) => {
+                e.stopPropagation();
                 setActiveLightboxImage({
                   src: block.src!,
                   alt: block.alt ?? "",
                   caption: captionText,
-                })
-              }
+                });
+              }}
             >
               <img
                 src={block.src}
@@ -249,13 +264,14 @@ export default function ProjectDetailClient({
                   className={`${styles.imageFigure} ${
                     isFullWidthRow ? styles.fullWidthGridFigure : ""
                   }`}
-                  onClick={() =>
+                  onClick={(e) => {
+                    e.stopPropagation();
                     setActiveLightboxImage({
                       src: block.src!,
                       alt: block.alt ?? "",
                       caption: captionText,
-                    })
-                  }
+                    });
+                  }}
                 >
                   <img
                     src={block.src}
@@ -588,18 +604,41 @@ export default function ProjectDetailClient({
               {project.sections
                 .filter((s) => s.id !== "context")
                 .map((section) => {
-                const isActive = activeSection === section.id;
+                const isDirectActive = activeSection === section.id;
+                const isChildActive = section.subsections?.some((sub) => sub.id === activeSection);
+                const isParentEmphasized = isDirectActive || isChildActive;
+
                 return (
-                  <button
-                    key={section.id}
-                    className={`${styles.sidebarNavItem} ${
-                      isActive ? styles.sidebarNavItemActive : ""
-                    }`}
-                    onClick={() => scrollToSection(section.id)}
-                  >
-                    <span className={styles.tickLine} />
-                    <span className={styles.sidebarNavLabel}>{section.label}</span>
-                  </button>
+                  <div key={section.id} className={styles.sidebarNavGroup}>
+                    <button
+                      className={`${styles.sidebarNavItem} ${
+                        isParentEmphasized ? styles.sidebarNavItemActive : ""
+                      }`}
+                      onClick={() => scrollToSection(section.id)}
+                    >
+                      <span className={styles.tickLine} />
+                      <span className={styles.sidebarNavLabel}>{section.label}</span>
+                    </button>
+                    {section.subsections && section.subsections.length > 0 && (
+                      <div className={styles.sidebarSubGroup}>
+                        {section.subsections.map((sub) => {
+                          const isSubActive = activeSection === sub.id;
+                          return (
+                            <button
+                              key={sub.id}
+                              className={`${styles.sidebarNavItem} ${styles.sidebarSubNavItem} ${
+                                isSubActive ? styles.sidebarNavItemActive : ""
+                              }`}
+                              onClick={() => scrollToSection(sub.id)}
+                            >
+                              <span className={`${styles.tickLine} ${styles.subTickLine}`} />
+                              <span className={styles.sidebarNavLabel}>{sub.label}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
                 );
               })}
             </nav>
@@ -663,6 +702,39 @@ export default function ProjectDetailClient({
           <polyline points="18 15 12 9 6 15" />
         </svg>
       </button>
+
+      {/* Lightbox Modal Overlay */}
+      {activeLightboxImage && (
+        <div
+          className={styles.lightboxOverlay}
+          onClick={() => setActiveLightboxImage(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            className={styles.lightboxCloseBtn}
+            onClick={() => setActiveLightboxImage(null)}
+            aria-label="Close image preview"
+          >
+            &#x2715;
+          </button>
+          <div
+            className={styles.lightboxContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={activeLightboxImage.src}
+              alt={activeLightboxImage.alt}
+              className={styles.lightboxImage}
+            />
+            {activeLightboxImage.caption && (
+              <p className={styles.lightboxCaption}>
+                {activeLightboxImage.caption}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </main>
   );
 }

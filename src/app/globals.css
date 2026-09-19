@@ -82,3 +82,10 @@ body.past-project-hero [data-command-palette-trigger="true"] {
   visibility: visible !important;
   pointer-events: auto !important;
 }
+
+body.lightbox-open .bottomViewportBlurMask,
+body.lightbox-open [class*="bottomViewportBlurMask"] {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}

@@ -181,7 +181,7 @@
   padding-top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 0;
   width: 100%;
 }
 
@@ -198,6 +198,9 @@
 
 .sectionAnchor {
   scroll-margin-top: calc(var(--nav-height) + 24px);
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Section divider line + label */
@@ -206,8 +209,8 @@
   align-items: center;
   gap: 16px;
   width: 100%;
-  margin-top: 48px;
-  margin-bottom: 16px;
+  margin-top: 56px;
+  margin-bottom: 24px;
 }
 
 .sectionDivider::before,
@@ -282,6 +285,8 @@
   font-weight: 400;
   color: var(--foreground);
   opacity: 0.9;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .heading {
@@ -290,13 +295,14 @@
   font-weight: 600;
   color: var(--foreground);
   letter-spacing: -0.01em;
-  margin-top: 16px;
+  margin-top: 40px;
+  margin-bottom: 12px;
 }
 
 .quote {
   border-left: 2px solid var(--accent);
   padding: 12px 0 12px 24px;
-  margin: 8px 0;
+  margin: 20px 0;
   font-family: var(--font-sans);
   font-size: 1.15rem;
   line-height: 1.6;
@@ -311,6 +317,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .listItem {
@@ -400,6 +408,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+  margin: 24px 0;
 }
 
 .mediaImageGrid {
@@ -419,6 +428,7 @@
   background-color: color-mix(in srgb, var(--foreground) 8%, transparent);
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  margin: 24px 0;
 }
 
 .mediaVideo {
@@ -813,10 +823,10 @@
 
 /* Proportional Equal-Gap Metadata Row */
 .heroMetaGrid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: flex-start;
-  gap: 48px;
-  flex-wrap: wrap;
+  gap: 32px;
   width: 100%;
 }
 
@@ -1036,7 +1046,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 200000;
+  z-index: 999999;
   background: rgba(12, 14, 20, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1062,23 +1072,28 @@
   top: 24px;
   right: 28px;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #FFFFFF;
-  font-size: 1.2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  border-radius: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   z-index: 200001;
 }
 
 .lightboxCloseBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #FFFFFF;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  transform: scale(1.15);
 }
 
 .lightboxContent {
@@ -1115,21 +1130,11 @@
 /* Sidebar Subsections */
 .sidebarSubList {
   list-style: none;
-  margin: 0;
-  padding: 0 0 0 12px;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
+  margin: 4px 0 8px 12px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  transition: max-height 0.35s ease, opacity 0.35s ease, margin 0.35s ease;
-}
-
-.sidebarSubListVisible {
-  max-height: 400px;
-  opacity: 1;
-  margin: 6px 0 8px 12px;
 }
 
 .sidebarSubItem {
@@ -1188,6 +1193,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin: 24px 0;
 }
 
 .singleImageFigure {
@@ -1200,4 +1206,31 @@
 .fullWidthGridFigure {
   grid-column: 1 / -1;
   width: 100%;
+}
+
+
+/* Sidebar Sub-Nav Group */
+.sidebarNavGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.sidebarSubGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 12px;
+  width: 100%;
+}
+
+.subTickLine {
+  width: 10px !important;
+  opacity: 0.4;
+}
+
+.sidebarSubNavItem:hover .subTickLine {
+  width: 14px !important;
+  opacity: 0.8;
 }

@@ -1,21 +1,19 @@
 {
   "name": "Ajanta Caves",
   "slug": "ajanta-caves",
-  "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
+  "thumbnail": "/media/thumbnails/ajanta-caves.webp",
   "height": 1080,
   "width": 1080,
   "year": 2024,
   "tags": [
     "VR World Building",
     "Multisensory Experience",
-    "Spatial Design",
-    "TouchDesigner",
-    "Unity"
+    "UX"
   ],
   "featured": true,
-  "team": "Sharada Upasani \u00b7 Ishan Mishra",
-  "role": "3D World-Building, Interaction Design & Physical Prototyping",
-  "timeline": "Two-phase project: 3D World-Building (VR) \u2192 Multisensory Design (Physical)",
+  "team": "Group (2 people)",
+  "role": "3D VR & Physical Design",
+  "timeline": "2 Weeks",
   "description": "Follow the brushstrokes through the silence: a torchlit journey to a father's living art. A two-phase project transitioning from 3D VR world-building to a physical multisensory ritual built from fire, touch, and darkness.",
   "sections": [
     {
@@ -46,7 +44,7 @@
         },
         {
           "id": "unity_import",
-          "label": "2. Bringing into Unity"
+          "label": "2. Bringing the Torch into Unity"
         },
         {
           "id": "physics_setup",
@@ -131,14 +129,14 @@
     {
       "type": "image",
       "sectionId": "overview",
-      "src": "/media/ajanta-caves/phase1_exhibition.png",
+      "src": "/media/ajanta-caves/phase1_exhibition.webp",
       "alt": "Phase 1: at the exhibition",
       "caption": "Phase 1: at the exhibition"
     },
     {
       "type": "image",
       "sectionId": "overview",
-      "src": "/media/ajanta-caves/phase2_final_test.png",
+      "src": "/media/ajanta-caves/phase2_final_test.webp",
       "alt": "Phase 2: final test",
       "caption": "Phase 2: final test"
     },
@@ -197,14 +195,12 @@
     {
       "type": "heading",
       "sectionId": "torch_building",
-      "content": "Behind the Scenes: Building the Interactive Torch",
-      "subSectionId": "what_we_built"
+      "content": "Behind the Scenes: Building the Interactive Torch"
     },
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "One of the three core interactions \u2014 lighting the way \u2014 relied on a fully custom torch prop, built specifically for this project. The following explains how I made the torch, from its first shape in Blender through to the fire effect and interaction logic in Unity.",
-      "subSectionId": "what_we_built"
+      "content": "One of the three core interactions — lighting the way — relied on a fully custom torch prop, built specifically for this project. The following explains how I made the torch, from its first shape in Blender through to the fire effect and interaction logic in Unity."
     },
     {
       "type": "heading",
@@ -221,15 +217,15 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/blender_base_wireframe.png",
+      "src": "/media/ajanta-caves/blender_base_wireframe.webp",
       "alt": "Base wireframe shape",
-      "caption": "The base wireframe shape \u2014 flared cup narrowing into a tapered handle.",
+      "caption": "The base wireframe shape — flared cup narrowing into a tapered handle.",
       "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/blender_rim_wireframe.png",
+      "src": "/media/ajanta-caves/blender_rim_wireframe.webp",
       "alt": "Refined wireframe",
       "caption": "Refined wireframe with the rim and grip band edges added.",
       "subSectionId": "modelling_torch"
@@ -243,15 +239,15 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/blender_materials_applied.png",
+      "src": "/media/ajanta-caves/blender_materials_applied.webp",
       "alt": "Materials applied",
-      "caption": "Materials applied \u2014 black metal cup and rim, brown wooden handle.",
+      "caption": "Materials applied — black metal cup and rim, brown wooden handle.",
       "subSectionId": "modelling_torch"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/blender_perspective_wireframe.png",
+      "src": "/media/ajanta-caves/blender_perspective_wireframe.webp",
       "alt": "Wireframe perspective",
       "caption": "Wireframe shown from a 3D perspective angle.",
       "subSectionId": "modelling_torch"
@@ -259,7 +255,7 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/blender_perspective_textured.png",
+      "src": "/media/ajanta-caves/blender_perspective_textured.webp",
       "alt": "Textured model perspective",
       "caption": "The finished, textured model from the same perspective angle.",
       "subSectionId": "modelling_torch"
@@ -279,7 +275,7 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_torcha_hierarchy.png",
+      "src": "/media/ajanta-caves/unity_torcha_hierarchy.webp",
       "alt": "Unity Hierarchy torchA",
       "caption": "The torchA object in the Unity Hierarchy, with its Fire, Sparks and Smoke children.",
       "subSectionId": "unity_import"
@@ -293,13 +289,13 @@
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "To make the torch behave correctly in the scene, two physics components were added. A Rigidbody was set to Kinematic \u2014 meaning the torch won't fall over or get pushed around by physics, but can still be moved or interacted with by other scripts and logic.",
+      "content": "To make the torch behave correctly in the scene, two physics components were added. A Rigidbody was set to Kinematic — meaning the torch won't fall over or get pushed around by physics, but can still be moved or interacted with by other scripts and logic.",
       "subSectionId": "physics_setup"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_rigidbody_settings.png",
+      "src": "/media/ajanta-caves/unity_rigidbody_settings.webp",
       "alt": "Rigidbody settings",
       "caption": "Rigidbody settings: kinematic, continuous collision detection, gravity off.",
       "subSectionId": "physics_setup"
@@ -313,7 +309,7 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_box_collider.png",
+      "src": "/media/ajanta-caves/unity_box_collider.webp",
       "alt": "Box Collider",
       "caption": "Box Collider sized to match the torch's shape.",
       "subSectionId": "physics_setup"
@@ -321,13 +317,13 @@
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "A second Box Collider was added around the bowl area specifically, this time set as a Trigger. Trigger colliders don't physically block anything \u2014 instead they're used to detect when another object enters that space, which is what powers the flame-lighting interaction described in Section 5.",
+      "content": "A second Box Collider was added around the bowl area specifically, this time set as a Trigger. Trigger colliders don't physically block anything — instead they're used to detect when another object enters that space, which is what powers the flame-lighting interaction described in Section 5.",
       "subSectionId": "physics_setup"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_trigger_collider.png",
+      "src": "/media/ajanta-caves/unity_trigger_collider.webp",
       "alt": "Second Box Collider Trigger",
       "caption": "A second Box Collider, set as a trigger, around the flame bowl.",
       "subSectionId": "physics_setup"
@@ -347,17 +343,9 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_particle_material.png",
+      "src": "/media/ajanta-caves/unity_particle_material.webp",
       "alt": "Fire particle material",
       "caption": "Fire particle material: additive shader with warm tint and soft particles enabled.",
-      "subSectionId": "fire_effect"
-    },
-    {
-      "type": "image",
-      "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_sparks_particle_system.png",
-      "alt": "Sparks particle system",
-      "caption": "Sparks particle system: short lifetime, small size range, gentle upward drift.",
       "subSectionId": "fire_effect"
     },
     {
@@ -369,7 +357,7 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_torch_lit_gameview.png",
+      "src": "/media/ajanta-caves/unity_torch_lit_gameview.webp",
       "alt": "Torch lit in game",
       "caption": "The torch lit and burning in-game.",
       "subSectionId": "fire_effect"
@@ -377,7 +365,7 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_torch_fire_sparks_smoke.png",
+      "src": "/media/ajanta-caves/unity_torch_fire_sparks_smoke.webp",
       "alt": "Closer view fire sparks smoke",
       "caption": "A closer view showing the fire, sparks and rising smoke together.",
       "subSectionId": "fire_effect"
@@ -391,9 +379,9 @@
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/unity_red_flame_variant.png",
+      "src": "/media/ajanta-caves/unity_red_flame_variant.webp",
       "alt": "Red flame variant",
-      "caption": "Colour variant test \u2014 the same particle setup re-tinted red.",
+      "caption": "Colour variant test — the same particle setup re-tinted red.",
       "subSectionId": "fire_effect"
     },
     {
@@ -405,15 +393,15 @@
     {
       "type": "paragraph",
       "sectionId": "torch_building",
-      "content": "Finally, a small script \u2014 TriggerCollisionParticle.cs \u2014 was written so the flame can be triggered by gameplay, rather than always being switched on. In simple terms, the script checks every frame whether the torch's trigger collider overlaps another object's collider. The first time it detects an overlap, it plays the assigned particle system once (for example, lighting the torch) and remembers that it has already fired, so it doesn't keep re-triggering every frame while the two objects stay in contact. Claude was used to help write and debug this script.",
+      "content": "Finally, a small script — TriggerCollisionParticle.cs — was written so the flame can be triggered by gameplay, rather than always being switched on. In simple terms, the script checks every frame whether the torch's trigger collider overlaps another object's collider. The first time it detects an overlap, it plays the assigned particle system once (for example, lighting the torch) and remembers that it has already fired, so it doesn't keep re-triggering every frame while the two objects stay in contact. Claude was used to help write and debug this script.",
       "subSectionId": "trigger_collision"
     },
     {
       "type": "image",
       "sectionId": "torch_building",
-      "src": "/media/ajanta-caves/trigger_collision_script.png",
+      "src": "/media/ajanta-caves/trigger_collision_script.webp",
       "alt": "TriggerCollisionParticle script",
-      "caption": "TriggerCollisionParticle.cs \u2014 plays a particle effect once when two colliders overlap.",
+      "caption": "TriggerCollisionParticle.cs — plays a particle effect once when two colliders overlap.",
       "subSectionId": "trigger_collision"
     },
     {
@@ -431,34 +419,29 @@
     {
       "type": "heading",
       "sectionId": "phase2",
-      "content": "Phase Two: From Headset to Real Room",
-      "subSectionId": "trigger_collision"
+      "content": "Phase Two: From Headset to Real Room"
     },
     {
       "type": "image",
       "sectionId": "phase2",
-      "src": "/media/ajanta-caves/phase2_lighting_mural_hero.png",
+      "src": "/media/ajanta-caves/phase2_lighting_mural_hero.webp",
       "alt": "Lighting mural with real torch",
-      "caption": "A participant lighting the mural on the wall with a real, handheld torch.",
-      "subSectionId": "trigger_collision"
+      "caption": "A participant lighting the mural on the wall with a real, handheld torch."
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "Phase One proved the story worked in VR. Phase Two asked a harder question. Could we tell the same story without a headset at all, using a real room, real objects and a real flame?",
-      "subSectionId": "trigger_collision"
+      "content": "Phase One proved the story worked in VR. Phase Two asked a harder question. Could we tell the same story without a headset at all, using a real room, real objects and a real flame?"
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "The character and story stay the same. The viewer is still Anirudha, the son of a painter who has just passed away. He visits the cave to feel close to him again.",
-      "subSectionId": "trigger_collision"
+      "content": "The character and story stay the same. The viewer is still Anirudha, the son of a painter who has just passed away. He visits the cave to feel close to him again."
     },
     {
       "type": "paragraph",
       "sectionId": "phase2",
-      "content": "The difference is in the experience itself. Instead of clicking a button to pick up a virtual torch, the participant physically holds a real one. Instead of a screen showing them the mural, a real wall in a real dark room lights up in front of them.",
-      "subSectionId": "trigger_collision"
+      "content": "The difference is in the experience itself. Instead of clicking a button to pick up a virtual torch, the participant physically holds a real one. Instead of a screen showing them the mural, a real wall in a real dark room lights up in front of them."
     },
     {
       "type": "heading",
@@ -517,16 +500,16 @@
     {
       "type": "image",
       "sectionId": "phase2",
-      "src": "/media/ajanta-caves/phase2_blindfolded_dark_room.png",
-      "alt": "Blindfolded in dark room",
-      "caption": "An early run-through: blindfolded in the dark room, before the mural is revealed.",
+      "src": "/media/ajanta-caves/phase2_blindfolded_dark_room.webp",
+      "alt": "The father's diary",
+      "caption": "The father's diary",
       "subSectionId": "experience_steps"
     },
     {
       "type": "image",
       "sectionId": "phase2",
-      "src": "/media/ajanta-caves/phase2_full_mural_torchlight.png",
-      "alt": "Full mural revealed",
+      "src": "/media/ajanta-caves/phase2_full_mural_torchlight.webp",
+      "alt": "The full mural revealed",
       "caption": "The full mural revealed, flanked by real torchlight.",
       "subSectionId": "experience_steps"
     },
@@ -563,7 +546,7 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/touchdesigner_early_tracking.png",
+      "src": "/media/ajanta-caves/touchdesigner_early_tracking.webp",
       "alt": "Early tracking tests TouchDesigner",
       "caption": "Early tracking tests in TouchDesigner, before settling on a final approach.",
       "subSectionId": "problem_1"
@@ -579,7 +562,7 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/wired_motion_sensor_laptop.png",
+      "src": "/media/ajanta-caves/wired_motion_sensor_laptop.webp",
       "alt": "Wired motion sensor",
       "caption": "Testing the motion sensor setup.",
       "subSectionId": "problem_1"
@@ -587,9 +570,9 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/wired_sensor_cable.png",
+      "src": "/media/ajanta-caves/wired_sensor_cable.webp",
       "alt": "Wired sensor cable",
-      "caption": "The wired motion-sensor approach \u2014 a sensor cable ran from the torch straight into the laptop.",
+      "caption": "The wired motion-sensor approach — a sensor cable ran from the torch straight into the laptop.",
       "subSectionId": "problem_1"
     },
     {
@@ -603,7 +586,7 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/camera_object_recognition.png",
+      "src": "/media/ajanta-caves/camera_object_recognition.webp",
       "alt": "Camera object recognition",
       "caption": "Testing object-recognition software to detect the torch on camera.",
       "subSectionId": "problem_1"
@@ -619,17 +602,17 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/blob_tracking_node.png",
-      "alt": "Blob tracking node",
-      "caption": "Blob tracking node in TouchDesigner.",
+      "src": "/media/ajanta-caves/blob_tracking_result.webp",
+      "alt": "Blob tracking result",
+      "caption": "Blob tracking: the system tried to isolate the torch as a bright blob against the room, but inconsistent lighting made it unreliable.",
       "subSectionId": "problem_1"
     },
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/blob_tracking_result.png",
-      "alt": "Blob tracking result",
-      "caption": "Blob tracking: the system tried to isolate the torch as a bright blob against the room, but inconsistent lighting made it unreliable.",
+      "src": "/media/ajanta-caves/blob_tracking_node.webp",
+      "alt": "Blob tracking node",
+      "caption": "Blob tracking node in TouchDesigner.",
       "subSectionId": "problem_1"
     },
     {
@@ -643,7 +626,7 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/mediapipe_hand_tracking.png",
+      "src": "/media/ajanta-caves/mediapipe_hand_tracking.webp",
       "alt": "MediaPipe hand tracking",
       "caption": "MediaPipe detecting the hand skeleton, including the thumb-and-index pinch used as the trigger.",
       "subSectionId": "problem_1"
@@ -651,7 +634,7 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/touchdesigner_hand_tracking_logic.png",
+      "src": "/media/ajanta-caves/touchdesigner_hand_tracking_logic.webp",
       "alt": "TouchDesigner hand tracking logic",
       "caption": "The hand-tracking logic in TouchDesigner, turning the pinch gesture into a usable signal.",
       "subSectionId": "problem_1"
@@ -698,9 +681,9 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/arduino_photoresistor_monitor.png",
+      "src": "/media/ajanta-caves/arduino_photoresistor_monitor.webp",
       "alt": "Arduino photoresistor monitor",
-      "caption": "Reading raw photoresistor values in the Arduino serial monitor \u2014 LIGHT vs DARK \u2014 used to detect a page turning under torchlight.",
+      "caption": "Reading raw photoresistor values in the Arduino serial monitor — LIGHT vs DARK — used to detect a page turning under torchlight.",
       "subSectionId": "problem_2"
     },
     {
@@ -724,9 +707,15 @@
     {
       "type": "image",
       "sectionId": "problem_solving",
-      "src": "/media/ajanta-caves/photoresistor_flame_test.png",
+      "src": "/media/ajanta-caves/photoresistor_flame_test.webp",
       "alt": "Testing photoresistor real flame",
       "caption": "Testing a photoresistor's response to a real flame, to calibrate how close the torch needs to be to trigger the wall.",
+      "subSectionId": "problem_3"
+    },
+    {
+      "type": "youtube",
+      "sectionId": "problem_solving",
+      "content": "https://youtu.be/Umtn3EDkku0?si=e7cUmAcfOFHbja8N",
       "subSectionId": "problem_3"
     },
     {

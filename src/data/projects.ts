@@ -22,16 +22,14 @@ export const projectsArray: Project[] = [
   {
     "name": "Ajanta Caves",
     "slug": "ajanta-caves",
-    "thumbnail": "/media/thumbnails/ajanta-caves.jpg",
+    "thumbnail": "/media/thumbnails/ajanta-caves.webp",
     "height": 1080,
     "width": 1080,
     "year": 2024,
     "tags": [
       "VR World Building",
       "Multisensory Experience",
-      "Spatial Design",
-      "TouchDesigner",
-      "Unity"
+      "UX"
     ],
     "size": "1x1",
     "description": "Follow the brushstrokes through the silence: a torchlit journey to a father's living art. A two-phase project transitioning from 3D VR world-building to a physical multisensory ritual built from fire, touch, and darkness.",
