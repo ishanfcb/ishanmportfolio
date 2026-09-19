@@ -21,6 +21,7 @@ interface ContentBlock {
 
 interface ProjectData {
   name: string;
+  description?: string;
   tags?: string[];
   year?: number;
   liveUrl?: string;
