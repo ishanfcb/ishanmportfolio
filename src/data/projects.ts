@@ -38,7 +38,7 @@ export const projectsArray: Project[] = [
   {
     "name": "Delhi's AQI",
     "slug": "del-aqi",
-    "thumbnail": "/media/thumbnails/del-aqi.jpg",
+    "thumbnail": "/media/thumbnails/del-aqi-thumb.jpg",
     "height": 1080,
     "width": 1080,
     "year": 2026,

@@ -1,7 +1,7 @@
 {
   "name": "Delhi's AQI",
   "slug": "del-aqi",
-  "thumbnail": "/media/thumbnails/del-aqi.jpg",
+  "thumbnail": "/media/thumbnails/del-aqi-thumb.jpg",
   "height": 1080,
   "width": 1080,
   "year": 2026,
@@ -80,7 +80,7 @@
     },
     {
       "id": "experience",
-      "label": "The Experience — Three Phases",
+      "label": "The Experience \u00e2\u20ac\u201d Three Phases",
       "subsections": [
         {
           "id": "phase1",
@@ -118,7 +118,7 @@
     {
       "type": "paragraph",
       "sectionId": "overview",
-      "content": "Delhi's AQI is a browser-based interactive experience, built over one week for a college exhibition, that turns something normally abstract — air pollution exposure — into something a person can hold in their hand. It asks a visitor a short series of questions about their daily routine, calculates exactly how much toxic air their income has let them avoid, and then prints out a receipt. But the receipt they walk away with is not their own. It belongs to someone else — someone from their daily life who has been absorbing the exposure they paid to avoid."
+      "content": "Delhi's AQI is a browser-based interactive experience, built over one week for a college exhibition, that turns something normally abstract \u00e2\u20ac\u201d air pollution exposure \u00e2\u20ac\u201d into something a person can hold in their hand. It asks a visitor a short series of questions about their daily routine, calculates exactly how much toxic air their income has let them avoid, and then prints out a receipt. But the receipt they walk away with is not their own. It belongs to someone else \u00e2\u20ac\u201d someone from their daily life who has been absorbing the exposure they paid to avoid."
     },
     {
       "type": "paragraph",
@@ -128,7 +128,7 @@
     {
       "type": "paragraph",
       "sectionId": "context",
-      "content": "The problem was never a lack of awareness. It's that clean air has been privatised. A sealed apartment and a HEPA filter aren't solutions — they're an exit, available only to people who can afford one. The air outside that apartment, the commons everyone else still has to breathe, stays exactly as toxic as it was before."
+      "content": "The problem was never a lack of awareness. It's that clean air has been privatised. A sealed apartment and a HEPA filter aren't solutions \u00e2\u20ac\u201d they're an exit, available only to people who can afford one. The air outside that apartment, the commons everyone else still has to breathe, stays exactly as toxic as it was before."
     },
     {
       "type": "paragraph",
@@ -144,7 +144,7 @@
       "type": "bulletList",
       "sectionId": "audience",
       "content": [
-        "Age: 25–40",
+        "Age: 25\u00e2\u20ac\u201c40",
         "Class: Upper-middle, financially independent",
         "Location: Delhi / NCR"
       ]
@@ -152,7 +152,7 @@
     {
       "type": "paragraph",
       "sectionId": "audience",
-      "content": "This isn't the demographic most affected by the air quality crisis. It's the demographic most equipped to do something about it. They hold the economic power, the social influence, and the political voice needed to demand systemic change — and they are also, not coincidentally, the demographic least confronted with the need to."
+      "content": "This isn't the demographic most affected by the air quality crisis. It's the demographic most equipped to do something about it. They hold the economic power, the social influence, and the political voice needed to demand systemic change \u00e2\u20ac\u201d and they are also, not coincidentally, the demographic least confronted with the need to."
     },
     {
       "type": "subheading",
@@ -164,7 +164,7 @@
       "type": "paragraph",
       "sectionId": "concept",
       "subSectionId": "concept_trust",
-      "content": "The interface was deliberately built to look like a premium fitness or finance dashboard — a visual language this specific audience already trusts and feels comfortable inside. The visitor builds their day using sliders and toggles: hours in an AC car, hours in a filtered office, hours at home with a purifier running. It creates a small, satisfying sense of control. They are, in effect, building their own \"clean air bubble.\""
+      "content": "The interface was deliberately built to look like a premium fitness or finance dashboard \u00e2\u20ac\u201d a visual language this specific audience already trusts and feels comfortable inside. The visitor builds their day using sliders and toggles: hours in an AC car, hours in a filtered office, hours at home with a purifier running. It creates a small, satisfying sense of control. They are, in effect, building their own \"clean air bubble.\""
     },
     {
       "type": "subheading",
@@ -176,7 +176,7 @@
       "type": "paragraph",
       "sectionId": "concept",
       "subSectionId": "concept_pivot",
-      "content": "Once that bubble is calculated, the interface introduces a variable the visitor cannot control: a second, parallel dataset belonging to someone else entirely — someone from their own daily life, like the person who delivers their groceries. The discomfort isn't an accident of the visuals. It comes from realising that personal safety, in this system, is a luxury being purchased — and that it relies on someone else absorbing what you've paid to avoid."
+      "content": "Once that bubble is calculated, the interface introduces a variable the visitor cannot control: a second, parallel dataset belonging to someone else entirely \u00e2\u20ac\u201d someone from their own daily life, like the person who delivers their groceries. The discomfort isn't an accident of the visuals. It comes from realising that personal safety, in this system, is a luxury being purchased \u00e2\u20ac\u201d and that it relies on someone else absorbing what you've paid to avoid."
     },
     {
       "type": "subheading",
@@ -188,7 +188,7 @@
       "type": "paragraph",
       "sectionId": "concept",
       "subSectionId": "concept_no_name",
-      "content": "This was the single most deliberate ethical decision in the whole project, and the one most likely to get pushed back on in a crit: the second persona is not a real, named individual. It's an occupational data composite — built from aggregate government labour data, gig platform research, and epidemiological studies on outdoor worker exposure, not from one person's story."
+      "content": "This was the single most deliberate ethical decision in the whole project, and the one most likely to get pushed back on in a crit: the second persona is not a real, named individual. It's an occupational data composite \u00e2\u20ac\u201d built from aggregate government labour data, gig platform research, and epidemiological studies on outdoor worker exposure, not from one person's story."
     },
     {
       "type": "paragraph",
@@ -222,25 +222,25 @@
       "type": "bulletList",
       "sectionId": "design_decisions",
       "content": [
-        "Emotional mechanism — Dissonance, not guilt",
-        "Narrative structure — Three beats: Body → Shield → System",
-        "Opening — Single line of text, dark background, zero UI chrome",
-        "Persona framing — Occupational data composite, not a human being. No name, no face, no biography",
-        "Call to action at the end — None. Three structural data points (policy levers) only",
-        "Colour direction — Monochromatic, one meaningful accent colour, a biological shift in that accent as accumulation data appears",
-        "Typography — Serious publication register, not health-app register",
-        "Individual exit — Deliberately absent — structural claustrophobia is the point"
+        "Emotional mechanism \u00e2\u20ac\u201d Dissonance, not guilt",
+        "Narrative structure \u00e2\u20ac\u201d Three beats: Body \u00e2\u2020\u2019 Shield \u00e2\u2020\u2019 System",
+        "Opening \u00e2\u20ac\u201d Single line of text, dark background, zero UI chrome",
+        "Persona framing \u00e2\u20ac\u201d Occupational data composite, not a human being. No name, no face, no biography",
+        "Call to action at the end \u00e2\u20ac\u201d None. Three structural data points (policy levers) only",
+        "Colour direction \u00e2\u20ac\u201d Monochromatic, one meaningful accent colour, a biological shift in that accent as accumulation data appears",
+        "Typography \u00e2\u20ac\u201d Serious publication register, not health-app register",
+        "Individual exit \u00e2\u20ac\u201d Deliberately absent \u00e2\u20ac\u201d structural claustrophobia is the point"
       ]
     },
     {
       "type": "paragraph",
       "sectionId": "reference_points",
-      "content": "The tone was built as a deliberate synthesis of two different standards, rather than picking one. The journalism standard — outlets like The Pudding, Periscopic, and Reuters Graphics — is data that has a point of view, doesn't hide behind \"we just show the numbers,\" and treats the reader as an adult. The design standard — Giorgia Lupi's hand-drawn data portraits, Nadieh Bremer's organic systems, the New York Times Climate desk's long-form scrollers — is work where every typographic and colour decision is a considered argument, not decoration."
+      "content": "The tone was built as a deliberate synthesis of two different standards, rather than picking one. The journalism standard \u00e2\u20ac\u201d outlets like The Pudding, Periscopic, and Reuters Graphics \u00e2\u20ac\u201d is data that has a point of view, doesn't hide behind \"we just show the numbers,\" and treats the reader as an adult. The design standard \u00e2\u20ac\u201d Giorgia Lupi's hand-drawn data portraits, Nadieh Bremer's organic systems, the New York Times Climate desk's long-form scrollers \u00e2\u20ac\u201d is work where every typographic and colour decision is a considered argument, not decoration."
     },
     {
       "type": "paragraph",
       "sectionId": "reference_points",
-      "content": "The synthesis: the data has a position, and the design embodies that position without decorating it. Practically, that meant a monochromatic palette with one accent colour used sparingly; no infographic clichés; no icons of lungs with red zones; no warning symbols. The discomfort in this piece was always meant to come from clarity, not from visual alarm."
+      "content": "The synthesis: the data has a position, and the design embodies that position without decorating it. Practically, that meant a monochromatic palette with one accent colour used sparingly; no infographic clich\u00c3\u00a9s; no icons of lungs with red zones; no warning symbols. The discomfort in this piece was always meant to come from clarity, not from visual alarm."
     },
     {
       "type": "paragraph",
@@ -251,42 +251,42 @@
       "type": "subheading",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "Calculation 1 — Weighted Daily Exposure (TWA)"
+      "content": "Calculation 1 \u00e2\u20ac\u201d Weighted Daily Exposure (TWA)"
     },
     {
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "A person doesn't breathe the same air all day. A purifier cleans the air at home, an office has its own HVAC, a commute happens inside an AC car — but outside is the full ambient concentration. This formula takes a time-weighted average across every environment someone moves through, weighted by how many hours they actually spend in each one."
+      "content": "A person doesn't breathe the same air all day. A purifier cleans the air at home, an office has its own HVAC, a commute happens inside an AC car \u00e2\u20ac\u201d but outside is the full ambient concentration. This formula takes a time-weighted average across every environment someone moves through, weighted by how many hours they actually spend in each one."
     },
     {
       "type": "quote",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "E = (C₁×t₁ + C₂×t₂ + … + Cₙ×tₙ) ÷ 24"
+      "content": "E = (C\u00e2\u201a\u0081\u00c3\u2014t\u00e2\u201a\u0081 + C\u00e2\u201a\u201a\u00c3\u2014t\u00e2\u201a\u201a + \u00e2\u20ac\u00a6 + C\u00e2\u201a\u2122\u00c3\u2014t\u00e2\u201a\u2122) \u00c3\u00b7 24"
     },
     {
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "Where C is the PM2.5 concentration in that environment (μg/m³), and t is hours spent there. Worked through with real numbers, for an upper-middle-class Delhi resident:"
+      "content": "Where C is the PM2.5 concentration in that environment (\u00ce\u00bcg/m\u00c2\u00b3), and t is hours spent there. Worked through with real numbers, for an upper-middle-class Delhi resident:"
     },
     {
       "type": "bulletList",
       "sectionId": "methodology",
       "subSectionId": "calc1",
       "content": [
-        "Home with a premium purifier: 3.2 μg/m³ × 8 hrs",
-        "Sealed HVAC office: 10.6 μg/m³ × 9 hrs",
-        "AC car commute: 37.2 μg/m³ × 2 hrs",
-        "Outside: 106 μg/m³ × 5 hrs"
+        "Home with a premium purifier: 3.2 \u00ce\u00bcg/m\u00c2\u00b3 \u00c3\u2014 8 hrs",
+        "Sealed HVAC office: 10.6 \u00ce\u00bcg/m\u00c2\u00b3 \u00c3\u2014 9 hrs",
+        "AC car commute: 37.2 \u00ce\u00bcg/m\u00c2\u00b3 \u00c3\u2014 2 hrs",
+        "Outside: 106 \u00ce\u00bcg/m\u00c2\u00b3 \u00c3\u2014 5 hrs"
       ]
     },
     {
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "(3.2×8) + (10.6×9) + (37.2×2) + (106×5) = 1145.6 ÷ 24 = 47.7 μg/m³"
+      "content": "(3.2\u00c3\u20148) + (10.6\u00c3\u20149) + (37.2\u00c3\u20142) + (106\u00c3\u20145) = 1145.6 \u00c3\u00b7 24 = 47.7 \u00ce\u00bcg/m\u00c2\u00b3"
     },
     {
       "type": "paragraph",
@@ -299,43 +299,43 @@
       "sectionId": "methodology",
       "subSectionId": "calc1",
       "content": [
-        "9 hrs outdoors on a motorcycle: 148 μg/m³",
-        "2 hrs indoors without a purifier: 74 μg/m³ (indoor air runs roughly half of outdoor without filtration)",
-        "Remaining hours at home, in a higher-PM neighbourhood: 106 μg/m³"
+        "9 hrs outdoors on a motorcycle: 148 \u00ce\u00bcg/m\u00c2\u00b3",
+        "2 hrs indoors without a purifier: 74 \u00ce\u00bcg/m\u00c2\u00b3 (indoor air runs roughly half of outdoor without filtration)",
+        "Remaining hours at home, in a higher-PM neighbourhood: 106 \u00ce\u00bcg/m\u00c2\u00b3"
       ]
     },
     {
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "calc1",
-      "content": "That works out to a weighted exposure of roughly 98.4 μg/m³ — more than double the upper-middle-class user, on the same day, in the same city. The reason this uses a time-weighted average rather than a single AQI reading is that a fixed outdoor sensor doesn't reflect personal exposure at all — someone sealed inside a filtered apartment all day has a completely different exposure than the number posted outside their window. TWA is the standard the WHO and occupational health bodies use for exactly this kind of calculation."
+      "content": "That works out to a weighted exposure of roughly 98.4 \u00ce\u00bcg/m\u00c2\u00b3 \u00e2\u20ac\u201d more than double the upper-middle-class user, on the same day, in the same city. The reason this uses a time-weighted average rather than a single AQI reading is that a fixed outdoor sensor doesn't reflect personal exposure at all \u00e2\u20ac\u201d someone sealed inside a filtered apartment all day has a completely different exposure than the number posted outside their window. TWA is the standard the WHO and occupational health bodies use for exactly this kind of calculation."
     },
     {
       "type": "subheading",
       "sectionId": "methodology",
       "subSectionId": "calc2",
-      "content": "Calculation 2 — Cigarette Equivalent"
+      "content": "Calculation 2 \u00e2\u20ac\u201d Cigarette Equivalent"
     },
     {
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "calc2",
-      "content": "PM2.5 concentration in μg/m³ is invisible and abstract — \"47.7 μg/m³\" means very little to most people on its own. Berkeley Earth found a way to make it tangible: they calculated that breathing air at a sustained 22 μg/m³ of PM2.5 for a full day does roughly the same lung damage as smoking one cigarette."
+      "content": "PM2.5 concentration in \u00ce\u00bcg/m\u00c2\u00b3 is invisible and abstract \u00e2\u20ac\u201d \"47.7 \u00ce\u00bcg/m\u00c2\u00b3\" means very little to most people on its own. Berkeley Earth found a way to make it tangible: they calculated that breathing air at a sustained 22 \u00ce\u00bcg/m\u00c2\u00b3 of PM2.5 for a full day does roughly the same lung damage as smoking one cigarette."
     },
     {
       "type": "quote",
       "sectionId": "methodology",
       "subSectionId": "calc2",
-      "content": "Cigarettes per day = Daily PM2.5 (μg/m³) ÷ 22"
+      "content": "Cigarettes per day = Daily PM2.5 (\u00ce\u00bcg/m\u00c2\u00b3) \u00c3\u00b7 22"
     },
     {
       "type": "bulletList",
       "sectionId": "methodology",
       "subSectionId": "calc2",
       "content": [
-        "Upper-middle-class user (47.7 μg/m³): 47.7 ÷ 22 = 2.2 cigarettes/day — cigarettes they never chose to smoke",
-        "Gig delivery rider (98.4 μg/m³): 98.4 ÷ 22 = 4.5 cigarettes/day",
-        "Street vendor (126.4 μg/m³): 126.4 ÷ 22 = 5.7 cigarettes/day"
+        "Upper-middle-class user (47.7 \u00ce\u00bcg/m\u00c2\u00b3): 47.7 \u00c3\u00b7 22 = 2.2 cigarettes/day \u00e2\u20ac\u201d cigarettes they never chose to smoke",
+        "Gig delivery rider (98.4 \u00ce\u00bcg/m\u00c2\u00b3): 98.4 \u00c3\u00b7 22 = 4.5 cigarettes/day",
+        "Street vendor (126.4 \u00ce\u00bcg/m\u00c2\u00b3): 126.4 \u00c3\u00b7 22 = 5.7 cigarettes/day"
       ]
     },
     {
@@ -354,7 +354,7 @@
       "type": "paragraph",
       "sectionId": "methodology",
       "subSectionId": "privilege_score",
-      "content": "This one deliberately isn't a custom formula. It's not meant to look precise for its own sake — because it isn't measuring an individual's uniqueness, it's placing them inside a group. Roughly 12% of Delhi's population falls into the upper-middle-class bracket this piece targets, and a visitor's privilege rank is essentially their position relative to that slice of the city, not a bespoke personal calculation. That was an intentional choice: the score is about where someone sits in a structure shared by a defined group of people, not about flattering them with a unique number."
+      "content": "This one deliberately isn't a custom formula. It's not meant to look precise for its own sake \u00e2\u20ac\u201d because it isn't measuring an individual's uniqueness, it's placing them inside a group. Roughly 12% of Delhi's population falls into the upper-middle-class bracket this piece targets, and a visitor's privilege rank is essentially their position relative to that slice of the city, not a bespoke personal calculation. That was an intentional choice: the score is about where someone sits in a structure shared by a defined group of people, not about flattering them with a unique number."
     },
     {
       "type": "subheading",
@@ -374,7 +374,7 @@
       "subSectionId": "phase1",
       "src": "/media/del-aqi/audit_q1_years.webp",
       "alt": "The Audit questions",
-      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen — no form fields, no progress bar."
+      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen \u00e2\u20ac\u201d no form fields, no progress bar."
     },
     {
       "type": "image",
@@ -382,7 +382,7 @@
       "subSectionId": "phase1",
       "src": "/media/del-aqi/audit_q2_outdoors.webp",
       "alt": "The Audit questions - outdoors",
-      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen — no form fields, no progress bar."
+      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen \u00e2\u20ac\u201d no form fields, no progress bar."
     },
     {
       "type": "image",
@@ -423,7 +423,7 @@
       "content": [
         "Estimated PM2.5 deposited in lung tissue across their years in Delhi, converted to milligrams",
         "Cigarette equivalent per day, using the Berkeley Earth formula",
-        "Annual spend on clean air protection — purifier and filtration costs, amortised",
+        "Annual spend on clean air protection \u00e2\u20ac\u201d purifier and filtration costs, amortised",
         "Disease risk elevation for heart disease, stroke, COPD, and lung cancer, based on Burnett et al. (2014)"
       ]
     },
@@ -486,14 +486,14 @@
       "type": "paragraph",
       "sectionId": "experience",
       "subSectionId": "phase3",
-      "content": "The output is a two-column receipt. The left column is headed PERSONAL AIR EXPOSURE RECEIPT. The right is headed EXPOSURE BILL — UNPAID. Both columns carry identical line items, side by side:"
+      "content": "The output is a two-column receipt. The left column is headed PERSONAL AIR EXPOSURE RECEIPT. The right is headed EXPOSURE BILL \u00e2\u20ac\u201d UNPAID. Both columns carry identical line items, side by side:"
     },
     {
       "type": "bulletList",
       "sectionId": "experience",
       "subSectionId": "phase3",
       "content": [
-        "Daily exposure profile (commute, indoor, outdoor, weighted average) in μg/m³",
+        "Daily exposure profile (commute, indoor, outdoor, weighted average) in \u00ce\u00bcg/m\u00c2\u00b3",
         "Cigarette equivalent",
         "Disease risk elevation, calculated differently per profile because risk scales with exposure",
         "Privilege Rank"
@@ -505,7 +505,7 @@
       "subSectionId": "phase3",
       "src": "/media/del-aqi/receipt_screen.webp",
       "alt": "Personal air exposure receipt",
-      "caption": "The visitor's own receipt on screen — precise, unstyled, and printable."
+      "caption": "The visitor's own receipt on screen \u00e2\u20ac\u201d precise, unstyled, and printable."
     },
     {
       "type": "image",
@@ -513,13 +513,13 @@
       "subSectionId": "phase3",
       "src": "/media/del-aqi/receipt_download_note.webp",
       "alt": "Downloaded receipt note",
-      "caption": "Once downloaded, the line \"This person's lungs have been charged accordingly\" appears — the only moment the piece raises its voice."
+      "caption": "Once downloaded, the line \"This person's lungs have been charged accordingly\" appears \u00e2\u20ac\u201d the only moment the piece raises its voice."
     },
     {
       "type": "paragraph",
       "sectionId": "experience",
       "subSectionId": "phase3",
-      "content": "At the bottom of each column sits a coloured box. The visitor's is dark green, explaining their protected position. The worker's is dark red, explaining what they'll pay for that protection — not in money, but in lung capacity and years. Below both columns, a single final line closes the piece:"
+      "content": "At the bottom of each column sits a coloured box. The visitor's is dark green, explaining their protected position. The worker's is dark red, explaining what they'll pay for that protection \u00e2\u20ac\u201d not in money, but in lung capacity and years. Below both columns, a single final line closes the piece:"
     },
     {
       "type": "quote",
@@ -541,7 +541,7 @@
     {
       "type": "paragraph",
       "sectionId": "absence_exit",
-      "content": "Most data dashboards end with \"here's what you can do.\" This one ends with \"here's what you can't do alone.\" That gap, between seeing the problem clearly and having no individual exit from it, is where the real discomfort lives — and discomfort without an easy exit is what actually tends to push people toward the one thing that works: collective political pressure, not individual purchases."
+      "content": "Most data dashboards end with \"here's what you can do.\" This one ends with \"here's what you can't do alone.\" That gap, between seeing the problem clearly and having no individual exit from it, is where the real discomfort lives \u00e2\u20ac\u201d and discomfort without an easy exit is what actually tends to push people toward the one thing that works: collective political pressure, not individual purchases."
     },
     {
       "type": "paragraph",
@@ -551,26 +551,26 @@
     {
       "type": "paragraph",
       "sectionId": "how_built",
-      "content": "The printer connection is the part people usually assume was more complicated than it was. The browser never actually talks to the thermal printer directly. During the exhibition, every downloaded receipt landed in a watched \"hot folder\" on the machine running the display — a folder set up to monitor itself for new files. The moment a new receipt image appeared there, it was automatically sent straight to the thermal printer, with no manual step in between. A visitor pressed download, and a printed receipt was already in their hand moments later, without either of them touching a print dialogue."
+      "content": "The printer connection is the part people usually assume was more complicated than it was. The browser never actually talks to the thermal printer directly. During the exhibition, every downloaded receipt landed in a watched \"hot folder\" on the machine running the display \u00e2\u20ac\u201d a folder set up to monitor itself for new files. The moment a new receipt image appeared there, it was automatically sent straight to the thermal printer, with no manual step in between. A visitor pressed download, and a printed receipt was already in their hand moments later, without either of them touching a print dialogue."
     },
     {
       "type": "image",
       "sectionId": "how_built",
       "src": "/media/del-aqi/exhibition_setup_printer.webp",
       "alt": "Exhibition setup with TSC thermal printer",
-      "caption": "The setup — laptop running the visualisation, TSC thermal printer wired in beside it, receipt already printing."
+      "caption": "The setup \u00e2\u20ac\u201d laptop running the visualisation, TSC thermal printer wired in beside it, receipt already printing."
     },
     {
       "type": "paragraph",
       "sectionId": "how_built",
-      "content": "This was built and shown inside a college exhibition — a small, in-person setting rather than a large public installation. The thermal printer sat physically on site, printing receipts as visitors went through the experience, so the final object each person left with was a real, physical piece of paper, not just something on a screen."
+      "content": "This was built and shown inside a college exhibition \u00e2\u20ac\u201d a small, in-person setting rather than a large public installation. The thermal printer sat physically on site, printing receipts as visitors went through the experience, so the final object each person left with was a real, physical piece of paper, not just something on a screen."
     },
     {
       "type": "image",
       "sectionId": "how_built",
       "src": "/media/del-aqi/printed_receipt_paper.webp",
       "alt": "Physically printed EXPOSURE BILL",
-      "caption": "A physically printed EXPOSURE BILL — the worker's side of a receipt, straight off the thermal printer."
+      "caption": "A physically printed EXPOSURE BILL \u00e2\u20ac\u201d the worker's side of a receipt, straight off the thermal printer."
     },
     {
       "type": "video",
@@ -583,12 +583,12 @@
       "type": "bulletList",
       "sectionId": "sources",
       "content": [
-        "CPCB / DPCC / SAFAR AQEWS — PM2.5 historical data, 2011–2024",
-        "AQLI 2025, University of Chicago EPIC — life expectancy loss methodology",
-        "Burnett et al. (2014), Environmental Health Perspectives — disease risk functions",
-        "Berkeley Earth — cigarette equivalence methodology",
-        "Fairwork India 2024, Oxford Internet Institute — gig worker conditions",
-        "PLFS 2022–23, Ministry of Statistics, Government of India — worker earnings and hours"
+        "CPCB / DPCC / SAFAR AQEWS \u00e2\u20ac\u201d PM2.5 historical data, 2011\u00e2\u20ac\u201c2024",
+        "AQLI 2025, University of Chicago EPIC \u00e2\u20ac\u201d life expectancy loss methodology",
+        "Burnett et al. (2014), Environmental Health Perspectives \u00e2\u20ac\u201d disease risk functions",
+        "Berkeley Earth \u00e2\u20ac\u201d cigarette equivalence methodology",
+        "Fairwork India 2024, Oxford Internet Institute \u00e2\u20ac\u201d gig worker conditions",
+        "PLFS 2022\u00e2\u20ac\u201c23, Ministry of Statistics, Government of India \u00e2\u20ac\u201d worker earnings and hours"
       ]
     }
   ]
