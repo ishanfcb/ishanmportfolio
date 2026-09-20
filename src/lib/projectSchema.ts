@@ -24,7 +24,7 @@ const creditSchema = z.object({
 export const projectSchema = z.object({
   name: z.string().min(1),
   slug: z.string().min(1),
-  year: z.number().int().min(1900).max(2100),
+  year: z.union([z.number(), z.string()]),
   tags: z.array(z.string()).min(1),
   description: z.string().min(1),
   thumbnail: z.string().min(1),

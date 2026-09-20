@@ -36,7 +36,7 @@ interface ProjectProps {
         name: string;
         tags: string[];
         description: string;
-        year: number;
+        year: number | string;
         interactiveUrl?: string;
         githubUrl?: string;
         credits?: Credit[];

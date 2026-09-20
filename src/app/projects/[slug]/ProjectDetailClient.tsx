@@ -31,7 +31,7 @@ interface ProjectData {
   name: string;
   description?: string;
   tags?: string[];
-  year?: number;
+  year?: number | string;
   liveUrl?: string;
   team?: string;
   role?: string;

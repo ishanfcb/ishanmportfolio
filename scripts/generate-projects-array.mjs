@@ -52,7 +52,7 @@ export interface Project {
   thumbnail: string;
   height: number;
   width: number;
-  year: number;
+  year: number | string;
   tags: string[];
   size: "1x1" | "1x2" | "2x1" | "2x2";
   position?: 1 | 2 | 3 | 4 | 5 | 6;
