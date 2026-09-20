@@ -363,6 +363,9 @@ export default function ProjectDetailClient({
       case "heading":
         return <h2 className={styles.heading}>{block.content as string}</h2>;
 
+      case "subheading":
+        return <h3 className={styles.subheading}>{block.content as string}</h3>;
+
       case "quote":
         return (
           <blockquote className={styles.quote}>

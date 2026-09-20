@@ -289,6 +289,16 @@
   margin-bottom: 16px;
 }
 
+.subheading {
+  font-family: var(--font-sans);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
 .heading {
   font-family: var(--font-sans);
   font-size: 1.4rem;

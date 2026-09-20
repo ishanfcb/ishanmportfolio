@@ -5,7 +5,12 @@
   "height": 1080,
   "width": 1080,
   "year": 2026,
-  "tags": ["Data Visualisation", "Research", "UI", "UX"],
+  "tags": [
+    "Data Visualisation",
+    "Research",
+    "UI",
+    "UX"
+  ],
   "featured": true,
   "liveUrl": "https://data-viz-aqi.vercel.app/",
   "team": "Group (2 people)",
@@ -13,27 +18,127 @@
   "timeline": "1 Week",
   "description": "An interactive data visualisation that exposes how clean air in Delhi has become a privilege, using personal data and narrative to shift users from awareness to discomfort.",
   "sections": [
-    { "id": "context", "label": "Context" },
-    { "id": "overview", "label": "Overview" },
-    { "id": "audience", "label": "Target Audience" },
-    { "id": "data", "label": "Data & Methodology" },
-    { "id": "gallery", "label": "Gallery" }
+    {
+      "id": "overview",
+      "label": "Overview"
+    },
+    {
+      "id": "context",
+      "label": "Context"
+    },
+    {
+      "id": "why_exists",
+      "label": "Why This Exists"
+    },
+    {
+      "id": "audience",
+      "label": "Target Audience"
+    },
+    {
+      "id": "concept",
+      "label": "The Concept",
+      "subsections": [
+        {
+          "id": "concept_trust",
+          "label": "An Interface People Already Trust"
+        },
+        {
+          "id": "concept_pivot",
+          "label": "The Pivot"
+        },
+        {
+          "id": "concept_no_name",
+          "label": "Why the Second Person Has No Name"
+        }
+      ]
+    },
+    {
+      "id": "design_decisions",
+      "label": "Design Decisions"
+    },
+    {
+      "id": "reference_points",
+      "label": "The Reference Points"
+    },
+    {
+      "id": "methodology",
+      "label": "Data & Methodology",
+      "subsections": [
+        {
+          "id": "calc1",
+          "label": "Weighted Daily Exposure (TWA)"
+        },
+        {
+          "id": "calc2",
+          "label": "Cigarette Equivalent"
+        },
+        {
+          "id": "privilege_score",
+          "label": "Clean Air Privilege Score"
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "label": "The Experience — Three Phases",
+      "subsections": [
+        {
+          "id": "phase1",
+          "label": "Phase 1: The Audit"
+        },
+        {
+          "id": "phase2",
+          "label": "Phase 2: The Choice"
+        },
+        {
+          "id": "phase3",
+          "label": "Phase 3: The Receipt"
+        }
+      ]
+    },
+    {
+      "id": "absence_exit",
+      "label": "The Deliberate Absence of an Exit"
+    },
+    {
+      "id": "how_built",
+      "label": "How It Was Built"
+    },
+    {
+      "id": "sources",
+      "label": "Data Sources"
+    }
   ],
   "contentBlocks": [
     {
       "type": "quote",
+      "sectionId": "overview",
+      "content": "A Data Visualisation on the Privilege of Clean Air"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "overview",
+      "content": "Delhi's AQI is a browser-based interactive experience, built over one week for a college exhibition, that turns something normally abstract — air pollution exposure — into something a person can hold in their hand. It asks a visitor a short series of questions about their daily routine, calculates exactly how much toxic air their income has let them avoid, and then prints out a receipt. But the receipt they walk away with is not their own. It belongs to someone else — someone from their daily life who has been absorbing the exposure they paid to avoid."
+    },
+    {
+      "type": "paragraph",
       "sectionId": "context",
-      "content": "An interactive data visualisation that exposes how clean air in Delhi has become a privilege, using personal data and narrative to shift users from awareness to discomfort."
+      "content": "Delhi has one of the worst air quality crises on the planet. But its upper-middle class has largely normalised it. They've checked the AQI app, bought a purifier, and moved on."
     },
     {
       "type": "paragraph",
-      "sectionId": "overview",
-      "content": "Clean air in Delhi has been privatized. Upper-middle-class residents buy their way out of toxic air through HEPA purifiers, sealed AC cars, and filtered offices — but the pollution doesn't disappear. It stays in the shared commons, inhabited by the people who can't afford to exit it."
+      "sectionId": "context",
+      "content": "The problem was never a lack of awareness. It's that clean air has been privatised. A sealed apartment and a HEPA filter aren't solutions — they're an exit, available only to people who can afford one. The air outside that apartment, the commons everyone else still has to breathe, stays exactly as toxic as it was before."
     },
     {
       "type": "paragraph",
-      "sectionId": "overview",
-      "content": "This is a browser-based interactive data visualization that makes this system visible. It starts by taking inputs from users and ends with a comparative analysis."
+      "sectionId": "why_exists",
+      "content": "This project isn't trying to spread awareness people already have. It's trying to make something uncomfortable that money has made very easy to ignore. If someone has the means to filter their air, seal their space, or opt out of the outdoors, they've probably stopped actually feeling the crisis, even while knowing intellectually that it exists."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "why_exists",
+      "content": "This is an act of advocacy, not an explainer. It doesn't try to prescribe a solution. It tries to make visible what capital has quietly made invisible."
     },
     {
       "type": "bulletList",
@@ -41,94 +146,450 @@
       "content": [
         "Age: 25–40",
         "Class: Upper-middle, financially independent",
-        "Location: Delhi / NCR",
-        "Current state: Desensitised. They've normalised the crisis through capital — purifiers, AC commutes, sealed offices.",
-        "Why them: They have the social capital, economic power, and political voice to demand systemic change. They are the audience most capable of acting — and the least confronted with the need to."
+        "Location: Delhi / NCR"
       ]
     },
     {
-      "type": "heading",
-      "sectionId": "data",
-      "content": "Weighted Daily Exposure (TWA)"
+      "type": "paragraph",
+      "sectionId": "audience",
+      "content": "This isn't the demographic most affected by the air quality crisis. It's the demographic most equipped to do something about it. They hold the economic power, the social influence, and the political voice needed to demand systemic change — and they are also, not coincidentally, the demographic least confronted with the need to."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "concept",
+      "subSectionId": "concept_trust",
+      "content": "An Interface People Already Trust"
     },
     {
       "type": "paragraph",
-      "sectionId": "data",
-      "content": "E = (C1 × t1 + C2 × t2 + ... + Cn × tn) / 24 — Time-weighted average across home, commute, and workplace over 24 hrs. Each environment has a different PM2.5 concentration."
+      "sectionId": "concept",
+      "subSectionId": "concept_trust",
+      "content": "The interface was deliberately built to look like a premium fitness or finance dashboard — a visual language this specific audience already trusts and feels comfortable inside. The visitor builds their day using sliders and toggles: hours in an AC car, hours in a filtered office, hours at home with a purifier running. It creates a small, satisfying sense of control. They are, in effect, building their own \"clean air bubble.\""
     },
     {
-      "type": "heading",
-      "sectionId": "data",
-      "content": "Cigarette Equivalent / Day"
-    },
-    {
-      "type": "paragraph",
-      "sectionId": "data",
-      "content": "Cigarettes/day = Daily PM2.5 (μg/m³) / 22 — Berkeley Earth equivalence formula. Translates invisible pollution into a tangible health comparison — 22 μg/m³ sustained for one day equals one cigarette."
-    },
-    {
-      "type": "heading",
-      "sectionId": "data",
-      "content": "Life Expectancy Loss"
+      "type": "subheading",
+      "sectionId": "concept",
+      "subSectionId": "concept_pivot",
+      "content": "The Pivot"
     },
     {
       "type": "paragraph",
-      "sectionId": "data",
-      "content": "Years Lost = ((PM2.5 - 5) / 10) × 0.98 — AQLI methodology (U. of Chicago EPIC). Every 10 μg/m³ above the WHO guideline of 5 μg/m³ reduces life expectancy by ~1 year. Applied across the residency duration."
+      "sectionId": "concept",
+      "subSectionId": "concept_pivot",
+      "content": "Once that bubble is calculated, the interface introduces a variable the visitor cannot control: a second, parallel dataset belonging to someone else entirely — someone from their own daily life, like the person who delivers their groceries. The discomfort isn't an accident of the visuals. It comes from realising that personal safety, in this system, is a luxury being purchased — and that it relies on someone else absorbing what you've paid to avoid."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "concept",
+      "subSectionId": "concept_no_name",
+      "content": "Why the Second Person Has No Name"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "concept",
+      "subSectionId": "concept_no_name",
+      "content": "This was the single most deliberate ethical decision in the whole project, and the one most likely to get pushed back on in a crit: the second persona is not a real, named individual. It's an occupational data composite — built from aggregate government labour data, gig platform research, and epidemiological studies on outdoor worker exposure, not from one person's story."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "concept",
+      "subSectionId": "concept_no_name",
+      "content": "In practice, that means:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "concept",
+      "subSectionId": "concept_no_name",
+      "content": [
+        "No name",
+        "No face",
+        "No backstory",
+        "No suffering shown as spectacle"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "concept",
+      "subSectionId": "concept_no_name",
+      "content": "Their timeline is never shown smaller, dimmer, or subordinate to the visitor's. It runs in parallel, equally legible, treated with the same formal dignity as the visitor's own data."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "design_decisions",
+      "content": "Every major creative choice on this project was locked early and held to deliberately, rather than drifting during execution:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "design_decisions",
+      "content": [
+        "Emotional mechanism — Dissonance, not guilt",
+        "Narrative structure — Three beats: Body → Shield → System",
+        "Opening — Single line of text, dark background, zero UI chrome",
+        "Persona framing — Occupational data composite, not a human being. No name, no face, no biography",
+        "Call to action at the end — None. Three structural data points (policy levers) only",
+        "Colour direction — Monochromatic, one meaningful accent colour, a biological shift in that accent as accumulation data appears",
+        "Typography — Serious publication register, not health-app register",
+        "Individual exit — Deliberately absent — structural claustrophobia is the point"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "reference_points",
+      "content": "The tone was built as a deliberate synthesis of two different standards, rather than picking one. The journalism standard — outlets like The Pudding, Periscopic, and Reuters Graphics — is data that has a point of view, doesn't hide behind \"we just show the numbers,\" and treats the reader as an adult. The design standard — Giorgia Lupi's hand-drawn data portraits, Nadieh Bremer's organic systems, the New York Times Climate desk's long-form scrollers — is work where every typographic and colour decision is a considered argument, not decoration."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "reference_points",
+      "content": "The synthesis: the data has a position, and the design embodies that position without decorating it. Practically, that meant a monochromatic palette with one accent colour used sparingly; no infographic clichés; no icons of lungs with red zones; no warning symbols. The discomfort in this piece was always meant to come from clarity, not from visual alarm."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "content": "Every number the piece shows a visitor is calculated live from their own inputs, using published, citable methodology rather than an invented scoring system."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "Calculation 1 — Weighted Daily Exposure (TWA)"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "A person doesn't breathe the same air all day. A purifier cleans the air at home, an office has its own HVAC, a commute happens inside an AC car — but outside is the full ambient concentration. This formula takes a time-weighted average across every environment someone moves through, weighted by how many hours they actually spend in each one."
+    },
+    {
+      "type": "quote",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "E = (C₁×t₁ + C₂×t₂ + … + Cₙ×tₙ) ÷ 24"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "Where C is the PM2.5 concentration in that environment (μg/m³), and t is hours spent there. Worked through with real numbers, for an upper-middle-class Delhi resident:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": [
+        "Home with a premium purifier: 3.2 μg/m³ × 8 hrs",
+        "Sealed HVAC office: 10.6 μg/m³ × 9 hrs",
+        "AC car commute: 37.2 μg/m³ × 2 hrs",
+        "Outside: 106 μg/m³ × 5 hrs"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "(3.2×8) + (10.6×9) + (37.2×2) + (106×5) = 1145.6 ÷ 24 = 47.7 μg/m³"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "And for a gig delivery rider, over the same 24 hours:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": [
+        "9 hrs outdoors on a motorcycle: 148 μg/m³",
+        "2 hrs indoors without a purifier: 74 μg/m³ (indoor air runs roughly half of outdoor without filtration)",
+        "Remaining hours at home, in a higher-PM neighbourhood: 106 μg/m³"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc1",
+      "content": "That works out to a weighted exposure of roughly 98.4 μg/m³ — more than double the upper-middle-class user, on the same day, in the same city. The reason this uses a time-weighted average rather than a single AQI reading is that a fixed outdoor sensor doesn't reflect personal exposure at all — someone sealed inside a filtered apartment all day has a completely different exposure than the number posted outside their window. TWA is the standard the WHO and occupational health bodies use for exactly this kind of calculation."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "methodology",
+      "subSectionId": "calc2",
+      "content": "Calculation 2 — Cigarette Equivalent"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc2",
+      "content": "PM2.5 concentration in μg/m³ is invisible and abstract — \"47.7 μg/m³\" means very little to most people on its own. Berkeley Earth found a way to make it tangible: they calculated that breathing air at a sustained 22 μg/m³ of PM2.5 for a full day does roughly the same lung damage as smoking one cigarette."
+    },
+    {
+      "type": "quote",
+      "sectionId": "methodology",
+      "subSectionId": "calc2",
+      "content": "Cigarettes per day = Daily PM2.5 (μg/m³) ÷ 22"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "methodology",
+      "subSectionId": "calc2",
+      "content": [
+        "Upper-middle-class user (47.7 μg/m³): 47.7 ÷ 22 = 2.2 cigarettes/day — cigarettes they never chose to smoke",
+        "Gig delivery rider (98.4 μg/m³): 98.4 ÷ 22 = 4.5 cigarettes/day",
+        "Street vendor (126.4 μg/m³): 126.4 ÷ 22 = 5.7 cigarettes/day"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "calc2",
+      "content": "This is Berkeley Earth's published constant, derived from comparative toxicological studies on PM2.5 and tobacco smoke particulate damage, and it's widely used and cited in air quality research."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "methodology",
+      "subSectionId": "privilege_score",
+      "content": "The Clean Air Privilege Score"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "methodology",
+      "subSectionId": "privilege_score",
+      "content": "This one deliberately isn't a custom formula. It's not meant to look precise for its own sake — because it isn't measuring an individual's uniqueness, it's placing them inside a group. Roughly 12% of Delhi's population falls into the upper-middle-class bracket this piece targets, and a visitor's privilege rank is essentially their position relative to that slice of the city, not a bespoke personal calculation. That was an intentional choice: the score is about where someone sits in a structure shared by a defined group of people, not about flattering them with a unique number."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "content": "Phase 1: The Audit"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "content": "The visitor inputs their daily routine: years lived in Delhi, hours spent outdoors, home filtration, workspace filtration, and commute mode. Running that input through the Time-Weighted Average calculation, the system outputs:"
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-1.png",
-      "alt": "Delhi's AQI — interface view 1"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q1_years.webp",
+      "alt": "The Audit questions",
+      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen — no form fields, no progress bar."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-2.png",
-      "alt": "Delhi's AQI — interface view 2"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q2_outdoors.webp",
+      "alt": "The Audit questions - outdoors",
+      "caption": "The Audit opens with plain, one-at-a-time questions on a black screen — no form fields, no progress bar."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-3.png",
-      "alt": "Delhi's AQI — interface view 3"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q3_home_filtration.webp",
+      "alt": "Home filtration question",
+      "caption": "Home filtration and workspace filtration are asked separately, since they carry very different PM2.5 concentrations."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-4.png",
-      "alt": "Delhi's AQI — interface view 4"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q4_workspace_filtration.webp",
+      "alt": "Workspace filtration question",
+      "caption": "Home filtration and workspace filtration are asked separately, since they carry very different PM2.5 concentrations."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-5.png",
-      "alt": "Delhi's AQI — interface view 5"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q5_commute_mode.webp",
+      "alt": "Commute mode question",
+      "caption": "Commute mode and commute hours close out the inputs that feed the TWA calculation."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-6.png",
-      "alt": "Delhi's AQI — interface view 6"
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "src": "/media/del-aqi/audit_q6_commute_hours.webp",
+      "alt": "Commute hours question",
+      "caption": "Commute mode and commute hours close out the inputs that feed the TWA calculation."
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "content": [
+        "Estimated PM2.5 deposited in lung tissue across their years in Delhi, converted to milligrams",
+        "Cigarette equivalent per day, using the Berkeley Earth formula",
+        "Annual spend on clean air protection — purifier and filtration costs, amortised",
+        "Disease risk elevation for heart disease, stroke, COPD, and lung cancer, based on Burnett et al. (2014)"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase1",
+      "content": "The results surface without any dramatisation. Just the number, a label, and a source. The weight comes from precision, not from styling."
+    },
+    {
+      "type": "subheading",
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "content": "Phase 2: The Choice"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "content": "A single question appears on screen:"
+    },
+    {
+      "type": "quote",
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "content": "\"Who in your daily life do you interact with the most?\""
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-7.png",
-      "alt": "Delhi's AQI — interface view 7"
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "src": "/media/del-aqi/choice_persona.webp",
+      "alt": "The choice screen",
+      "caption": "The one moment in the whole flow where the visitor makes a choice rather than a measurement."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "content": "Four options, each deliberately framed as a relationship rather than a job title:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "experience",
+      "subSectionId": "phase2",
+      "content": [
+        "The person who delivers your food and groceries",
+        "The person who helps run your home",
+        "The person who guards your building",
+        "The person who sells you things on the street"
+      ]
+    },
+    {
+      "type": "subheading",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": "Phase 3: The Receipt"
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": "The output is a two-column receipt. The left column is headed PERSONAL AIR EXPOSURE RECEIPT. The right is headed EXPOSURE BILL — UNPAID. Both columns carry identical line items, side by side:"
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": [
+        "Daily exposure profile (commute, indoor, outdoor, weighted average) in μg/m³",
+        "Cigarette equivalent",
+        "Disease risk elevation, calculated differently per profile because risk scales with exposure",
+        "Privilege Rank"
+      ]
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-8.png",
-      "alt": "Delhi's AQI — interface view 8"
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "src": "/media/del-aqi/receipt_screen.webp",
+      "alt": "Personal air exposure receipt",
+      "caption": "The visitor's own receipt on screen — precise, unstyled, and printable."
     },
     {
       "type": "image",
-      "sectionId": "gallery",
-      "src": "/media/del-aqi/screenshot-9.png",
-      "alt": "Delhi's AQI — interface view 9"
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "src": "/media/del-aqi/receipt_download_note.webp",
+      "alt": "Downloaded receipt note",
+      "caption": "Once downloaded, the line \"This person's lungs have been charged accordingly\" appears — the only moment the piece raises its voice."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": "At the bottom of each column sits a coloured box. The visitor's is dark green, explaining their protected position. The worker's is dark red, explaining what they'll pay for that protection — not in money, but in lung capacity and years. Below both columns, a single final line closes the piece:"
+    },
+    {
+      "type": "quote",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": "\"Clean air was not distributed. It was purchased.\""
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "experience",
+      "subSectionId": "phase3",
+      "content": "There is no button. No call to action. No individual resolution offered. The receipt ends, and the page ends with it."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "absence_exit",
+      "content": "The Clean Air Privilege Score doesn't end with a number. It ends with a mirror and a map. The mirror: here is your position in this system, here is what it cost you, here is what it cost someone else. The map: here is what systemic change actually looks like, here is who has the power to demand it, here is what has and hasn't been tried."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "absence_exit",
+      "content": "Most data dashboards end with \"here's what you can do.\" This one ends with \"here's what you can't do alone.\" That gap, between seeing the problem clearly and having no individual exit from it, is where the real discomfort lives — and discomfort without an easy exit is what actually tends to push people toward the one thing that works: collective political pressure, not individual purchases."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "how_built",
+      "content": "The build was kept deliberately simple: plain HTML, CSS and JavaScript, no framework layered on top. The visitor's inputs run directly through the exposure calculations client-side, and the output receipt is generated as a downloadable image."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "how_built",
+      "content": "The printer connection is the part people usually assume was more complicated than it was. The browser never actually talks to the thermal printer directly. During the exhibition, every downloaded receipt landed in a watched \"hot folder\" on the machine running the display — a folder set up to monitor itself for new files. The moment a new receipt image appeared there, it was automatically sent straight to the thermal printer, with no manual step in between. A visitor pressed download, and a printed receipt was already in their hand moments later, without either of them touching a print dialogue."
+    },
+    {
+      "type": "image",
+      "sectionId": "how_built",
+      "src": "/media/del-aqi/exhibition_setup_printer.webp",
+      "alt": "Exhibition setup with TSC thermal printer",
+      "caption": "The setup — laptop running the visualisation, TSC thermal printer wired in beside it, receipt already printing."
+    },
+    {
+      "type": "paragraph",
+      "sectionId": "how_built",
+      "content": "This was built and shown inside a college exhibition — a small, in-person setting rather than a large public installation. The thermal printer sat physically on site, printing receipts as visitors went through the experience, so the final object each person left with was a real, physical piece of paper, not just something on a screen."
+    },
+    {
+      "type": "image",
+      "sectionId": "how_built",
+      "src": "/media/del-aqi/printed_receipt_paper.webp",
+      "alt": "Physically printed EXPOSURE BILL",
+      "caption": "A physically printed EXPOSURE BILL — the worker's side of a receipt, straight off the thermal printer."
+    },
+    {
+      "type": "video",
+      "sectionId": "how_built",
+      "src": "/media/del-aqi/exhibition_printer_demo.mp4",
+      "alt": "Live exhibition printer demonstration video",
+      "caption": "Live exhibition setup demonstration showing the thermal printer outputting receipts."
+    },
+    {
+      "type": "bulletList",
+      "sectionId": "sources",
+      "content": [
+        "CPCB / DPCC / SAFAR AQEWS — PM2.5 historical data, 2011–2024",
+        "AQLI 2025, University of Chicago EPIC — life expectancy loss methodology",
+        "Burnett et al. (2014), Environmental Health Perspectives — disease risk functions",
+        "Berkeley Earth — cigarette equivalence methodology",
+        "Fairwork India 2024, Oxford Internet Institute — gig worker conditions",
+        "PLFS 2022–23, Ministry of Statistics, Government of India — worker earnings and hours"
+      ]
     }
   ]
 }
