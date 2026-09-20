@@ -131,14 +131,14 @@
       "sectionId": "overview",
       "src": "/media/ajanta-caves/phase1_exhibition.webp",
       "alt": "Phase 1: at the exhibition",
-      "caption": "Phase 1: at the exhibition"
+      "caption": "Phase 1: At the exhibition."
     },
     {
       "type": "image",
       "sectionId": "overview",
       "src": "/media/ajanta-caves/phase2_final_test.webp",
       "alt": "Phase 2: final test",
-      "caption": "Phase 2: final test"
+      "caption": "Phase 2: Final test."
     },
     {
       "type": "heading",
@@ -502,7 +502,7 @@
       "sectionId": "phase2",
       "src": "/media/ajanta-caves/phase2_blindfolded_dark_room.webp",
       "alt": "The father's diary",
-      "caption": "The father's diary",
+      "caption": "The father's diary.",
       "subSectionId": "experience_steps"
     },
     {
