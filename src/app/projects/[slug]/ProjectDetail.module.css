@@ -1067,15 +1067,16 @@
   width: 100vw;
   height: 100vh;
   z-index: 999999;
-  background: rgba(12, 14, 20, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 12, 16, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 24px;
   cursor: zoom-out;
   animation: lightboxFadeIn 0.25s ease-out;
+  user-select: none;
 }
 
 @keyframes lightboxFadeIn {
@@ -1085,6 +1086,18 @@
   to {
     opacity: 1;
   }
+}
+
+.lightboxCounter {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  font-family: var(--font-body, var(--font-sans)), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.65);
+  z-index: 200001;
 }
 
 .lightboxCloseBtn {
@@ -1116,120 +1129,159 @@
   transform: scale(1.15);
 }
 
+.lightboxNavBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  padding: 16px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 200002;
+  box-shadow: none;
+}
+
+.lightboxNavBtn:hover {
+  background: transparent;
+  border: none;
+  transform: translateY(-50%) scale(1.2);
+  color: #FFFFFF;
+}
+
+.lightboxNavBtnLeft {
+  left: 24px;
+}
+
+.lightboxNavBtnRight {
+  right: 24px;
+}
+
 .lightboxContent {
-  max-width: 90vw;
-  max-height: 85vh;
+  max-width: 85vw;
+  max-height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   cursor: default;
+  margin-bottom: 30px;
+}
+
+.lightboxImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: calc(100vh - 160px);
+  width: 100%;
 }
 
 .lightboxImage {
   max-width: 100%;
-  max-height: 75vh;
+  max-height: calc(100vh - 160px);
   object-fit: contain;
   border-radius: 4px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .lightboxCaption {
   font-family: var(--font-body, var(--font-sans)), sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-style: italic;
   color: rgba(255, 255, 255, 0.85);
   text-align: center;
-  max-width: 700px;
-  line-height: 1.5;
+  max-width: 720px;
+  line-height: 1.45;
   margin: 0;
 }
 
-
-/* Sidebar Subsections */
-.sidebarSubList {
-  list-style: none;
-  margin: 4px 0 8px 12px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sidebarSubItem {
-  margin: 0;
-  padding: 0;
-}
-
-.sidebarSubLink {
+.lightboxThumbnailsTrack {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 80px);
   display: flex;
   align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  padding: 2px 0;
-  font-family: var(--font-body, var(--font-sans)), sans-serif;
-  font-size: 0.78rem;
-  color: color-mix(in srgb, var(--foreground) 55%, transparent);
-  cursor: pointer;
-  text-align: left;
-  transition: color 0.2s ease, opacity 0.2s ease;
-}
-
-.sidebarSubDash {
-  width: 8px;
-  height: 1px;
-  background-color: currentColor;
-  opacity: 0.4;
-  transition: width 0.2s ease, opacity 0.2s ease;
-}
-
-.sidebarSubLink:hover {
-  color: var(--accent, #283A77);
-  opacity: 1;
-}
-
-.sidebarSubLink:hover .sidebarSubDash {
-  width: 12px;
-  opacity: 1;
-}
-
-.sidebarSubLinkActive {
-  color: var(--accent, #283A77);
-  font-weight: 500;
-  opacity: 1;
-}
-
-.sidebarSubLinkActive .sidebarSubDash {
-  width: 14px;
-  opacity: 1;
-  background-color: var(--accent, #283A77);
-}
-
-/* Single Image Centered & Balanced */
-.singleImageBlock {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 24px 0;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px;
+  z-index: 200003;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.singleImageFigure {
-  max-width: 580px;
-  width: 100%;
-  margin: 0 auto;
+.lightboxThumbnailsTrack::-webkit-scrollbar {
+  display: none;
 }
 
-/* 3-Image Symmetrical Full Width Row */
-.fullWidthGridFigure {
-  grid-column: 1 / -1;
-  width: 100%;
+.lightboxThumbBtn {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 28px;
+  padding: 0;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0.45;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
+.lightboxThumbBtn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
 
-/* Sidebar Sub-Nav Group */
+.lightboxThumbBtnActive {
+  opacity: 1;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.lightboxThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .lightboxNavBtnLeft {
+    left: 8px;
+  }
+  .lightboxNavBtnRight {
+    right: 8px;
+  }
+  .lightboxNavBtn {
+    width: 38px;
+    height: 38px;
+  }
+  .lightboxContent {
+    max-width: 92vw;
+  }
+  .lightboxThumbnailsTrack {
+    max-width: 90vw;
+  }
+  .lightboxThumbBtn {
+    width: 52px;
+    height: 38px;
+  }
+}
+
+/* Sidebar Sub-Nav Group (Nested Index Hierarchy) */
 .sidebarNavGroup {
   display: flex;
   flex-direction: column;
@@ -1241,16 +1293,33 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-left: 12px;
+  padding-left: 14px;
   width: 100%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.sidebarSubNavItem {
+  opacity: 0.85;
+}
+
+.sidebarSubNavItem .sidebarNavLabel {
+  font-size: 0.72rem;
 }
 
 .subTickLine {
-  width: 10px !important;
+  width: 8px !important;
   opacity: 0.4;
 }
 
 .sidebarSubNavItem:hover .subTickLine {
+  width: 12px !important;
+  opacity: 0.95;
+  background-color: var(--accent);
+}
+
+.sidebarSubNavItem.sidebarNavItemActive .subTickLine {
   width: 14px !important;
-  opacity: 0.8;
+  opacity: 1;
+  background-color: var(--accent);
 }

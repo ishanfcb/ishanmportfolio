@@ -59,20 +59,46 @@ export default function ProjectDetailClient({
     project.sections?.[0]?.id ?? ""
   );
   const [showStickyTitle, setShowStickyTitle] = useState(false);
-  const [activeLightboxImage, setActiveLightboxImage] = useState<{
-    src: string;
-    alt: string;
-    caption?: string;
-  } | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Lightbox escape key, body scroll lock, and hide bottom blur mask handler
+  const galleryImages = (project.contentBlocks || [])
+    .filter((block) => block.type === "image" && block.src)
+    .map((block) => ({
+      src: block.src!,
+      alt: block.alt ?? "",
+      caption: block.caption || block.label,
+    }));
+
+  const handlePrevLightboxImage = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (lightboxIndex === null || galleryImages.length === 0) return;
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : 0
+    );
+  };
+
+  const handleNextLightboxImage = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (lightboxIndex === null || galleryImages.length === 0) return;
+    setLightboxIndex((prev) =>
+      prev !== null ? (prev + 1) % galleryImages.length : 0
+    );
+  };
+
+  // Lightbox keyboard navigation, body scroll lock
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
       if (e.key === "Escape") {
-        setActiveLightboxImage(null);
+        setLightboxIndex(null);
+      } else if (e.key === "ArrowLeft") {
+        handlePrevLightboxImage();
+      } else if (e.key === "ArrowRight") {
+        handleNextLightboxImage();
       }
     };
-    if (activeLightboxImage) {
+    if (lightboxIndex !== null) {
       document.body.style.overflow = "hidden";
       document.body.classList.add("lightbox-open");
     } else {
@@ -85,7 +111,17 @@ export default function ProjectDetailClient({
       document.body.classList.remove("lightbox-open");
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [activeLightboxImage]);
+  }, [lightboxIndex, galleryImages.length]);
+
+  useEffect(() => {
+    if (lightboxIndex !== null && thumbnailRefs.current[lightboxIndex]) {
+      thumbnailRefs.current[lightboxIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  }, [lightboxIndex]);
   const [showSidebarNav, setShowSidebarNav] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -229,11 +265,8 @@ export default function ProjectDetailClient({
               className={`${styles.imageFigure} ${styles.singleImageFigure}`}
               onClick={(e) => {
                 e.stopPropagation();
-                setActiveLightboxImage({
-                  src: block.src!,
-                  alt: block.alt ?? "",
-                  caption: captionText,
-                });
+                const gIdx = galleryImages.findIndex((g) => g.src === block.src);
+                setLightboxIndex(gIdx !== -1 ? gIdx : 0);
               }}
             >
               <img
@@ -266,11 +299,8 @@ export default function ProjectDetailClient({
                   }`}
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveLightboxImage({
-                      src: block.src!,
-                      alt: block.alt ?? "",
-                      caption: captionText,
-                    });
+                    const gIdx = galleryImages.findIndex((g) => g.src === block.src);
+                    setLightboxIndex(gIdx !== -1 ? gIdx : 0);
                   }}
                 >
                   <img
@@ -707,35 +737,120 @@ export default function ProjectDetailClient({
       </button>
 
       {/* Lightbox Modal Overlay */}
-      {activeLightboxImage && (
+      {lightboxIndex !== null && galleryImages[lightboxIndex] && (
         <div
           className={styles.lightboxOverlay}
-          onClick={() => setActiveLightboxImage(null)}
+          onClick={() => setLightboxIndex(null)}
           role="dialog"
           aria-modal="true"
         >
           <button
             className={styles.lightboxCloseBtn}
-            onClick={() => setActiveLightboxImage(null)}
+            onClick={() => setLightboxIndex(null)}
             aria-label="Close image preview"
           >
             &#x2715;
           </button>
+
+          {galleryImages.length > 1 && (
+            <div className={styles.lightboxCounter}>
+              {lightboxIndex + 1} / {galleryImages.length}
+            </div>
+          )}
+
+          {galleryImages.length > 1 && (
+            <button
+              className={`${styles.lightboxNavBtn} ${styles.lightboxNavBtnLeft}`}
+              onClick={handlePrevLightboxImage}
+              aria-label="Previous image"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </button>
+          )}
+
           <div
             className={styles.lightboxContent}
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={activeLightboxImage.src}
-              alt={activeLightboxImage.alt}
-              className={styles.lightboxImage}
-            />
-            {activeLightboxImage.caption && (
+            <div className={styles.lightboxImageWrapper}>
+              <img
+                src={galleryImages[lightboxIndex].src}
+                alt={galleryImages[lightboxIndex].alt}
+                className={styles.lightboxImage}
+              />
+            </div>
+
+            {galleryImages[lightboxIndex].caption && (
               <p className={styles.lightboxCaption}>
-                {activeLightboxImage.caption}
+                {galleryImages[lightboxIndex].caption}
               </p>
             )}
           </div>
+
+          {galleryImages.length > 1 && (
+            <div
+              className={styles.lightboxThumbnailsTrack}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {galleryImages.map((img, idx) => {
+                const isActive = idx === lightboxIndex;
+                return (
+                  <button
+                    key={idx}
+                    ref={(el) => {
+                      thumbnailRefs.current[idx] = el;
+                    }}
+                    className={`${styles.lightboxThumbBtn} ${
+                      isActive ? styles.lightboxThumbBtnActive : ""
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setLightboxIndex(idx);
+                    }}
+                    aria-label={`View image ${idx + 1}`}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className={styles.lightboxThumbImg}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {galleryImages.length > 1 && (
+            <button
+              className={`${styles.lightboxNavBtn} ${styles.lightboxNavBtnRight}`}
+              onClick={handleNextLightboxImage}
+              aria-label="Next image"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </button>
+          )}
         </div>
       )}
     </main>
