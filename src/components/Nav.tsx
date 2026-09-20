@@ -19,6 +19,8 @@ export default function Nav() {
   const prevScrollY = useRef(0);
 
   useEffect(() => {
+    const isProjectDetail = pathname?.startsWith("/projects/") && pathname !== "/projects";
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -27,13 +29,18 @@ export default function Nav() {
         setScrolled(false);
       } else {
         setScrolled(true);
-        // Scrolling downward: hide nav
-        if (currentScrollY > prevScrollY.current + 5) {
+        if (isProjectDetail && currentScrollY > 160) {
+          // On project detail pages, do not reveal nav when scrolling up (preserves project header & back link)
           setVisible(false);
-        }
-        // Scrolling upward: show nav
-        else if (currentScrollY < prevScrollY.current - 5) {
-          setVisible(true);
+        } else {
+          // Scrolling downward: hide nav
+          if (currentScrollY > prevScrollY.current + 5) {
+            setVisible(false);
+          }
+          // Scrolling upward: show nav
+          else if (currentScrollY < prevScrollY.current - 5) {
+            setVisible(true);
+          }
         }
       }
 
@@ -42,7 +49,7 @@ export default function Nav() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
     <nav
@@ -60,7 +67,7 @@ export default function Nav() {
             const isActive =
               href === "/"
                 ? pathname === "/"
-                : pathname === href || pathname.startsWith(href + "/");
+              : pathname === href || pathname.startsWith(href + "/");
             return (
               <li key={href}>
                 <Link
