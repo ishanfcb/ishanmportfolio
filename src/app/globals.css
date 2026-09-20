@@ -89,3 +89,23 @@ body.lightbox-open [class*="bottomViewportBlurMask"] {
   pointer-events: none !important;
   visibility: hidden !important;
 }
+
+/* Global scrollbar removal & horizontal overflow containment */
+html, body {
+  overflow-x: hidden;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+* {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
