@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     default: "ishan - Portfolio Home",
     template: "ishan - %s",
   },
-  description: "ishan is an artist who blends technology and creativity. Explore his immersive projects here.",
+  description: "ishan is a designer who blends technology and creativity. Explore his immersive projects here.",
   openGraph: {
-    title: "ishan | Interactive & Experiential Artist",
-    description: "ishan is an artist who blends technology and creativity. Explore his immersive projects here.",
+    title: "ishan | Interaction Designer",
+    description: "ishan is a designer who blends technology and creativity. Explore his immersive projects here.",
     url: "https://leff.in",
     siteName: "ishan Portfolio",
     images: [
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ishan | Interactive & Experiential Artist",
-    description: "ishan is an artist who blends technology and creativity. Explore his immersive projects here.",
+    title: "ishan | Interaction Designer",
+    description: "ishan is a designer who blends technology and creativity. Explore his immersive projects here.",
     images: ["https://leff.in/ishan_opengraphimage.png"],
   },
 }
